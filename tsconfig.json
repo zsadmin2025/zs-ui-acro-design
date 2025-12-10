@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsxImportSource": "vue", // 允许使用jsx语法
+    "jsx": "preserve", // 允许使用jsx语法
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "allowJs": true,
+    "types": ["vite-plugin-svg-icons/client"]
+  },
+  "include": ["src/**/*", "src/**/*.vue", "src/typings/auto-imports.d.ts"],
+  "exclude": ["node_modules"]
+}
