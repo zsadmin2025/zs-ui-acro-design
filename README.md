@@ -12,8 +12,6 @@
   </p>
 </div>
 
----
-
 ## 🌟 项目简介
 
 **ZS-Admin** 是一套面向中大型企业场景的现代化管理后台快速开发平台。基于主流技术栈构建，深度融合 **RBAC 权限体系**、**多租户（SaaS）架构** 与 **低代码开发能力**，帮助团队以最小成本快速交付高可用、高安全性的业务系统。
@@ -26,8 +24,6 @@
 - **降低重复劳动**：内置用户、角色、菜单、字典、日志等通用模块
 - **架构清晰**：前后端完全解耦，模块化设计，便于二次开发与维护
 - **生产就绪**：支持 Docker 部署、JWT 认证、SQL 监控、操作审计等企业级特性
-
----
 
 ## 🔗 官方资源
 
@@ -48,8 +44,6 @@
 | **前端** | Vue 3 · Vite · Pinia · Arco Design Vue · TypeScript                     |
 | **部署** | 支持 Docker 容器化                                                      |
 
----
-
 ## 🗂️ 源码仓库
 
 | 平台      | 前端                                                              | 后端                                                      |
@@ -58,8 +52,6 @@
 | GitHub    | _暂未同步_                                                        | _暂未同步_                                                |
 
 > ⭐ 欢迎 Star、Fork 与 PR！您的支持是我们持续迭代的动力！
-
----
 
 ## 🧩 功能全景
 
@@ -104,8 +96,6 @@
 - **API 文档**：Swagger + Knife4j，自动生成 RESTful 接口文档，支持在线调试。
 - **代码生成器**：输入表名 → 一键生成前后端 CRUD 代码（含 Vue 页面、Service、Controller 等）。
 
----
-
 ## 🌈 项目亮点
 
 | 特性              | 说明                                              |
@@ -117,19 +107,8 @@
 | ✅ **现代化 UI**  | 基于 Arco Design Vue，简洁美观，响应式布局        |
 | ✅ **易于扩展**   | 模块化结构，新增业务模块只需关注核心逻辑          |
 
----
-
 ## 🤝 参与共建
 
 - 🐞 **反馈问题**：[提交 Issue](https://gitee.com/zs-admin/zs-ui-acro-design/issues)
 - 💡 **贡献代码**：欢迎 Fork 并提交 PR，共同完善 ZS-Admin！
 - 💬 **加入社区**：关注官网底部获取 **官方 QQ 群 / 微信公众号** 入口
-
----
-
-<div align="center">
-
-> © 2025 ZS-Admin Team | [MIT License](LICENSE)  
-> Made with ❤️ for developers who value efficiency and quality.
-
-</div>
