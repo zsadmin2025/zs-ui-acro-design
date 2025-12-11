@@ -79,7 +79,8 @@
     const paddingLeft = menu.value
       ? { paddingLeft: `${menuWidth.value}px` }
       : {};
-    return { ...paddingLeft };
+    const paddingTop = navbar.value ? { paddingTop: 'var(--nav-height)' } : {};
+    return { ...paddingLeft, ...paddingTop };
   });
 
   watch(
@@ -173,6 +174,14 @@
     min-height: 100vh;
     overflow-y: hidden;
     background-color: var(--color-fill-2);
+
+    .layout-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+    }
 
     .main-layout {
       padding: 0 var(--base-padding) var(--base-padding) var(--base-padding);
