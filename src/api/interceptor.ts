@@ -23,24 +23,6 @@ axios.defaults.timeout = 20000; // 请求超时 20s
 
 axios.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    // === 新增：演示环境写操作拦截 ===
-    const method = config.method?.toLowerCase() || '';
-    const url = config.url || '';
-    // 白名单：允许登录接口通过
-    const isLogin = /\/auth\/login/i.test(url);
-
-    // 判断是否为写操作（非 GET/HEAD 且非登录）
-    const isWriteOperation = !isLogin && !['get', 'head'].includes(method);
-
-    if (isWriteOperation) {
-      // ⚠️ 注意：这里不再弹窗！只 reject 错误，由响应拦截器统一处理
-      const demoError = new Error('演示环境禁止操作！');
-      (demoError as any).isDemoGuard = true;
-      return Promise.reject(demoError);
-    }
-
-    // === 演示拦截结束 ===
-
     const token = getToken();
     if (token) {
       if (!config.headers) {
@@ -94,15 +76,6 @@ axios.interceptors.response.use(
     return Promise.reject(new Error(res.msg || '请求失败'));
   },
   (error) => {
-    // ===== 演示环境拦截：统一在此处弹窗 =====
-    if (error?.isDemoGuard) {
-      Message.error({
-        content: '演示环境禁止操作！',
-        duration: 3000,
-      });
-      return Promise.reject(error); // 静默 reject，组件可选 catch
-    }
-
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
     const status: number = error.response?.status;
