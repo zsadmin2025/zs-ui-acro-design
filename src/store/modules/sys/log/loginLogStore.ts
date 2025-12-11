@@ -27,7 +27,7 @@ export const useLoginLogStore = defineStore('logLogin', {
       tenantId: '',
       current: 1,
       pageSize: 30,
-      order: 'asc',
+      order: 'desc',
       orderField: 'loginTime',
     },
     selectedKeys: [],
