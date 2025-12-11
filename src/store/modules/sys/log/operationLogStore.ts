@@ -26,7 +26,7 @@ export const useLogOperationStore = defineStore('logOperation', {
       operationDuration: 1,
       current: 1,
       pageSize: 30,
-      order: 'asc',
+      order: 'desc',
       orderField: 'createTime',
     },
     selectedKeys: [],
