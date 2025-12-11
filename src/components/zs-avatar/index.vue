@@ -93,7 +93,6 @@
       Message.success('上传成功');
     } catch (error) {
       onError(error);
-      Message.error('上传失败');
     }
 
     return {
