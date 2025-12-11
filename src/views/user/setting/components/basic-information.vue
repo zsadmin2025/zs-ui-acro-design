@@ -129,7 +129,6 @@
     if (!res) {
       // 验证通过，更新 store 或调用 API
       userStore.updateUserInfo(user);
-      Message.success('更新成功');
     }
   };
 </script>

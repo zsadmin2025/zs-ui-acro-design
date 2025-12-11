@@ -75,10 +75,6 @@ export const useMessagesAddOrEditStore = defineStore('sysMessagesAddOrEdit', {
         this.dialogFormVisible = false;
         this.loading = false;
         emits('refresh');
-      } catch (error) {
-        const errorMessage =
-          error instanceof Error ? error.message : '未知错误';
-        Message.error(errorMessage);
       } finally {
         this.loading = false;
       }

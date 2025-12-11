@@ -106,10 +106,6 @@ export const uploadFileStore = defineStore('uploadFile', {
         await sysConfigApi.edit(dataForm);
 
         Message.success('保存成功');
-      } catch (error) {
-        const errorMessage =
-          error instanceof Error ? error.message : '未知错误';
-        Message.error(errorMessage);
       } finally {
         this.loading = false;
       }

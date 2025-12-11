@@ -117,9 +117,6 @@
       }
 
       templateStore.handleSend(smsSendForm.value);
-    } catch (error) {
-      // const errorMessage = error instanceof Error ? error.message : '未知错误';
-      // Message.error(errorMessage);
     } finally {
       close();
       loading.value = false;

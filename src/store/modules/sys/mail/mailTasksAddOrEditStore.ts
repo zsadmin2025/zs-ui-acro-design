@@ -98,10 +98,6 @@ export const useMailTasksAddOrEditStore = defineStore('sysMailTasksAddOrEdit', {
         this.dialogFormVisible = false;
         this.loading = false;
         emits('refresh');
-      } catch (error) {
-        const errorMessage =
-          error instanceof Error ? error.message : '未知错误';
-        Message.error(errorMessage);
       } finally {
         this.loading = false;
       }
@@ -122,10 +118,6 @@ export const useMailTasksAddOrEditStore = defineStore('sysMailTasksAddOrEdit', {
         this.dialogFormVisible = false;
         this.sendLoading = false;
         emits('refresh');
-      } catch (error) {
-        const errorMessage =
-          error instanceof Error ? error.message : '未知错误';
-        Message.error(errorMessage);
       } finally {
         this.sendLoading = false;
       }

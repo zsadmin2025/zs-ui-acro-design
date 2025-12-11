@@ -88,10 +88,6 @@ export const useGenEditStore = defineStore('genEdditStore', {
 
         data.columns = submitData;
         await genApi.edit(data);
-      } catch (error) {
-        const errorMessage =
-          error instanceof Error ? error.message : '未知错误';
-        Message.error(errorMessage);
       } finally {
         this.loading = false;
       }
