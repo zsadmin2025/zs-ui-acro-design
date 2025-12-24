@@ -15,7 +15,6 @@ declare module 'vue' {
     Footer: typeof import('./../components/footer/index.vue')['default']
     FormWrapper: typeof import('./../components/global-setting/form-wrapper.vue')['default']
     GlobalSetting: typeof import('./../components/global-setting/index.vue')['default']
-    Index11: typeof import('./../components/zs-upload-files/index11.vue')['default']
     List: typeof import('./../components/message-box/list.vue')['default']
     Menu: typeof import('./../components/menu/index.vue')['default']
     MessageBox: typeof import('./../components/message-box/index.vue')['default']
@@ -40,6 +39,5 @@ declare module 'vue' {
     ZsStatus: typeof import('./../components/zs-status/index.vue')['default']
     ZsUploadFiles: typeof import('./../components/zs-upload-files/index.vue')['default']
     ZsUploadImage: typeof import('./../components/zs-upload-image/index.vue')['default']
-    ZsUploadImages: typeof import('./../components/zs-upload-images/index.vue')['default']
   }
 }
