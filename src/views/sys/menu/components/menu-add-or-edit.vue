@@ -368,6 +368,7 @@
 
   const formattedList = computed(() => convertList(list.value));
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleVisibleChange = (value: any, ev: Event) => {
     form.value.visible = value ? 1 : 0;
   };

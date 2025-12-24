@@ -176,16 +176,12 @@
   import TenantAddOrEdit from './components/tenant-add-or-edit.vue';
 
   const tenantStore = useTenantStore();
-  const { addEditRef, loading, list, total, form, selectedKeys } =
-    storeToRefs(tenantStore);
+  const { loading, list, total, form, selectedKeys } = storeToRefs(tenantStore);
 
   const rowSelection = reactive({
     type: 'checkbox',
     showCheckedAll: true,
   });
-
-  const queryVisible = ref(false);
-  const dynamicHeight = ref();
 
   const columns = computed<TableColumnData[]>(() => [
     {
@@ -248,14 +244,6 @@
     currentSize.value = size;
   };
 
-  const handleAdvancedSearch = () => {
-    queryVisible.value = !queryVisible.value;
-    if (queryVisible.value) {
-      dynamicHeight.value = '180';
-    } else {
-      dynamicHeight.value = 'var(--header-box-height)';
-    }
-  };
   onMounted(() => {
     tenantStore.fetchData();
   });

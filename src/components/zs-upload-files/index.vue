@@ -199,13 +199,6 @@
     };
   };
 
-  const del = (fileItem: FileItem, index: number) => {
-    if (fileItem.response?.code === 200) {
-      fileList.value.splice(index, 1);
-      emits('remove', fileItem.response.data);
-    }
-  };
-
   const downloadFile = async (url: string, fileName: string) => {
     download.url(url, fileName);
   };

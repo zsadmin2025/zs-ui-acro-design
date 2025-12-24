@@ -48,7 +48,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue';
-  import { FormInstance, Message } from '@arco-design/web-vue';
+  import { FormInstance } from '@arco-design/web-vue';
   import { useUserStore } from '@/store';
 
   const formRef = ref<FormInstance>();

@@ -277,6 +277,8 @@
       });
     } catch (err) {
       // you can report use errorHandler or other
+      // eslint-disable-next-line no-console
+      console.error(err);
     } finally {
       setLoading(false);
     }

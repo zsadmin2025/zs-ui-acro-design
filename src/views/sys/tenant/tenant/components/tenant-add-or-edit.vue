@@ -101,6 +101,7 @@
 
   const emits = defineEmits(['refresh']);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleStatusChange = (value: any, ev: Event) => {
     form.value.status = value ? 1 : 0;
   };
