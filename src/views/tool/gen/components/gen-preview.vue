@@ -119,7 +119,6 @@
     },
   ) => {
     valueCode.value = data.node?.value || '';
-    console.log('valueCode', valueCode.value);
   };
   const close = () => {
     visible.value = false;
@@ -130,6 +129,8 @@
       await toClipboard(valueCode.value);
       Message.success('复制成功！');
     } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e);
       Message.error('复制失败！');
     }
   };

@@ -40,9 +40,6 @@
           initialView: 'dayGridMonth',
           selectable: true,
           selectMirror: true,
-          select(info) {
-            alert(`selected ${info.startStr} to ${info.endStr}`);
-          },
           timeZone: 'local',
           dateClick: this.handleDateClick,
           height: '100%',
@@ -84,6 +81,7 @@
     },
     methods: {
       handleDateClick(arg) {
+        // eslint-disable-next-line no-alert
         alert(`date click! ${arg.dateStr}`);
       },
       toggleWeekends() {

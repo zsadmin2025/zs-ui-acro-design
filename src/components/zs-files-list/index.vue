@@ -13,7 +13,7 @@
   export interface FileListProps {
     files: string[];
   }
-  const props = defineProps({
+  defineProps({
     files: {
       type: Array,
       default: () => [],

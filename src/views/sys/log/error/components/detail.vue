@@ -128,6 +128,8 @@
     try {
       return JSON.stringify(JSON.parse(jsonStr), null, 2);
     } catch (e) {
+      // eslint-disable-next-line no-console
+      console.warn('JSON 格式化失败:', e);
       return jsonStr || '非 JSON 数据';
     }
   };
