@@ -35,7 +35,7 @@ app.use(globalComponents);
 app.use(directive);
 app.use(print);
 
-if (import.meta.env.PROD) {
+if (import.meta.env.NODE_ENV === 'production') {
   // 加载百度统计
   app.use(BaiduTongji, 'e9fa3fa20e1efe26590b842e3ac51220');
 }
