@@ -4,7 +4,6 @@ import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import globalComponents from '@/components';
 import { setCssVariables } from '@/config/css-variables';
 import print from 'vue3-print-nb';
-import BaiduTongji from '@/plugins/baiduTongji';
 
 import { websiteStore } from '@/store/modules/sys/config/website/websiteStore';
 import { getTenantId } from '@/utils/auth';
@@ -34,9 +33,6 @@ app.use(i18n);
 app.use(globalComponents);
 app.use(directive);
 app.use(print);
-
-// 加载百度统计
-app.use(BaiduTongji, 'e9fa3fa20e1efe26590b842e3ac51220');
 
 // eslint-disable-next-line no-underscore-dangle
 Message._context = app._context;
