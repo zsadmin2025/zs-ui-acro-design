@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { sysTenantUserApi } from '@/api/sys/tenant';
 import { TenantAddOrEditState } from '@/types/sys/tenant/tenant/tenantTypes';
-import { Message } from '@arco-design/web-vue';
 
 export const useTenantAddOrEditStore = defineStore('sysTenantUserAddOrEdit', {
   state: (): TenantAddOrEditState => {

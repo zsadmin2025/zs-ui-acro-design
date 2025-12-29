@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import { sysMessagesApi } from '@/api/sys/message';
-import { Message } from '@arco-design/web-vue';
 import { MessagesAddOrEditState } from '@/types/sys/messages/messagesTypes';
 
 export const useMessagesAddOrEditStore = defineStore('sysMessagesAddOrEdit', {

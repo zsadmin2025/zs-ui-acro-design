@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import { Message } from '@arco-design/web-vue';
 import { sysSmsTemplateApi } from '@/api/sys/sms';
 import { SmsTemplateAddOrEditState } from '@/types/sys/sms/smsTemplateTypes';
 

@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { sysDeptApi } from '@/api/sys/dept';
 import { DeptAddOrEditState } from '@/types/sys/dept/deptTypes';
-import { Message } from '@arco-design/web-vue';
 
 export const useDeptAddOrEditStore = defineStore('deptAddOrEdit', {
   state: (): DeptAddOrEditState => ({
