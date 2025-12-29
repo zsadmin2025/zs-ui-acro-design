@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { genApi } from '@/api/tool/gen';
 import { GenTableEditState } from '@/types/tool/gen/genTypes';
-import { Message } from '@arco-design/web-vue';
 
 export const useGenEditStore = defineStore('genEdditStore', {
   state: (): GenTableEditState => ({
