@@ -35,11 +35,14 @@ export const useGenEditStore = defineStore('genEdditStore', {
       // 假设 data 是接口返回的原始数组
       const list = data.columns.map((item: any) => ({
         ...item,
+        isPk: item.isPk === '1',
+        isIncrement: item.isIncrement === '1',
+        isRequired: item.isRequired === '1',
         isInsert: item.isInsert === '1',
         isEdit: item.isEdit === '1',
         isList: item.isList === '1',
         isQuery: item.isQuery === '1',
-        isRequired: item.isRequired === '1',
+        isExport: item.isExport === '1',
       }));
       data.columns = list;
       Object.assign(this.genTable, data);
@@ -78,11 +81,14 @@ export const useGenEditStore = defineStore('genEdditStore', {
 
         // 只在这个副本上进行转换
         submitData.forEach((item: any) => {
+          item.isPk = item.isPk ? '1' : '0';
+          item.isIncrement = item.isIncrement ? '1' : '0';
           item.isRequired = item.isRequired ? '1' : '0';
           item.isInsert = item.isInsert ? '1' : '0';
           item.isEdit = item.isEdit ? '1' : '0';
           item.isList = item.isList ? '1' : '0';
           item.isQuery = item.isQuery ? '1' : '0';
+          item.isExport = item.isExport ? '1' : '0';
         });
 
         data.columns = submitData;

@@ -104,6 +104,9 @@
           <template #columnType="{ record }">
             <a-input v-model="record.columnType" />
           </template>
+          <template #columnLength="{ record }">
+            <a-input v-model="record.columnLength" />
+          </template>
           <template #javaType="{ record }">
             <a-select v-model="record.javaType">
               <a-option value="Long">Long</a-option>
@@ -130,6 +133,9 @@
           <template #isQuery="{ record }">
             <a-checkbox v-model="record.isQuery"></a-checkbox>
           </template>
+          <template #isExport="{ record }">
+            <a-checkbox v-model="record.isExport"></a-checkbox>
+          </template>
           <template #queryType="{ record }">
             <a-select v-model="record.queryType" style="width: 100%">
               <a-option value="EQ">等于</a-option>
@@ -149,13 +155,31 @@
             <a-select v-model="record.htmlType" style="width: 100%">
               <a-option value="input">文本框</a-option>
               <a-option value="textarea">文本域</a-option>
+              <a-option value="number">数字框</a-option>
               <a-option value="select">下拉框</a-option>
               <a-option value="radio">单选框</a-option>
               <a-option value="checkbox">复选框</a-option>
-              <a-option value="datetime">日期控件</a-option>
+              <a-option value="date">日期控件</a-option>
+              <a-option value="datetime">日期时间控件</a-option>
+              <a-option value="time">时间控件</a-option>
               <a-option value="image">图片上传</a-option>
               <a-option value="upload">文件上传</a-option>
               <a-option value="editor">富文本</a-option>
+            </a-select>
+          </template>
+          <template #dictType="{ record }">
+            <a-select
+              v-model="record.dictType"
+              style="width: 100%"
+              placeholder="请选择字典"
+              allow-clear
+            >
+              <a-option
+                v-for="item in tableData"
+                :key="item.dictType"
+                :value="item.dictType"
+                >{{ item.dictName }}</a-option
+              >
             </a-select>
           </template>
         </a-table>
@@ -174,12 +198,16 @@
   import { storeToRefs } from 'pinia';
   import { useGenEditStore } from '@/store/modules/tool/gen/genEditStore';
   import { useMenuAddOrEditStore } from '@/store/modules/sys/menu/menuAddOrEditStore';
+  import { useDictTypeStore } from '@/store/modules/sys/dict/dictTypeStore';
 
   const genEditStore = useGenEditStore();
   const { visible, formRef, genTable, loading } = storeToRefs(genEditStore);
 
   const menuAddOrEditStore = useMenuAddOrEditStore();
   const { list } = storeToRefs(menuAddOrEditStore);
+
+  const dictTypeStore = useDictTypeStore();
+  const { tableData } = storeToRefs(dictTypeStore);
   const data = computed(() => genTable.value.columns ?? []);
 
   const convertList = (treeData: any) => {
@@ -243,6 +271,12 @@
       align: 'center',
     },
     {
+      title: '列长度',
+      dataIndex: 'columnLength',
+      slotName: 'columnLength',
+      align: 'center',
+    },
+    {
       title: 'java类型',
       dataIndex: 'javaType',
       slotName: 'javaType',
@@ -283,6 +317,13 @@
       width: 80,
     },
     {
+      title: '导出',
+      dataIndex: 'isExport',
+      slotName: 'isExport',
+      align: 'center',
+      width: 80,
+    },
+    {
       title: '查询方式',
       dataIndex: 'queryType',
       slotName: 'queryType',
@@ -303,10 +344,18 @@
       align: 'center',
       width: 150,
     },
+    {
+      title: '字典类型',
+      dataIndex: 'dictType',
+      slotName: 'dictType',
+      align: 'center',
+      width: 150,
+    },
   ];
 
   onMounted(() => {
     menuAddOrEditStore.init();
+    dictTypeStore.loadDictTypeList();
   });
 
   defineExpose({

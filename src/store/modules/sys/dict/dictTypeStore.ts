@@ -42,6 +42,14 @@ export const useDictTypeStore = defineStore('dictType', {
     },
 
     /**
+     * 获取字典类型列表
+     */
+    async loadDictTypeList() {
+      const data = await sysDictTypeApi.getDictTypeList();
+      this.tableData = data?.data ?? [];
+    },
+
+    /**
      * 打开新增或编辑弹窗
      * @param row 当前行数据
      */

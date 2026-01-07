@@ -1,10 +1,43 @@
+// HTML类型联合类型
+export type HtmlType =
+  | 'input'
+  | 'textarea'
+  | 'select'
+  | 'radio'
+  | 'checkbox'
+  | 'datetime'
+  | 'image'
+  | 'upload'
+  | 'editor';
+
+// 查询方式联合类型
+export type QueryType =
+  | 'EQ'
+  | 'NE'
+  | 'GT'
+  | 'LT'
+  | 'GTE'
+  | 'LTE'
+  | 'LIKE'
+  | 'BETWEEN';
+
+// Java类型联合类型
+export type JavaType =
+  | 'Long'
+  | 'String'
+  | 'Integer'
+  | 'Double'
+  | 'BigDecimal'
+  | 'Date'
+  | 'Boolean';
+
 export interface GenTableColumn {
   columnId: number; // 编号
   tableId: number; // 归属表编号
   columnName: string; // 列名称
   columnComment?: string; // 列描述
   columnType: string; // 列类型
-  javaType: string; // JAVA类型
+  javaType: JavaType; // JAVA类型
   javaField: string; // JAVA字段名
   isPk: string; // 是否主键（1是）
   isIncrement: string; // 是否自增（1是）
@@ -13,8 +46,8 @@ export interface GenTableColumn {
   isEdit: string; // 是否编辑字段（1是）
   isList: string; // 是否列表字段（1是）
   isQuery: string; // 是否查询字段（1是）
-  queryType: string; // 查询方式（EQ等于、NE不等于、GT大于、LT小于、LIKE模糊、BETWEEN范围）
-  htmlType: string; // 显示类型（input文本框、textarea文本域、select下拉框等）
+  queryType: QueryType; // 查询方式（EQ等于、NE不等于、GT大于、LT小于、LIKE模糊、BETWEEN范围）
+  htmlType: HtmlType; // 显示类型（input文本框、textarea文本域、select下拉框等）
   dictType?: string; // 字典类型
 }
 
