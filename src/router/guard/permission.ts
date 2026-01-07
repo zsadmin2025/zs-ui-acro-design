@@ -55,10 +55,15 @@ export default function setupPermissionGuard(router: Router) {
       const appStore = useAppStore();
       if (!appStore.hasFetchedMenus) {
         try {
-          await userStore.info();
-          await appStore.fetchServerMenuConfig();
+          // await userStore.info();
+          // await appStore.fetchServerMenuConfig();
+          // const newRoutes = transformRoutes(appStore.serverMenu);
+          // 并行执行异步操作
+          await Promise.all([
+            userStore.info(),
+            appStore.fetchServerMenuConfig(),
+          ]);
           const newRoutes = transformRoutes(appStore.serverMenu);
-
           addRoutesToRouter(router, newRoutes);
           addSpecialRoutes(router); // 加载完动态路由后添加特殊路由
 

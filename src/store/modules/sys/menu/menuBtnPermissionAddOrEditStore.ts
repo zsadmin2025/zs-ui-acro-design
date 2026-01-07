@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { sysMenuApi } from '@/api/sys/menu';
 import { MenuBtnPermissionAddOrEditState } from '@/types/sys/menu/menuBtnPermissionTypes';
-import { Message } from '@arco-design/web-vue';
 
 export const useMenuBtnPermissionAddOrEditStore = defineStore(
   'menuBtnPermissionAddOrEdit',

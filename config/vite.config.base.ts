@@ -54,6 +54,20 @@ export default defineConfig({
       dts: resolve(pathSrc, 'typings/components.d.ts'),
     }),
   ],
+  // 👇 优化依赖预加载
+  optimizeDeps: {
+    include: [
+      'vue',
+      '@vueuse/core',
+      'vue-router',
+      'pinia',
+      'echarts',
+      '@fullcalendar/core',
+      '@arco-design/web-vue',
+      'lodash',
+      'dayjs',
+    ],
+  },
   resolve: {
     alias: [
       {

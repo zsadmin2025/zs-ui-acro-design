@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import { TenantPackageAddOrEditState } from '@/types/sys/tenant/tenantPackage/tenantPackageTypes';
-import { Message } from '@arco-design/web-vue';
 import { sysTenantPackageApi } from '@/api/sys/tenantPackage';
 
 export const useTenantPackageAddOrEditStore = defineStore(

@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { sysMailTasksApi } from '@/api/sys/mail';
 import { MailTasksAddOrEditState } from '@/types/sys/mail/mailTasksTypes';
-import { Message } from '@arco-design/web-vue';
 
 export const useMailTasksAddOrEditStore = defineStore('sysMailTasksAddOrEdit', {
   state: (): MailTasksAddOrEditState => {

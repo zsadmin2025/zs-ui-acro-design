@@ -2,7 +2,6 @@ import { defineStore } from 'pinia';
 import { sysPostApi } from '@/api/sys/post';
 import { sysDeptApi } from '@/api/sys/dept';
 import { PostAddOrEditState } from '@/types/sys/post/postTypes';
-import { Message } from '@arco-design/web-vue';
 
 export const useDostAddOrEditStore = defineStore('postAddOrEdit', {
   state: (): PostAddOrEditState => {

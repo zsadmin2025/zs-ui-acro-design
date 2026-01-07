@@ -203,12 +203,13 @@
     values: Record<string, any>;
   }) => {
     if (loading.value) return;
+
     if (!errors) {
       setLoading(true);
       try {
         values.uuid = loginStore.codeForm.uuid;
         await userStore.login(values as LoginData);
-        router.push('/dashboard/workplace');
+        await router.push('/dashboard/workplace');
 
         Message.success(t('login.form.login.success'));
 
