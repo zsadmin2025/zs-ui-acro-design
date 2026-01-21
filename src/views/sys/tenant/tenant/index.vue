@@ -176,7 +176,8 @@
   import TenantAddOrEdit from './components/tenant-add-or-edit.vue';
 
   const tenantStore = useTenantStore();
-  const { loading, list, total, form, selectedKeys } = storeToRefs(tenantStore);
+  const { addEditRef, loading, list, total, form, selectedKeys } =
+    storeToRefs(tenantStore);
 
   const rowSelection = reactive({
     type: 'checkbox',
