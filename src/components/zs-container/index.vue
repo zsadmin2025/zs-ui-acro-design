@@ -23,9 +23,16 @@
       <div
         v-if="$slots.left"
         class="left-sidebar"
-        :style="{ width: leftBoxWidth }"
+        :class="{ collapsed: collapsed }"
+        :style="{ width: collapsed ? 0 : leftBoxWidth }"
       >
-        <slot name="left"></slot>
+        <div class="left-sidebar-content">
+          <slot name="left"></slot>
+        </div>
+        <div class="collapse-trigger" @click="toggleCollapse">
+          <icon-right v-if="collapsed" />
+          <icon-left v-else />
+        </div>
       </div>
       <div class="right-content">
         <!-- 右侧使用嵌套的上中下布局 -->
@@ -70,9 +77,19 @@
         default: '220px',
       },
     },
+    data() {
+      return {
+        collapsed: false,
+      };
+    },
     computed: {
       layoutClass() {
         return `layout-${this.layout}`;
+      },
+    },
+    methods: {
+      toggleCollapse() {
+        this.collapsed = !this.collapsed;
       },
     },
   };
@@ -100,13 +117,13 @@
 
       .header-box {
         height: auto;
-        padding: var(--base-padding) var(--base-padding) 0 var(--base-padding);
+        padding: var(--base-padding);
 
         background-color: var(--color-bg-2);
         margin-bottom: var(--base-padding);
         border-radius: var(--border-radius);
         :deep(.arco-form-item) {
-          margin-bottom: 10px !important;
+          margin-bottom: 0 !important;
         }
       }
 
@@ -156,6 +173,54 @@
         border-radius: var(--border-radius);
         box-shadow: 0 0 12px var(--shadow-special);
         margin-right: var(--base-padding);
+        position: relative;
+        transition: all 0.3s;
+
+        &.collapsed {
+          padding: 0;
+          margin-right: 0;
+          border: none;
+          box-shadow: none;
+
+          .collapse-trigger {
+            right: auto;
+            left: calc(var(--base-padding) * -1);
+            border-radius: 0 4px 4px 0;
+            box-shadow: 4px 0 4px -2px var(--shadow-special);
+          }
+        }
+
+        .left-sidebar-content {
+          height: 100%;
+          overflow: hidden;
+          width: 100%;
+        }
+
+        .collapse-trigger {
+          position: absolute;
+          top: 50%;
+          right: -12px;
+          width: 12px;
+          height: 40px;
+          transform: translateY(-50%);
+          background: var(--color-bg-2);
+          border-radius: 0 4px 4px 0;
+          cursor: pointer;
+          z-index: 100;
+          // border: 1px solid var(--color-border);
+          box-shadow: 4px 0 4px -2px var(--shadow-special);
+          border-left: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--color-text-2);
+          font-size: 10px;
+
+          &:hover {
+            color: var(--primary-6);
+            background-color: var(--color-fill-2);
+          }
+        }
       }
 
       /* 左右布局下的右侧盒子：上中下结构 */
@@ -167,12 +232,12 @@
 
         .right-header {
           height: auto;
-          padding: var(--base-padding) var(--base-padding) 0 var(--base-padding);
+          padding: var(--base-padding);
           background-color: var(--color-bg-2);
           margin-bottom: var(--base-padding);
           border-radius: var(--border-radius);
           :deep(.arco-form-item) {
-            margin-bottom: 10px !important;
+            margin-bottom: 0 !important;
           }
         }
 

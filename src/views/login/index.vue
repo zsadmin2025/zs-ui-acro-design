@@ -15,28 +15,21 @@
             <div class="panel-body">
               <LoginForm />
             </div>
-
-            <!-- 底部链接（可选，提升完整性） -->
-            <!-- <div class="panel-footer">
-          <a href="#" class="footer-link">忘记密码？</a>
-          <a href="#" class="footer-link">联系管理员</a>
-        </div> -->
           </div>
         </div>
       </div>
-      <div class="login-footer">
-        <div class="copyright">
-          {{ copyright }} &nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="https://beian.miit.gov.cn/" target="_blank">{{
-            icp
-          }}</a></div
-        >
+    </div>
+    <div class="login-footer">
+      <div class="copyright">
+        {{ copyright }} &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://beian.miit.gov.cn/" target="_blank">{{ icp }}</a>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import { computed } from 'vue';
   import { websiteStore } from '@/store/modules/sys/config/website/websiteStore';
   import LoginForm from './components/login-form.vue';
 
@@ -47,76 +40,89 @@
 
 <style lang="less" scoped>
   .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
     background: #f1f3f4;
-    // 背景图优化：避免拉伸+固定显示
     background: url('@/assets/images/6.png') no-repeat center center;
     background-size: cover;
-    position: relative;
+    padding: clamp(16px, 2vw, 32px);
+    box-sizing: border-box;
 
-    // Logo区域：悬浮感+抗遮挡
     .logo {
-      position: absolute;
-      top: 24px;
-      left: 40px;
-      z-index: 2;
       display: flex;
       align-items: center;
       color: var(--color-black);
       font-weight: 600;
-      padding: 8px 16px;
-      transition: all 0.3s ease; // 基础过渡
+      padding-bottom: clamp(10px, 2vh, 24px);
 
       .logo-img {
-        width: 48px;
-        height: 48px;
-        object-fit: contain; // 避免logo变形
+        width: clamp(32px, 5vw, 48px);
+        height: clamp(32px, 5vw, 48px);
+        object-fit: contain;
       }
 
       .logo-text {
         margin-left: 12px;
-        font-size: 48px;
+        font-size: clamp(24px, 4vw, 48px);
         letter-spacing: 0.5px;
+        white-space: nowrap;
       }
     }
 
     .login-container {
+      display: grid;
+      place-items: center;
       width: 100%;
-      max-width: 1000px;
-      text-align: center;
 
       .login-body {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: min(100%, 1000px);
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
 
         .left-side {
-          flex: 1;
-          // 背景图优化：避免拉伸+固定显示
           background: url('@/assets/images/login/login-left.png') no-repeat
             center center;
           background-size: contain;
           background-color: #3875e8;
+          min-height: 500px;
         }
 
         .right-side {
-          flex: 1;
           display: flex;
           justify-content: center;
           align-items: center;
+          padding: 20px;
         }
       }
 
-      .login-footer {
-        padding: 40px 0 0 0;
-        text-align: center;
+      @media (max-width: 850px) {
+        .login-body {
+          grid-template-columns: 1fr;
+          width: 100%;
+          max-width: 500px; /* 适配平板和移动端，限制卡片最大宽度 */
 
-        .copyright {
-          color: var(--color-black);
+          .left-side {
+            display: none;
+          }
         }
+      }
+    }
+
+    .login-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: clamp(10px, 2vh, 24px);
+      text-align: center;
+
+      .copyright {
+        color: var(--color-black);
+        font-size: clamp(12px, 1.2vw, 14px);
       }
     }
   }

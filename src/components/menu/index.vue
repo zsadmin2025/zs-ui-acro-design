@@ -19,8 +19,7 @@
       const { menuTree } = useMenuTree();
       const collapsed = computed({
         get() {
-          if (appStore.device === 'desktop') return appStore.menuCollapse;
-          return false;
+          return appStore.menuCollapse;
         },
         set(value: boolean) {
           appStore.updateSettings({ menuCollapse: value });
@@ -49,6 +48,9 @@
         router.push({
           name: item.name,
         });
+        if (appStore.device === 'mobile' && !collapsed.value) {
+          appStore.updateSettings({ menuCollapse: true });
+        }
       };
       const findMenuOpenKeys = (target: string) => {
         const result: string[] = [];
@@ -137,9 +139,7 @@
           mode={layout.value === 'horizontal' ? 'horizontal' : 'vertical'}
           v-model:collapsed={collapsed.value}
           v-model:open-keys={openKeys.value}
-          show-collapse-button={
-            appStore.device !== 'mobile' && layout.value !== 'float'
-          }
+          show-collapse-button={layout.value !== 'float'}
           accordion={true}
           auto-open={false}
           selected-keys={selectedKey.value}
