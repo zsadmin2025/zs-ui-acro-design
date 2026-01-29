@@ -2,11 +2,11 @@
   <div>
     <zs-container layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" :auto-label-width="true" label-align="left">
-              <a-row :gutter="16">
-                <a-col :span="6">
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="type" label="消息类型">
                     <a-select v-model="form.type" placeholder="请选择">
                       <a-option :value="1" label="站内信" />
@@ -15,12 +15,12 @@
                     </a-select>
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="title" label="主题">
                     <a-input v-model="form.title" placeholder="主题" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="isRead" label="是否已读">
                     <a-select v-model="form.isRead" placeholder="请选择">
                       <a-option :value="0" label="未读" />
@@ -31,27 +31,29 @@
               </a-row>
             </a-form>
           </a-col>
-          <a-col :flex="'86px'" style="text-align: right">
-            <a-space :size="18">
-              <a-button type="primary" @click="messagesStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="messagesStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+            <div style="text-align: right">
+              <a-space :size="9" wrap>
+                <a-button type="primary" @click="messagesStore.fetchData">
+                  <template #icon>
+                    <icon-search />
+                  </template>
+                  {{ $t('searchTable.form.search') }}
+                </a-button>
+                <a-button @click="messagesStore.reset">
+                  <template #icon>
+                    <icon-refresh />
+                  </template>
+                  {{ $t('searchTable.form.reset') }}
+                </a-button>
+              </a-space>
+            </div>
           </a-col>
         </a-row>
       </template>
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'system:messages:save'"
@@ -87,7 +89,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -112,7 +116,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #type="{ record }">
             <span v-if="record.type === 1"> 站内信 </span>
@@ -155,9 +159,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="messagesStore.handleCurrentChange"
           @page-size-change="messagesStore.handleSizeChange"
         />
@@ -172,11 +177,13 @@
   import { computed, onMounted, reactive, ref } from 'vue';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useMessagesStore } from '@/store/modules/sys/messages/message/messagesStore';
+  import { useAppStore } from '@/store';
   import MessagesAddOrEdit from './messages-add-or-edit.vue';
 
   const messagesStore = useMessagesStore();
   const { addEditRef, loading, list, total, form, selectedKeys } =
     storeToRefs(messagesStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',
@@ -249,7 +256,7 @@
       slotName: 'operations',
       width: 160,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 

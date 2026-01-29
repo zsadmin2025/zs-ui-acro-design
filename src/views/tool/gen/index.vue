@@ -2,35 +2,41 @@
   <div class="gen-container">
     <ZsContainer layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16" style="width: fit-content">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" label-align="left" :auto-label-width="true">
-              <a-form-item field="tableName" label="表名">
-                <a-input v-model="form.tableName" placeholder="表名" />
-              </a-form-item>
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                  <a-form-item field="tableName" label="表名">
+                    <a-input v-model="form.tableName" placeholder="表名" />
+                  </a-form-item>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+                  <div style="text-align: right">
+                    <a-space :size="9" wrap>
+                      <a-button type="primary" @click="genStore.fetchData">
+                        <template #icon>
+                          <icon-search />
+                        </template>
+                        {{ $t('searchTable.form.search') }}
+                      </a-button>
+                      <a-button @click="genStore.resetSearch">
+                        <template #icon>
+                          <icon-refresh />
+                        </template>
+                        {{ $t('searchTable.form.reset') }}
+                      </a-button>
+                    </a-space>
+                  </div>
+                </a-col>
+              </a-row>
             </a-form>
-          </a-col>
-          <a-col :flex="'86px'">
-            <a-space :size="18">
-              <a-button type="primary" @click="genStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="genStore.resetSearch">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
           </a-col>
         </a-row>
       </template>
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button type="primary" @click="genStore.handleImport()">
                 <template #icon>
@@ -52,7 +58,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -77,7 +85,7 @@
           :size="currentSize"
           :row-selection="rowSelection"
           :pagination="false"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #operations="{ record }">
             <a-space>
@@ -131,9 +139,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="genStore.handleCurrentChange"
           @page-size-change="genStore.handleSizeChange"
         />
@@ -150,6 +159,7 @@
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useGenStore } from '@/store/modules/tool/gen/genStore';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
+  import { useAppStore } from '@/store';
   import TableImport from './components/table-import.vue';
   import GenEdit from './components/gen-edit.vue';
   import GenPreview from './components/gen-preview.vue';
@@ -165,6 +175,7 @@
     form,
     selectedKeys,
   } = storeToRefs(genStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',
@@ -220,7 +231,7 @@
       slotName: 'operations',
       width: 300,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 

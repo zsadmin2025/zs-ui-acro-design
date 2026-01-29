@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="dictDataAddOrEditStore.close"
@@ -82,9 +82,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { useDictDataAddOrEditStore } from '@/store/modules/sys/dict/dictDataAddOrEditStore';
   import { storeToRefs } from 'pinia';
+  import { useAppStore } from '@/store';
+  import { useDictDataAddOrEditStore } from '@/store/modules/sys/dict/dictDataAddOrEditStore';
 
+  const appStore = useAppStore();
   const dictDataAddOrEditStore = useDictDataAddOrEditStore();
   const { dialogFormVisible, formRef, form, dictTypeList, dictDataList } =
     storeToRefs(dictDataAddOrEditStore);

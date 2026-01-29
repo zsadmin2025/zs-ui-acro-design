@@ -2,11 +2,11 @@
   <div>
     <zs-container layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" :auto-label-width="true" label-align="left">
-              <a-row :gutter="16">
-                <a-col :span="6">
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="templateNumber" label="模板编号">
                     <a-input
                       v-model="form.templateNumber"
@@ -14,7 +14,7 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="channel" label="短信通道/服务商">
                     <a-select
                       v-model="form.channel"
@@ -30,12 +30,12 @@
                     </a-select>
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="signName" label="短信签名">
                     <a-input v-model="form.signName" placeholder="短信签名" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="templateCode" label="短信模板code">
                     <a-input
                       v-model="form.templateCode"
@@ -46,27 +46,29 @@
               </a-row>
             </a-form>
           </a-col>
-          <a-col :flex="'86px'" style="text-align: right">
-            <a-space :size="18">
-              <a-button type="primary" @click="templateStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="templateStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+            <div style="text-align: right">
+              <a-space :size="9" wrap>
+                <a-button type="primary" @click="templateStore.fetchData">
+                  <template #icon>
+                    <icon-search />
+                  </template>
+                  {{ $t('searchTable.form.search') }}
+                </a-button>
+                <a-button @click="templateStore.reset">
+                  <template #icon>
+                    <icon-refresh />
+                  </template>
+                  {{ $t('searchTable.form.reset') }}
+                </a-button>
+              </a-space>
+            </div>
           </a-col>
         </a-row>
       </template>
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'system:smsTemplate:save'"
@@ -102,7 +104,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -127,7 +131,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #channel="{ record }">
             <a-tag color="arcoblue">
@@ -188,9 +192,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="templateStore.handleCurrentChange"
           @page-size-change="templateStore.handleSizeChange"
         />
@@ -209,6 +214,7 @@
   import { useTemplateStore } from '@/store/modules/sys/messages/sms/smsTemplateStore';
   import useDict from '@/hooks/dict';
   import { DictData } from '@/types/sys/dict/DictData';
+  import { useAppStore } from '@/store';
   import TemplateAddOrEdit from './template-add-or-edit.vue';
   import TemplateSend from './template-send.vue';
   import TemplateSmsRecord from './template-sms-record.vue';
@@ -216,6 +222,7 @@
   const templateStore = useTemplateStore();
   const { addEditRef, loading, list, total, form, selectedKeys } =
     storeToRefs(templateStore);
+  const appStore = useAppStore();
 
   const smsSendRef = ref<InstanceType<typeof TemplateSend>>();
   const smsRecordRef = ref<InstanceType<typeof TemplateSmsRecord>>();
@@ -286,7 +293,7 @@
       slotName: 'operations',
       width: 300,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 

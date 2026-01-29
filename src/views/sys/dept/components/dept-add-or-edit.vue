@@ -2,7 +2,7 @@
   <a-drawer
     :visible="dialogFormVisible"
     :title="!form.sysDeptId ? '新增部门' : '修改部门'"
-    width="30%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     @cancel="deptAddOrEditStore.close"
     @ok="deptAddOrEditStore.submit(emits)"
   >
@@ -68,10 +68,12 @@
 <script lang="ts" setup>
   import { useDeptAddOrEditStore } from '@/store/modules/sys/dept/deptAddOrEditStore';
   import { storeToRefs } from 'pinia';
+  import { useAppStore } from '@/store';
 
   const deptAddOrEditStore = useDeptAddOrEditStore();
   const { form, formRef, dialogFormVisible, treeData } =
     storeToRefs(deptAddOrEditStore);
+  const appStore = useAppStore();
 
   const handleSelect = (val: any) => {
     form.value.deptHeadName = val?.realName ?? '';

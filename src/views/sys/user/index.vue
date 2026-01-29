@@ -58,7 +58,7 @@
                 </a-form-item>
               </a-col>
             </template>
-            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+            <a-col flex="1">
               <div style="text-align: right">
                 <a-space :size="9" wrap>
                   <a-button type="primary" @click="userStore.fetchData">

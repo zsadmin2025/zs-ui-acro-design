@@ -2,26 +2,26 @@
   <div>
     <zs-container layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" :auto-label-width="true" label-align="left">
-              <a-row :gutter="16">
-                <a-col :span="6">
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="username" label="用户名">
                     <a-input v-model="form.username" placeholder="用户名" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="module" label="功能模块">
                     <a-input v-model="form.module" placeholder="功能模块" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="ipAddress" label="ip地址">
                     <a-input v-model="form.ipAddress" placeholder="ip地址" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xxl="6">
                   <a-form-item field="operationType" label="操作类型">
                     <a-input
                       v-model="form.operationType"
@@ -29,7 +29,7 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xxl="6">
                   <a-form-item field="operationDescription" label="操作描述">
                     <a-input
                       v-model="form.operationDescription"
@@ -37,7 +37,7 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xxl="6">
                   <a-form-item field="requestMethod" label="请求方法">
                     <a-input
                       v-model="form.requestMethod"
@@ -45,7 +45,7 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xxl="6">
                   <a-form-item field="requestPath" label="请求路径">
                     <a-input
                       v-model="form.requestPath"
@@ -53,7 +53,7 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xxl="6">
                   <a-form-item field="responseStatusCode" label="响应状态码">
                     <a-input
                       v-model="form.responseStatusCode"
@@ -64,27 +64,29 @@
               </a-row>
             </a-form>
           </a-col>
-          <a-col :flex="'86px'" style="text-align: right">
-            <a-space :size="18">
-              <a-button type="primary" @click="logOperationStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="logOperationStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+            <div style="text-align: right">
+              <a-space :size="9" wrap>
+                <a-button type="primary" @click="logOperationStore.fetchData">
+                  <template #icon>
+                    <icon-search />
+                  </template>
+                  {{ $t('searchTable.form.search') }}
+                </a-button>
+                <a-button @click="logOperationStore.reset">
+                  <template #icon>
+                    <icon-refresh />
+                  </template>
+                  {{ $t('searchTable.form.reset') }}
+                </a-button>
+              </a-space>
+            </div>
           </a-col>
         </a-row>
       </template>
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:logOperation:export'"
@@ -98,7 +100,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -125,7 +129,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #status="{ record }">
             <span v-if="record.status === 0" class="circle fail"></span>
@@ -150,9 +154,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="logOperationStore.handleCurrentChange"
           @page-size-change="logOperationStore.handleSizeChange"
         />
@@ -167,11 +172,13 @@
   import { computed, onMounted, reactive, ref } from 'vue';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useLogOperationStore } from '@/store/modules/sys/log/operationLogStore';
+  import { useAppStore } from '@/store';
   import Detail from './components/detail.vue';
 
   const logOperationStore = useLogOperationStore();
   const { addEditRef, loading, list, total, form, selectedKeys } =
     storeToRefs(logOperationStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',
@@ -270,7 +277,7 @@
       slotName: 'operations',
       width: 100,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 

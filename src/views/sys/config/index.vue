@@ -33,12 +33,16 @@
 </template>
 
 <script lang="ts" setup>
+  import { useAppStore } from '@/store';
   import Website from './components/website.vue';
   import UploadFiles from './components/upload-files.vue';
   import Mail from './components/mail/mail.vue';
   import Sms from './components/sms.vue';
 
-  const position = ref('left');
+  const appStore = useAppStore();
+  const position = computed(() =>
+    appStore.device === 'mobile' ? 'top' : 'left',
+  );
   const scrollPosition = ref('auto');
   const activeKey = ref('base');
 </script>
@@ -85,5 +89,15 @@
   }
   .website-container {
     width: 50%;
+  }
+  @media (max-width: 576px) {
+    .arco-tabs {
+      :deep(.arco-tabs-nav) {
+        width: 100%;
+      }
+    }
+    .website-container {
+      width: 100%;
+    }
   }
 </style>

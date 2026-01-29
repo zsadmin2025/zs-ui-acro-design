@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="messagesAddOrEditStore.close"
@@ -48,11 +48,13 @@
   import { storeToRefs } from 'pinia';
   import { useMessagesAddOrEditStore } from '@/store/modules/sys/messages/message/messagesAddOrEditStore';
   import { useWebsocketStore } from '@/store/modules/common/websocketStore';
+  import { useAppStore } from '@/store';
 
   const messagesAddOrEditStore = useMessagesAddOrEditStore();
   const { form, dialogFormVisible, loading, formRef, rules } = storeToRefs(
     messagesAddOrEditStore,
   );
+  const appStore = useAppStore();
 
   const emits = defineEmits(['refresh']);
 

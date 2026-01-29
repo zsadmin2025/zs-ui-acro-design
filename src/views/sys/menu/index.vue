@@ -3,7 +3,7 @@
     <zs-container layout="header-main-footer">
       <template #main-header>
         <a-row>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:post:save'"
@@ -24,7 +24,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -47,7 +49,7 @@
           :bordered="false"
           :size="currentSize"
           :pagination="false"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #type="{ record }">
             <a-tag v-if="record.type === 1" color="arcoblue"> 目录 </a-tag>
@@ -130,12 +132,14 @@
   import { storeToRefs } from 'pinia';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useMenuStore } from '@/store/modules/sys/menu/menuStore';
+  import { useAppStore } from '@/store';
   import MenuAddOrEdit from './components/menu-add-or-edit.vue';
   import MenuBtnPermissions from './components/menu-btn-permissions.vue';
 
   const menuStore = useMenuStore();
   const { addEditRef, loading, list, btnPermissionsRef } =
     storeToRefs(menuStore);
+  const appStore = useAppStore();
 
   const columns = computed<TableColumnData[]>(() => [
     {
@@ -252,7 +256,7 @@
       slotName: 'operations',
       width: 250,
       align: 'right',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 

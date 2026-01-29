@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="templateAddOrEditStore.close"
@@ -60,6 +60,7 @@
   import { useTemplateAddOrEditStore } from '@/store/modules/sys/messages/sms/smsTemplateAddOrEditStore';
   import useDict from '@/hooks/dict';
   import { DictData } from '@/types/sys/dict/DictData';
+  import { useAppStore } from '@/store';
 
   // 短信服务商
   const smsCarrier = ref<DictData[]>([]);
@@ -68,6 +69,7 @@
   const { form, dialogFormVisible, loading, formRef, rules } = storeToRefs(
     templateAddOrEditStore,
   );
+  const appStore = useAppStore();
 
   const emits = defineEmits(['refresh']);
 

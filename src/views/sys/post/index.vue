@@ -5,39 +5,45 @@
         <ZsDept @node-click="postStore.handleNodeClick" />
       </template>
       <template #right-header>
-        <a-row :gutter="16" style="width: fit-content">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" label-align="left" :auto-label-width="true">
-              <a-form-item label="岗位名称">
-                <a-input
-                  v-model="form.postName"
-                  :allow-clear="true"
-                  placeholder="请输入岗位名称"
-                />
-              </a-form-item>
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                  <a-form-item label="岗位名称" field="postName">
+                    <a-input
+                      v-model="form.postName"
+                      :allow-clear="true"
+                      placeholder="请输入岗位名称"
+                    />
+                  </a-form-item>
+                </a-col>
+                <a-col flex="1">
+                  <div style="text-align: right">
+                    <a-space :size="9" wrap>
+                      <a-button type="primary" @click="postStore.loadPostPage">
+                        <template #icon>
+                          <icon-search />
+                        </template>
+                        {{ $t('searchTable.form.search') }}
+                      </a-button>
+                      <a-button @click="postStore.resetSearch">
+                        <template #icon>
+                          <icon-refresh />
+                        </template>
+                        {{ $t('searchTable.form.reset') }}
+                      </a-button>
+                    </a-space>
+                  </div>
+                </a-col>
+              </a-row>
             </a-form>
-          </a-col>
-          <a-col :flex="'86px'">
-            <a-space :size="18">
-              <a-button type="primary" @click="postStore.loadPostPage">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="postStore.resetSearch">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
           </a-col>
         </a-row>
       </template>
       <template #right-main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:post:save'"
@@ -73,7 +79,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -98,7 +106,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #status="{ record }">
             <ZsStatus :value="record.status" />
@@ -133,9 +141,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="postStore.handleCurrentChange"
           @page-size-change="postStore.handleSizeChange"
         />
@@ -152,11 +161,13 @@
   import { usePostStore } from '@/store/modules/sys/position/postStore';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
   import ZsDept from '@/components/zs-dept/index.vue';
+  import { useAppStore } from '@/store';
   import PostAddOrEdit from './components/post-add-or-edit.vue';
 
   const postStore = usePostStore();
   const { addEditRef, loading, list, total, form, selectedKeys } =
     storeToRefs(postStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',
@@ -204,9 +215,9 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 150,
+      width: 205,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 

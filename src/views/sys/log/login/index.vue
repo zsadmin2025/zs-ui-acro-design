@@ -2,26 +2,26 @@
   <div>
     <zs-container layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" :auto-label-width="true" label-align="left">
-              <a-row :gutter="16">
-                <a-col :span="6">
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="username" label="登录用户名">
                     <a-input v-model="form.username" placeholder="登录用户名" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="ipAddress" label="登录IP">
                     <a-input v-model="form.ipAddress" placeholder="登录IP" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="city" label="地址">
                     <a-input v-model="form.city" placeholder="地址" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="loginStatus" label="登录结果">
                     <a-select
                       v-model="form.loginStatus"
@@ -33,12 +33,12 @@
                     </a-select>
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="browser" label="浏览器类型">
                     <a-input v-model="form.browser" placeholder="浏览器类型" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="os" label="访问操作系统">
                     <a-input v-model="form.os" placeholder="访问操作系统" />
                   </a-form-item>
@@ -46,27 +46,29 @@
               </a-row>
             </a-form>
           </a-col>
-          <a-col :flex="'86px'" style="text-align: right">
-            <a-space :size="18">
-              <a-button type="primary" @click="loginStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="loginStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+            <div style="text-align: right">
+              <a-space :size="9" wrap>
+                <a-button type="primary" @click="loginStore.fetchData">
+                  <template #icon>
+                    <icon-search />
+                  </template>
+                  {{ $t('searchTable.form.search') }}
+                </a-button>
+                <a-button @click="loginStore.reset">
+                  <template #icon>
+                    <icon-refresh />
+                  </template>
+                  {{ $t('searchTable.form.reset') }}
+                </a-button>
+              </a-space>
+            </div>
           </a-col>
         </a-row>
       </template>
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:loglogin:export'"
@@ -80,7 +82,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -106,7 +110,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #loginStatus="{ record }">
             <ZsStatus
@@ -142,9 +146,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="loginStore.handleCurrentChange"
           @page-size-change="loginStore.handleSizeChange"
         />
@@ -160,11 +165,13 @@
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
   import { useLoginLogStore } from '@/store/modules/sys/log/loginLogStore';
+  import { useAppStore } from '@/store';
   import Detail from './components/detail.vue';
 
   const loginStore = useLoginLogStore();
   const { loading, list, total, form, selectedKeys, addEditRef } =
     storeToRefs(loginStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',
@@ -271,7 +278,7 @@
       slotName: 'operations',
       width: 160,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 

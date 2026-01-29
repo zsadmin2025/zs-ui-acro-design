@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="60%"
+    :width="appStore.device === 'mobile' ? '90%' : '60%'"
     title-align="start"
     :draggable="true"
     @cancel="genTableStore.close"
@@ -54,7 +54,8 @@
       v-model:current="form.current"
       v-model:page-size="form.pageSize"
       :total="total"
-      show-total
+      :show-total="appStore.device !== 'mobile'"
+      :simple="appStore.device === 'mobile'"
       @change="genTableStore.handleCurrentChange"
       @page-size-change="genTableStore.handleSizeChange"
     />
@@ -77,10 +78,12 @@
   import { storeToRefs } from 'pinia';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useGenTableStore } from '@/store/modules/tool/gen/genTableStore';
+  import { useAppStore } from '@/store';
 
   const genTableStore = useGenTableStore();
   const { dialogFormVisible, loading, list, total, form, selectedKeys } =
     storeToRefs(genTableStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',

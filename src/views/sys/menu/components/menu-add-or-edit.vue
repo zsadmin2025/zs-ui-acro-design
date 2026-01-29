@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="40%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     :mask-closable="false"
@@ -44,24 +44,24 @@
                 />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="菜单名称" field="title">
                 <a-input v-model="form.title" placeholder="请输入菜单名称" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="图标">
                 <zs-selected-icon v-model="form.icon" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="路由地址" field="path">
                 <a-input v-model="form.path" placeholder="请输入路由路径地址" />
               </a-form-item>
             </a-col>
           </a-row>
           <a-row :gutter="24">
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="是否显示" field="visible">
                 <a-switch
                   :checked-value="true"
@@ -75,7 +75,7 @@
                 </a-switch>
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="是否缓存" field="ignoreCache">
                 <a-switch
                   v-model="form.ignoreCache"
@@ -104,22 +104,22 @@
                 />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="菜单名称" field="title">
                 <a-input v-model="form.title" placeholder="请输入菜单名称" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="菜单图标">
                 <zs-selected-icon v-model="form.icon" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="路由地址" field="path">
                 <a-input v-model="form.path" placeholder="请输入路由路径地址" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="组件路径" field="component">
                 <a-input
                   v-model="form.component"
@@ -130,7 +130,7 @@
           </a-row>
 
           <a-row :gutter="24">
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="是否显示" field="visible">
                 <a-switch
                   :checked-value="true"
@@ -144,7 +144,7 @@
                 </a-switch>
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="是否缓存" field="ignoreCache">
                 <a-switch
                   v-model="form.ignoreCache"
@@ -157,7 +157,7 @@
                 </a-switch>
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="隐藏菜单" field="hideInMenu">
                 <a-switch
                   v-model="form.hideInMenu"
@@ -187,12 +187,12 @@
           </a-col>
           <a-col :span="24">
             <a-row :gutter="24">
-              <a-col :span="12">
+              <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
                 <a-form-item label="按钮名称" field="title">
                   <a-input v-model="form.title" placeholder="请输入按钮名称" />
                 </a-form-item>
               </a-col>
-              <a-col :span="12">
+              <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
                 <a-form-item label="权限标识" field="permissions">
                   <a-input
                     v-model="form.permissions"
@@ -202,7 +202,7 @@
               </a-col>
             </a-row>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
             <a-form-item label="是否显示" field="visible">
               <a-switch
                 :checked-value="true"
@@ -231,22 +231,22 @@
                 />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="菜单名称" field="title">
                 <a-input v-model="form.title" placeholder="请输入菜单名称" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="图标">
                 <zs-selected-icon v-model="form.icon" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="路由地址" field="path">
                 <a-input v-model="form.path" placeholder="请输入路由路径地址" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="组件路径" field="component">
                 <a-input
                   v-model="form.component"
@@ -286,17 +286,17 @@
                 />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="菜单名称" field="title">
                 <a-input v-model="form.title" placeholder="请输入菜单名称" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="图标">
                 <zs-selected-icon v-model="form.icon" />
               </a-form-item>
             </a-col>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
               <a-form-item label="路由地址" field="path">
                 <a-input v-model="form.path" placeholder="请输入路由路径地址" />
               </a-form-item>
@@ -319,12 +319,12 @@
             </a-col>
           </a-row>
         </a-row>
-        <a-col :span="12">
+        <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
           <a-form-item label="排序号" field="sort">
             <a-input-number v-model="form.sort" :min="0" mode="button" />
           </a-form-item>
         </a-col>
-        <a-col>
+        <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
           <a-form-item label="菜单状态" field="status">
             <a-switch
               v-model="form.status"
@@ -353,6 +353,9 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import { useMenuAddOrEditStore } from '@/store/modules/sys/menu/menuAddOrEditStore';
+  import { useAppStore } from '@/store';
+
+  const appStore = useAppStore();
 
   const menuAddOrEditStore = useMenuAddOrEditStore();
   const { dialogFormVisible, formRef, form, list } =

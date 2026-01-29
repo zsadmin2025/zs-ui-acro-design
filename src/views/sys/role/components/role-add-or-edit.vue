@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="roleAddOrEditStore.close"
@@ -52,10 +52,12 @@
 <script lang="ts" setup>
   import { useRoleAddOrEditStore } from '@/store/modules/sys/role/roleAddOrEditStore';
   import { storeToRefs } from 'pinia';
+  import { useAppStore } from '@/store';
 
   const roleAddOrEditStore = useRoleAddOrEditStore();
   const { dialogFormVisible, formRef, form, rules } =
     storeToRefs(roleAddOrEditStore);
+  const appStore = useAppStore();
 
   const emits = defineEmits(['refresh']);
 

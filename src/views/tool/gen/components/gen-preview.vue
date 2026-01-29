@@ -1,6 +1,6 @@
 <template>
   <a-drawer
-    width="80%"
+    :width="appStore.device === 'mobile' ? '90%' : '80%'"
     :visible="visible"
     :footer="false"
     unmount-on-close
@@ -45,8 +45,10 @@
   import { TreeNodeData, Message } from '@arco-design/web-vue';
   import useClipboard from 'vue-clipboard3';
   import { genApi } from '@/api/tool/gen';
+  import { useAppStore } from '@/store';
 
   const { toClipboard } = useClipboard();
+  const appStore = useAppStore();
   // 添加 expandedKeys 响应式数据
   const expandedKeys = ref<string[]>([]);
   const genPreviewRef = ref();

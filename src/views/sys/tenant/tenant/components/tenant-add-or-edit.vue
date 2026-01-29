@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="tenantAddOrEditStore.close"
@@ -92,10 +92,12 @@
   import { storeToRefs } from 'pinia';
   import { useTenantAddOrEditStore } from '@/store/modules/sys/tenant/tenant/tenantAddOrEditStore';
   import { sysTenantPackageApi } from '@/api/sys/tenantPackage';
+  import { useAppStore } from '@/store';
 
   const tenantAddOrEditStore = useTenantAddOrEditStore();
   const { form, dialogFormVisible, loading, formRef, rules } =
     storeToRefs(tenantAddOrEditStore);
+  const appStore = useAppStore();
 
   const tenantPackageList = ref<any[]>([]);
 

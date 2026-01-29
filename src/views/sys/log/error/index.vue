@@ -3,16 +3,16 @@
     <zs-container layout="header-main-footer">
       <!-- 搜索表单 -->
       <template #header>
-        <a-row :gutter="16">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" :auto-label-width="true" label-align="left">
-              <a-row :gutter="16">
-                <a-col :span="6">
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="username" label="登录用户名">
                     <a-input v-model="form.username" placeholder="登录用户名" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="ipAddress" label="请求IP">
                     <a-input
                       v-model="form.ipAddress"
@@ -20,12 +20,12 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="module" label="所属模块">
                     <a-input v-model="form.module" placeholder="所属模块" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="exceptionType" label="错误类型">
                     <a-input
                       v-model="form.exceptionType"
@@ -33,7 +33,7 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="requestPath" label="请求接口">
                     <a-input
                       v-model="form.requestPath"
@@ -41,7 +41,7 @@
                     />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xxl="6">
                   <a-form-item field="requestMethod" label="请求方式">
                     <a-select
                       v-model="form.requestMethod"
@@ -59,21 +59,23 @@
               </a-row>
             </a-form>
           </a-col>
-          <a-col :flex="'86px'" style="text-align: right">
-            <a-space :size="18">
-              <a-button type="primary" @click="errorLogStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                查询
-              </a-button>
-              <a-button @click="errorLogStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                重置
-              </a-button>
-            </a-space>
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+            <div style="text-align: right">
+              <a-space :size="9" wrap>
+                <a-button type="primary" @click="errorLogStore.fetchData">
+                  <template #icon>
+                    <icon-search />
+                  </template>
+                  查询
+                </a-button>
+                <a-button @click="errorLogStore.reset">
+                  <template #icon>
+                    <icon-refresh />
+                  </template>
+                  重置
+                </a-button>
+              </a-space>
+            </div>
           </a-col>
         </a-row>
       </template>
@@ -81,7 +83,7 @@
       <!-- 表格头部操作栏 -->
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:logerror:export'"
@@ -95,7 +97,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -122,7 +126,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: '100%', y: '100%' }"
+          :scroll="{ x: 1800, y: '100%' }"
         >
           <template #requestMethod="{ record }">
             <a-tag v-if="record.requestMethod === 'GET'" color="blue"
@@ -167,9 +171,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="errorLogStore.handleCurrentChange"
           @page-size-change="errorLogStore.handleSizeChange"
         />
@@ -185,11 +190,13 @@
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
   import { useErrorLogStore } from '@/store/modules/sys/log/errorlogStore';
+  import { useAppStore } from '@/store';
   import Detail from './components/detail.vue';
 
   const errorLogStore = useErrorLogStore();
   const { addEditRef, loading, list, total, form, selectedKeys } =
     storeToRefs(errorLogStore);
+  const appStore = useAppStore();
 
   // 表格多选配置
   const rowSelection = reactive({
@@ -276,7 +283,7 @@
       slotName: 'operations',
       width: 100,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
     },
   ]);
 
