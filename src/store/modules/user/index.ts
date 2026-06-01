@@ -70,7 +70,7 @@ const useUserStore = defineStore('user', {
     // Get user's information
     async info() {
       const res = await sysUserApi.getUserInfo();
-      this.user = res.data.sysUser;
+      this.user = res.data.userInfo;
       this.permissions = res.data.permissions;
     },
     // Login

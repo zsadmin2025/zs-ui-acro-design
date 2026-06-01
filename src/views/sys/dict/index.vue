@@ -1,9 +1,7 @@
 <template>
   <div class="dict-container">
     <a-layout :class="{ 'mobile-layout': appStore.device === 'mobile' }">
-      <a-layout-sider
-        :width="appStore.device === 'mobile' ? undefined : 260"
-      >
+      <a-layout-sider :width="appStore.device === 'mobile' ? undefined : 260">
         <dict-type />
       </a-layout-sider>
       <a-layout-content>

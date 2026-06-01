@@ -21,10 +21,13 @@ axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 
 axios.defaults.timeout = 20000; // 请求超时 20s
 
+// 登录页公开接口，无需携带 token
+const LOGIN_PUBLIC_URLS = ['/auth/captcha', '/system/sys/tenant/select'];
+
 axios.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = getToken();
-    if (token) {
+    if (token && !LOGIN_PUBLIC_URLS.includes(config.url || '')) {
       if (!config.headers) {
         config.headers = new axios.AxiosHeaders();
       }
@@ -98,7 +101,8 @@ axios.interceptors.response.use(
       content: message || 'Request Error',
       duration: 5 * 1000,
     });
-    if (status === 401) {
+    // 已在登录页则无需再次登出，避免循环 reload
+    if (status === 401 && window.location.pathname !== '/login') {
       useUserStore().logout();
     }
 

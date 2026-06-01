@@ -16,88 +16,139 @@
             v1.0.0
           </a-tag>
         </div>
-        
+
         <p class="intro-desc">
-          ZS-Admin 是一套面向中大型企业场景的现代化管理后台快速开发平台。基于主流技术栈构建，深度融合
-          RBAC 权限体系、多租户（SaaS）架构与低代码开发能力，帮助团队以最小成本快速交付高可用、高安全性的业务系统。
+          ZS-Admin
+          是一套面向中大型企业场景的现代化管理后台快速开发平台。基于主流技术栈构建，深度融合
+          RBAC
+          权限体系、多租户（SaaS）架构与低代码开发能力，帮助团队以最小成本快速交付高可用、高安全性的业务系统。
         </p>
 
         <div class="info-grid">
           <div class="info-item">
-            <div class="label"><icon-global class="icon"/> 官方网站</div>
+            <div class="label"><icon-link class="icon" /> 官方网站</div>
             <div class="value">
-              <a-link href="https://www.zsadmin.top" target="_blank" :hoverable="false">
+              <a-link
+                href="https://www.zsadmin.top"
+                target="_blank"
+                :hoverable="false"
+              >
                 https://www.zsadmin.top
               </a-link>
             </div>
           </div>
-          
+
           <div class="info-item">
-            <div class="label"><icon-github class="icon"/> GitHub</div>
+            <div class="label"><icon-github class="icon" /> GitHub</div>
             <div class="value">
-              <a-link href="https://github.com/zsadmin2025/zs-ui-acro-design" target="_blank" :hoverable="false">
-                zsadmin/zs-ui-acro-design
-              </a-link>
-            </div>
-          </div>
-          
-          <div class="info-item">
-            <div class="label"><icon-code class="icon"/> Gitee</div>
-            <div class="value">
-              <a-link href="https://gitee.com/zs-admin/zs-ui-acro-design" target="_blank" :hoverable="false">
+              <a-link
+                href="https://github.com/zsadmin2025/zs-ui-acro-design"
+                target="_blank"
+                :hoverable="false"
+              >
                 zsadmin/zs-ui-acro-design
               </a-link>
             </div>
           </div>
 
-           <div class="info-item">
-            <div class="label"><icon-code class="icon"/>GitCode</div>
+          <div class="info-item">
+            <div class="label"><icon-code class="icon" /> Gitee</div>
             <div class="value">
-              <a-link href="https://gitcode.com/zsadmin2025/zs-ui-acro-design" target="_blank" :hoverable="false">
+              <a-link
+                href="https://gitee.com/zs-admin/zs-ui-acro-design"
+                target="_blank"
+                :hoverable="false"
+              >
                 zsadmin/zs-ui-acro-design
               </a-link>
             </div>
           </div>
-          
+
           <div class="info-item">
-            <div class="label"><icon-book class="icon"/> 文档中心</div>
+            <div class="label"><icon-code class="icon" />GitCode</div>
             <div class="value">
-              <a-link href="https://www.zsadmin.top" target="_blank" :hoverable="false">官方文档</a-link>
+              <a-link
+                href="https://gitcode.com/zsadmin2025/zs-ui-acro-design"
+                target="_blank"
+                :hoverable="false"
+              >
+                zsadmin/zs-ui-acro-design
+              </a-link>
             </div>
           </div>
-          
+
           <div class="info-item">
-            <div class="label"><icon-copyright class="icon"/> 开源协议</div>
+            <div class="label"><icon-book class="icon" /> 文档中心</div>
+            <div class="value">
+              <a-link
+                href="https://www.zsadmin.top"
+                target="_blank"
+                :hoverable="false"
+                >官方文档</a-link
+              >
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="label"><icon-copyright class="icon" /> 开源协议</div>
             <div class="value">MIT License</div>
           </div>
-          
+
           <div class="info-item">
-            <div class="label"><icon-user class="icon"/> 项目作者</div>
+            <div class="label"><icon-user class="icon" /> 项目作者</div>
             <div class="value">zs</div>
           </div>
-          
+
           <div class="info-item full-width">
-            <div class="label"><icon-message class="icon"/> 技术支持</div>
+            <div class="label"><icon-message class="icon" /> 技术支持</div>
             <div class="value contact-links">
-              <a-link href="https://qm.qq.com/q/a30CgmgHgQ" target="_blank" :hoverable="false">
-                <ZsIcon icon="icon-filled-qq-circle" :size="16" class="link-icon" /> QQ群: 678804408
+              <a-link
+                href="https://qm.qq.com/q/a30CgmgHgQ"
+                target="_blank"
+                :hoverable="false"
+              >
+                <ZsIcon
+                  icon="icon-filled-qq-circle"
+                  :size="16"
+                  class="link-icon"
+                />
+                QQ群: 678804408
               </a-link>
               <a-divider direction="vertical" />
-              <a-link href="mailto:support@3794037832@qq.com" :hoverable="false">
+              <a-link
+                href="mailto:support@3794037832@qq.com"
+                :hoverable="false"
+              >
                 <icon-email class="link-icon" /> 3794037832@qq.com
               </a-link>
               <a-divider direction="vertical" />
-              <a-link href="https://wpa.qq.com/msgrd?v=3&uin=3794037832&site=qq&menu=yes" target="_blank" :hoverable="false">
-                <ZsIcon icon="icon-filled-qq-circle" :size="16" class="link-icon" /> QQ: 3794037832
+              <a-link
+                href="https://wpa.qq.com/msgrd?v=3&uin=3794037832&site=qq&menu=yes"
+                target="_blank"
+                :hoverable="false"
+              >
+                <ZsIcon
+                  icon="icon-filled-qq-circle"
+                  :size="16"
+                  class="link-icon"
+                />
+                QQ: 3794037832
               </a-link>
               <a-divider direction="vertical" />
-              <span class="wechat-text"><ZsIcon icon="icon-filled-wechat" :size="16" class="link-icon" /> 微信: zsadmin2024</span>
+              <span class="wechat-text"
+                ><ZsIcon
+                  icon="icon-filled-wechat"
+                  :size="16"
+                  class="link-icon"
+                />
+                微信: zsadmin2024</span
+              >
             </div>
           </div>
         </div>
 
         <div class="thanks-note">
-          <icon-heart-fill style="color: #f53f3f; margin-right: 6px;" />
+          <icon-heart-fill style="color: #f53f3f; margin-right: 6px" />
           感谢所有贡献者与支持者的信赖与陪伴！
         </div>
       </a-col>
@@ -137,7 +188,7 @@
     min-height: 380px;
     border-radius: 4px;
     transition: all 0.3s;
-    
+
     :deep(.arco-card-header) {
       border-bottom: 1px solid var(--color-neutral-3);
     }
@@ -147,14 +198,14 @@
     display: flex;
     align-items: center;
     margin-bottom: 16px;
-    
+
     .intro-title {
       font-size: 20px;
       font-weight: 600;
       color: var(--color-text-1);
       margin-right: 12px;
     }
-    
+
     .version-tag {
       border-radius: 12px;
       padding: 0 10px;
@@ -174,7 +225,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px 24px;
     margin-bottom: 24px;
-    
+
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
     }
@@ -183,7 +234,7 @@
       display: flex;
       align-items: center;
       font-size: 14px;
-      
+
       &.full-width {
         grid-column: 1 / -1;
       }
@@ -194,7 +245,7 @@
         min-width: 90px;
         display: flex;
         align-items: center;
-        
+
         .icon {
           margin-right: 8px;
           color: var(--color-text-3);
@@ -208,7 +259,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        
+
         .disabled-text {
           color: var(--color-text-4);
           cursor: not-allowed;
@@ -216,7 +267,7 @@
       }
     }
   }
-  
+
   .contact-links {
     display: flex;
     align-items: center;
@@ -226,11 +277,11 @@
     .arco-link {
       display: inline-flex;
     }
-    
+
     .link-icon {
       margin-right: 4px;
     }
-    
+
     .wechat-text {
       display: flex;
       align-items: center;
@@ -255,14 +306,14 @@
     align-items: center;
     padding-left: 24px;
     border-left: 1px solid var(--color-neutral-3);
-    
+
     @media (max-width: 1199px) {
       border-left: none;
       padding-left: 0;
       margin-top: 24px;
       justify-content: flex-start;
     }
-    
+
     @media (max-width: 576px) {
       flex-direction: column;
     }
@@ -279,16 +330,16 @@
     cursor: pointer;
     flex: 1;
     min-width: 0;
-    
+
     &:hover {
       background: var(--color-fill-2);
       transform: translateY(-4px);
-      
+
       .qr-title {
         color: rgb(var(--arcoblue-6));
       }
     }
-    
+
     .qr-image-wrapper {
       width: 150px;
       height: 240px;
@@ -296,14 +347,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      
+
       :deep(.arco-image) {
         width: 100%;
         height: 100%;
         border-radius: 4px;
         overflow: hidden;
       }
-      
+
       :deep(.arco-image-img) {
         width: 100%;
         height: 100%;
@@ -312,14 +363,14 @@
         display: block;
       }
     }
-    
+
     .qr-info {
       width: 100%;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      
+
       .qr-title {
         font-size: 16px;
         font-weight: 600;
@@ -328,7 +379,7 @@
         transition: color 0.3s;
         white-space: nowrap;
       }
-      
+
       .qr-sub {
         font-size: 13px;
         color: var(--color-text-3);
