@@ -42,13 +42,10 @@
   import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
   import GlobalSetting from '@/components/global-setting/index.vue';
   import useLocale from '@/hooks/locale';
-  import { useDictDataStore } from '@/store/modules/sys/dict/dictDataStore';
   import { isLogin } from '@/utils/auth';
   // import useWebsocket from '@/hooks/websocket';
   import { useWebsocketStore } from '@/store/modules/common/websocketStore';
   import { useAppStore } from '@/store';
-
-  const dictDataStore = useDictDataStore();
 
   const wsStore = useWebsocketStore();
 
@@ -71,8 +68,6 @@
   onMounted(async () => {
     appStore.initTheme();
     if (isLogin()) {
-      dictDataStore.loadDictDataList();
-
       initWebSocket();
     }
   });

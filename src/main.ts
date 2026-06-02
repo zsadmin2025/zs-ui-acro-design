@@ -6,10 +6,10 @@ import { setCssVariables } from '@/config/css-variables';
 import print from 'vue3-print-nb';
 
 import { websiteStore } from '@/store/modules/sys/config/website/websiteStore';
-import { getTenantId } from '@/utils/auth';
+import { getTenantId, getToken } from '@/utils/auth';
 import VueDOMPurifyHTML from 'vue-dompurify-html';
 import router from './router';
-import store from './store';
+import store, { useAppStore, useUserStore } from './store';
 import i18n from './locale';
 import directive from './directive';
 import './mock';
@@ -39,6 +39,16 @@ Message._context = app._context;
 
 if (getTenantId()) {
   websiteStore().init();
+}
+
+// 预加载关键数据：与 Vue 挂载并行，缩短路由守卫等待时间
+if (getToken()) {
+  Promise.all([
+    useUserStore().info(),
+    useAppStore().fetchServerMenuConfig(),
+  ]).catch(() => {
+    // 预加载失败由路由守卫兜底处理，此处静默忽略
+  });
 }
 
 app.mount('#app');
