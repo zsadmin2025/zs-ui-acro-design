@@ -126,7 +126,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #requestMethod="{ record }">
             <a-tag v-if="record.requestMethod === 'GET'" color="blue"
@@ -284,6 +284,7 @@
       width: 100,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

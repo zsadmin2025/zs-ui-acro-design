@@ -85,7 +85,7 @@
           :size="currentSize"
           :row-selection="rowSelection"
           :pagination="false"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #operations="{ record }">
             <a-space>
@@ -232,6 +232,7 @@
       width: 300,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

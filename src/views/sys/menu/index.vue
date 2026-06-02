@@ -49,7 +49,7 @@
           :bordered="false"
           :size="currentSize"
           :pagination="false"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #type="{ record }">
             <a-tag v-if="record.type === 1" color="arcoblue"> 目录 </a-tag>
@@ -257,6 +257,7 @@
       width: 250,
       align: 'right',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

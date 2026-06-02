@@ -129,7 +129,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #status="{ record }">
             <span v-if="record.status === 0" class="circle fail"></span>
@@ -278,6 +278,7 @@
       width: 100,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

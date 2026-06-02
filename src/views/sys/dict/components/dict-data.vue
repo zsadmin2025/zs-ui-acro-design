@@ -232,9 +232,10 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 260,
+      width: 210,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

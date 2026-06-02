@@ -131,7 +131,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #channel="{ record }">
             <a-tag color="arcoblue">
@@ -294,6 +294,7 @@
       width: 300,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

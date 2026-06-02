@@ -100,7 +100,7 @@
           :size="currentSize"
           :row-selection="rowSelection"
           :pagination="false"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
           :table-layout-fixed="true"
         >
           <template #dataScope="{ record }">
@@ -246,9 +246,10 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 205,
+      width: 190,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

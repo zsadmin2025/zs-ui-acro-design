@@ -248,6 +248,7 @@
       width: 160,
       align: 'center',
       fixed: 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

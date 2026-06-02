@@ -139,7 +139,7 @@
           :data="processData"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #title="{ record }">
             <a-link @click="noticeStore.handleInfo(record)">
@@ -342,6 +342,7 @@
       width: 210,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

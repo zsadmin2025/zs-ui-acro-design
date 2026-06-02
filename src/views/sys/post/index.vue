@@ -106,7 +106,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #status="{ record }">
             <ZsStatus :value="record.status" />
@@ -202,7 +202,6 @@
       dataIndex: 'remark',
       ellipsis: true,
       tooltip: true,
-      width: 200,
     },
     {
       title: '状态',
@@ -215,9 +214,10 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 205,
+      width: 140,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

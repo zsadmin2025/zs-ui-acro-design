@@ -150,7 +150,7 @@
           :size="currentSize"
           :row-selection="rowSelection"
           :pagination="false"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #avatar="{ record }">
             <a-avatar v-if="record.avatar" :size="32">
@@ -243,7 +243,6 @@
     showCheckedAll: true,
   });
 
-  const dynamicHeight = ref();
   const collapsed = ref(true);
 
   const columns = computed<TableColumnData[]>(() => [
@@ -334,9 +333,10 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 260,
+      width: 230,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
   const currentSize = ref('medium');

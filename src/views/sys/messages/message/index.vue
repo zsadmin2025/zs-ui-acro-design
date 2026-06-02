@@ -116,7 +116,7 @@
           :data="list"
           :bordered="false"
           :size="currentSize"
-          :scroll="{ x: 1800, y: '100%' }"
+          :scroll="{ x: '100%', y: '100%' }"
         >
           <template #type="{ record }">
             <span v-if="record.type === 1"> 站内信 </span>
@@ -257,6 +257,7 @@
       width: 160,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 
