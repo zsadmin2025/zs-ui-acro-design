@@ -4,7 +4,7 @@ import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import globalComponents from '@/components';
 import { setCssVariables } from '@/config/css-variables';
 import print from 'vue3-print-nb';
-
+import formCreate from '@form-create/arco-design';
 import { websiteStore } from '@/store/modules/sys/config/website/websiteStore';
 import { getTenantId, getToken } from '@/utils/auth';
 import VueDOMPurifyHTML from 'vue-dompurify-html';
@@ -25,6 +25,7 @@ import 'virtual:svg-icons-register';
 const app = createApp(App);
 setCssVariables();
 app.use(ArcoVue, {});
+app.use(formCreate);
 app.use(ArcoVueIcon);
 app.use(VueDOMPurifyHTML);
 app.use(router);

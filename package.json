@@ -36,6 +36,7 @@
   "dependencies": {
     "@arco-design/color": "^0.4.0",
     "@arco-design/web-vue": "^2.58.0",
+    "@form-create/arco-design": "^3.3.0",
     "@fullcalendar/core": "^6.1.19",
     "@fullcalendar/daygrid": "^6.1.19",
     "@fullcalendar/interaction": "^6.1.19",
