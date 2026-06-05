@@ -29,7 +29,11 @@ export const appExternalRoutes: RouteRecordNormalized[] = formatModules(
 
 const modules1 = import.meta.glob('@/views/**/*.vue');
 const loadView = (view: any) => {
-  return modules1[`/src/views${view}.vue`];
+  if (!view) return undefined;
+  // 兼容两种格式: "@/views/xxx.vue" → "/xxx",  "/xxx" → "/xxx"
+  const normalized = view.replace(/^@\/views/, '').replace(/\.vue$/, '');
+  const key = `/src/views${normalized}.vue`;
+  return modules1[key];
 };
 export const transformRoutes = (data: any[]): AppRouteRecordRaw[] => {
   return data.map((item: any) => {
