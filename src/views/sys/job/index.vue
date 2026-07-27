@@ -2,21 +2,21 @@
   <div>
     <zs-container layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form :model="form" :auto-label-width="true" label-align="left">
-              <a-row :gutter="16">
-                <a-col :span="6">
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="jobName" label="任务名称">
                     <a-input v-model="form.jobName" placeholder="任务名称" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="jobGroup" label="任务组名">
                     <a-input v-model="form.jobGroup" placeholder="任务组名" />
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item field="status" label="任务状态">
                     <a-select
                       v-model="form.status"
@@ -27,7 +27,7 @@
                     </a-select>
                   </a-form-item>
                 </a-col>
-                <a-col :span="6">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xxl="6">
                   <a-form-item field="jobClass" label="任务类名">
                     <a-input v-model="form.jobClass" placeholder="任务类名" />
                   </a-form-item>
@@ -35,27 +35,29 @@
               </a-row>
             </a-form>
           </a-col>
-          <a-col :flex="'86px'" style="text-align: right">
-            <a-space :size="18">
-              <a-button type="primary" @click="jobStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="jobStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="6" :xxl="6">
+            <div style="text-align: right">
+              <a-space :size="9" wrap>
+                <a-button type="primary" @click="jobStore.fetchData">
+                  <template #icon>
+                    <icon-search />
+                  </template>
+                  {{ $t('searchTable.form.search') }}
+                </a-button>
+                <a-button @click="jobStore.reset">
+                  <template #icon>
+                    <icon-refresh />
+                  </template>
+                  {{ $t('searchTable.form.reset') }}
+                </a-button>
+              </a-space>
+            </div>
           </a-col>
         </a-row>
       </template>
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:job:save'"
@@ -91,7 +93,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -186,9 +190,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="jobStore.handleCurrentChange"
           @page-size-change="jobStore.handleSizeChange"
         />
@@ -205,12 +210,14 @@
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
   import { useJobStore } from '@/store/modules/sys/job/jobStore';
+  import { useAppStore } from '@/store';
   import JobAddOrEdit from './components/job-add-or-edit.vue';
   import JobLog from './components/job-log.vue';
 
   const jobStore = useJobStore();
   const { addEditRef, logRef, loading, list, total, form, selectedKeys } =
     storeToRefs(jobStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',
@@ -289,7 +296,8 @@
       slotName: 'operations',
       width: 400,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

@@ -2,14 +2,14 @@
   <a-drawer
     :visible="dialogFormVisible"
     :title="titleType"
-    width="40%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     @cancel="userAddOrEditStore.close"
     @ok="userAddOrEditStore.submit(emits)"
   >
     <zs-scetion title="基本信息">
       <a-form ref="formRef" :model="form" :rules="rules" auto-label-width>
         <a-row :gutter="24">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="头像" field="avatar">
               <ZsAvatar
                 :avatar-url="avatar"
@@ -20,12 +20,12 @@
           </a-col>
         </a-row>
         <a-row :gutter="24">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="账号" field="username">
               <a-input v-model="form.username" placeholder="请输入账号" />
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item
               label="密码"
               :field="!form.sysUserId ? 'password' : ''"
@@ -38,12 +38,12 @@
               />
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="真实姓名" field="realName">
               <a-input v-model="form.realName" placeholder="请输入真实姓名" />
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="性别" field="sex">
               <a-select v-model="form.sex">
                 <a-option :value="0" label="男"></a-option>
@@ -51,7 +51,7 @@
               </a-select>
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="手机号" field="phone">
               <a-input
                 v-model="form.phone"
@@ -61,12 +61,12 @@
               />
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="邮箱" field="email">
               <a-input v-model="form.email" placeholder="请输入邮箱" />
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="部门" field="sysDeptId">
               <a-tree-select
                 v-model="form.sysDeptId"
@@ -84,7 +84,7 @@
             </a-form-item>
           </a-col>
 
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="岗位" field="sysPostId">
               <a-select
                 v-model="form.sysPostId"
@@ -102,7 +102,7 @@
             </a-form-item>
           </a-col>
 
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="员工编号" field="employeeNumber">
               <a-input
                 v-model="form.employeeNumber"
@@ -112,7 +112,7 @@
               />
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
             <a-form-item label="角色名称" field="roleIdList">
               <a-select
                 v-model="form.roleIdList"
@@ -164,8 +164,10 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
+  import { useAppStore } from '@/store';
   import { useUserAddOrEditStore } from '@/store/modules/sys/user/userAddOrEditStore';
 
+  const appStore = useAppStore();
   const userAddOrEditStore = useUserAddOrEditStore();
   const {
     dialogFormVisible,

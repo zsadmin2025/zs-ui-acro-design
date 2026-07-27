@@ -343,6 +343,8 @@
       title: t('searchTable.columns.operations'),
       dataIndex: 'operations',
       slotName: 'operations',
+      width: 120,
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
   const contentTypeOptions = computed<SelectOptionData[]>(() => [

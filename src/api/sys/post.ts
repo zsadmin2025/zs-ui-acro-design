@@ -35,7 +35,9 @@ export const sysPostApi = {
   batchDel(data: any) {
     return axios.delete('/system/sys/post', { data });
   },
-
+  getDeptPostTree() {
+    return axios.get('/system/sys/post/getDeptPostTree');
+  },
   // 导出岗位数据为Excel
   exportExcel(params: any) {
     return axios.get('/system/sys/post/export', {

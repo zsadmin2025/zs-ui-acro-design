@@ -1,92 +1,93 @@
 <template>
   <div>
-    <zs-container
-      layout="left-right"
-      :right-header-height="dynamicHeight + 'px'"
-    >
+    <zs-container layout="left-right">
       <template #left>
         <ZsDept @node-click="userStore.handleNodeClick" />
       </template>
       <template #right-header>
-        <a-row :gutter="16">
-          <a-col :flex="1">
-            <a-form :model="form" label-align="left" :auto-label-width="true">
-              <a-row :gutter="16">
-                <a-col :span="6">
-                  <a-form-item field="username" label="登录账号">
-                    <a-input v-model="form.username" placeholder="登录账号" />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="realName" label="真实姓名">
-                    <a-input v-model="form.realName" placeholder="真实姓名" />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="sex" label="性别">
-                    <a-select
-                      v-model="form.sex"
-                      placeholder="请选择性别"
-                      allow-clear
-                    >
-                      <a-option :value="0">男</a-option>
-                      <a-option :value="1">女</a-option>
-                    </a-select>
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="phone" label="手机号">
-                    <a-input v-model="form.phone" placeholder="手机号" />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="email" label="邮箱">
-                    <a-input v-model="form.email" placeholder="邮箱" />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="employeeNumber" label="工号">
-                    <a-input v-model="form.employeeNumber" placeholder="工号" />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="status" label="状态">
-                    <a-select
-                      v-model="form.status"
-                      placeholder="请选择状态"
-                      allow-clear
-                    >
-                      <a-option :value="0">禁用</a-option>
-                      <a-option :value="1">启用</a-option>
-                    </a-select>
-                  </a-form-item>
-                </a-col>
-              </a-row>
-            </a-form>
-          </a-col>
-          <!-- <a-divider style="height: 42px" direction="vertical" /> -->
-          <a-col :flex="'86px'">
-            <a-space :size="18">
-              <a-button type="primary" @click="userStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="userStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
-          </a-col>
-        </a-row>
+        <a-form :model="form" label-align="left" :auto-label-width="true">
+          <a-row :gutter="[16, 16]">
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="username" label="登录账号">
+                <a-input v-model="form.username" placeholder="登录账号" />
+              </a-form-item>
+            </a-col>
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="realName" label="真实姓名">
+                <a-input v-model="form.realName" placeholder="真实姓名" />
+              </a-form-item>
+            </a-col>
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="phone" label="手机号">
+                <a-input v-model="form.phone" placeholder="手机号" />
+              </a-form-item>
+            </a-col>
+            <template v-if="!collapsed">
+              <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                <a-form-item field="email" label="邮箱">
+                  <a-input v-model="form.email" placeholder="邮箱" />
+                </a-form-item>
+              </a-col>
+              <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                <a-form-item field="sex" label="性别">
+                  <a-select
+                    v-model="form.sex"
+                    placeholder="请选择性别"
+                    allow-clear
+                  >
+                    <a-option :value="0">男</a-option>
+                    <a-option :value="1">女</a-option>
+                  </a-select>
+                </a-form-item>
+              </a-col>
+              <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                <a-form-item field="employeeNumber" label="工号">
+                  <a-input v-model="form.employeeNumber" placeholder="工号" />
+                </a-form-item>
+              </a-col>
+              <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                <a-form-item field="status" label="状态">
+                  <a-select
+                    v-model="form.status"
+                    placeholder="请选择状态"
+                    allow-clear
+                  >
+                    <a-option :value="0">禁用</a-option>
+                    <a-option :value="1">启用</a-option>
+                  </a-select>
+                </a-form-item>
+              </a-col>
+            </template>
+            <a-col flex="1">
+              <div style="text-align: right">
+                <a-space :size="9" wrap>
+                  <a-button type="primary" @click="userStore.fetchData">
+                    <template #icon>
+                      <icon-search />
+                    </template>
+                    {{ $t('searchTable.form.search') }}
+                  </a-button>
+                  <a-button @click="userStore.reset">
+                    <template #icon>
+                      <icon-refresh />
+                    </template>
+                    {{ $t('searchTable.form.reset') }}
+                  </a-button>
+                  <a-button type="text" @click="collapsed = !collapsed">
+                    {{ collapsed ? '展开' : '收起' }}
+                    <icon-down v-if="collapsed" />
+                    <icon-up v-else />
+                  </a-button>
+                </a-space>
+              </div>
+            </a-col>
+          </a-row>
+        </a-form>
       </template>
 
       <template #right-main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:user:save'"
@@ -122,7 +123,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -207,9 +210,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="userStore.handleCurrentChange"
           @page-size-change="userStore.handleSizeChange"
         />
@@ -224,10 +228,12 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
+  import { useAppStore } from '@/store';
   import { useUserStore } from '@/store/modules/sys/user/userStore';
   import userAddOrEdit from './components/user-add-or-edit.vue';
   import userResetPassword from './components/user-reset-password.vue';
 
+  const appStore = useAppStore();
   const userStore = useUserStore();
   const { addEditRef, loading, list, total, form, selectedKeys } =
     storeToRefs(userStore);
@@ -237,7 +243,7 @@
     showCheckedAll: true,
   });
 
-  const dynamicHeight = ref();
+  const collapsed = ref(true);
 
   const columns = computed<TableColumnData[]>(() => [
     {
@@ -260,7 +266,7 @@
       dataIndex: 'username',
       ellipsis: true,
       tooltip: true,
-      width: 100,
+      width: 150,
     },
     {
       title: '用户姓名',
@@ -327,14 +333,15 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 240,
+      width: 230,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
-  const currentSize = ref('medium');
+  const currentSize = ref<'small' | 'medium' | 'mini' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
-    currentSize.value = size;
+    currentSize.value = size as 'small' | 'medium' | 'mini' | 'large';
   };
 
   onMounted(() => {

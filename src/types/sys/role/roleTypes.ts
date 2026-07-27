@@ -52,5 +52,6 @@ export interface RoleAddOrEditState {
   menuPermissionRef: any;
   menuData: any[];
   deptTree: any[];
+  loading: boolean;
   form: RoleForm;
 }

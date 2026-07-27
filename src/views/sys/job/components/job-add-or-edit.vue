@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="jobAddOrEditStore.close"
@@ -56,10 +56,12 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import { useJobAddOrEditStore } from '@/store/modules/sys/job/jobAddOrEditStore';
+  import { useAppStore } from '@/store';
 
   const jobAddOrEditStore = useJobAddOrEditStore();
   const { form, dialogFormVisible, loading, formRef, rules } =
     storeToRefs(jobAddOrEditStore);
+  const appStore = useAppStore();
 
   const emits = defineEmits(['refresh']);
 

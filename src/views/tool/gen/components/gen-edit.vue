@@ -1,6 +1,6 @@
 <template>
   <a-drawer
-    width="80%"
+    :width="appStore.device === 'mobile' ? '90%' : '80%'"
     :visible="visible"
     unmount-on-close
     @cancel="genEditStore.close"
@@ -199,9 +199,11 @@
   import { useGenEditStore } from '@/store/modules/tool/gen/genEditStore';
   import { useMenuAddOrEditStore } from '@/store/modules/sys/menu/menuAddOrEditStore';
   import { useDictTypeStore } from '@/store/modules/sys/dict/dictTypeStore';
+  import { useAppStore } from '@/store';
 
   const genEditStore = useGenEditStore();
   const { visible, formRef, genTable, loading } = storeToRefs(genEditStore);
+  const appStore = useAppStore();
 
   const menuAddOrEditStore = useMenuAddOrEditStore();
   const { list } = storeToRefs(menuAddOrEditStore);

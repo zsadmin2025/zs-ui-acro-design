@@ -2,58 +2,53 @@
   <div>
     <zs-container layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16">
-          <a-col :flex="1">
-            <a-form :model="form" :auto-label-width="true" label-align="left">
-              <a-row :gutter="16">
-                <a-col :span="6">
-                  <a-form-item field="packageCode" label="套餐编码">
-                    <a-input
-                      v-model="form.packageCode"
-                      placeholder="套餐编码"
-                    />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="packageName" label="套餐名称">
-                    <a-input
-                      v-model="form.packageName"
-                      placeholder="套餐名称"
-                    />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="status" label="状态">
-                    <a-select
-                      v-model="form.status"
-                      placeholder="请选择状态"
-                      allow-clear
-                    >
-                      <a-option :value="0">下架</a-option>
-                      <a-option :value="1">正常</a-option>
-                    </a-select>
-                  </a-form-item>
-                </a-col>
-              </a-row>
-            </a-form>
-          </a-col>
-          <a-col :flex="'86px'" style="text-align: right">
-            <a-space :size="18">
-              <a-button type="primary" @click="tenantPackageStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="tenantPackageStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
-          </a-col>
-        </a-row>
+        <a-form :model="form" :auto-label-width="true" label-align="left">
+          <a-row :gutter="[16, 16]">
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="packageCode" label="套餐编码">
+                <a-input v-model="form.packageCode" placeholder="套餐编码" />
+              </a-form-item>
+            </a-col>
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="packageName" label="套餐名称">
+                <a-input v-model="form.packageName" placeholder="套餐名称" />
+              </a-form-item>
+            </a-col>
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="status" label="状态">
+                <a-select
+                  v-model="form.status"
+                  placeholder="请选择状态"
+                  allow-clear
+                >
+                  <a-option :value="0">下架</a-option>
+                  <a-option :value="1">正常</a-option>
+                </a-select>
+              </a-form-item>
+            </a-col>
+            <a-col flex="1">
+              <div style="text-align: right">
+                <a-space :size="18">
+                  <a-button
+                    type="primary"
+                    @click="tenantPackageStore.fetchData"
+                  >
+                    <template #icon>
+                      <icon-search />
+                    </template>
+                    {{ $t('searchTable.form.search') }}
+                  </a-button>
+                  <a-button @click="tenantPackageStore.reset">
+                    <template #icon>
+                      <icon-refresh />
+                    </template>
+                    {{ $t('searchTable.form.reset') }}
+                  </a-button>
+                </a-space>
+              </div>
+            </a-col>
+          </a-row>
+        </a-form>
       </template>
       <template #main-header>
         <a-row>
@@ -186,7 +181,6 @@
     type: 'checkbox',
     showCheckedAll: true,
   });
-
   const columns = computed<TableColumnData[]>(() => [
     {
       title: '#',
@@ -254,6 +248,7 @@
       width: 160,
       align: 'center',
       fixed: 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

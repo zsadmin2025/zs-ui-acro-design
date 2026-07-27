@@ -137,7 +137,37 @@ body {
   // }
 }
 
+// 修复 Arco Table scroll.y 使用百分比时 Spin 组件(display:inline-block)阻断 height:100% 传递链
+// .arco-table 已有显式的 height（来自 scroll.y 百分比值），但 Spin 是 inline-block，
+// 无法继承父高度，导致子元素 .arco-table-body 的 max-height:100% 解析失败，滚动约束失效
+.arco-table-scroll-y {
+  > .arco-spin {
+    display: block;
+    height: 100%;
+  }
+}
+
+// 表格无数据时，让空状态占满表格区域
+// 必须设置 .arco-scrollbar-type-embed（body scrollbar 外层）height:100% 才能让空内容填充，
+// 但全局设置会导致有数据时出现滚动条冲突，所以限定在 .arco-table-empty 下
+.arco-table-empty {
+  .arco-table-content .arco-scrollbar-type-embed:nth-of-type(2) {
+    height: 100%;
+  }
+
+  .arco-table-body {
+    .arco-table-element {
+      height: 100%;
+    }
+
+    .arco-table-tr-empty {
+      height: 100%;
+    }
+  }
+}
+
 .arco-table-cell {
+  height: 100%;
   .circle {
     display: inline-block;
     margin-right: 4px;

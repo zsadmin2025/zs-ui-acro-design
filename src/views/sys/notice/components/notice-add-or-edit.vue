@@ -1,7 +1,7 @@
 <template>
   <a-drawer
     :visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     unmount-on-close
     @cancel="noticeAddOrEditStore.close"
   >
@@ -147,10 +147,12 @@
   import { useNoticeAddOrEditStore } from '@/store/modules/sys/notice/noticeAddOrEditStore';
   import { useRoleStore } from '@/store/modules/sys/role/roleStore';
   import { useDeptStore } from '@/store/modules/sys/dept/deptStore';
+  import { useAppStore } from '@/store';
 
   const noticeAddOrEditStore = useNoticeAddOrEditStore();
   const { form, dialogFormVisible, loading, formRef, rules } =
     storeToRefs(noticeAddOrEditStore);
+  const appStore = useAppStore();
 
   // 角色store
   const roleStore = useRoleStore();

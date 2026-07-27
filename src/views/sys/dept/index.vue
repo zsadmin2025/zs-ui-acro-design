@@ -5,43 +5,49 @@
         <ZsDept @node-click="deptStore.handleNodeClick" />
       </template>
       <template #right-header>
-        <a-row :gutter="16" style="width: fit-content">
+        <a-row :gutter="[16, 16]">
           <a-col :flex="1">
             <a-form
               :model="dataForm"
               label-align="left"
               :auto-label-width="true"
             >
-              <a-form-item label="部门名称">
-                <a-input
-                  v-model="dataForm.deptName"
-                  placeholder="请输入部门名称"
-                  :allow-clear="true"
-                />
-              </a-form-item>
+              <a-row :gutter="[16, 16]">
+                <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                  <a-form-item label="部门名称" field="deptName">
+                    <a-input
+                      v-model="dataForm.deptName"
+                      placeholder="请输入部门名称"
+                      :allow-clear="true"
+                    />
+                  </a-form-item>
+                </a-col>
+                <a-col flex="1">
+                  <div style="text-align: right">
+                    <a-space :size="9" wrap>
+                      <a-button type="primary" @click="deptStore.loadDeptPage">
+                        <template #icon>
+                          <icon-search />
+                        </template>
+                        {{ $t('searchTable.form.search') }}
+                      </a-button>
+                      <a-button @click="deptStore.resetForm">
+                        <template #icon>
+                          <icon-refresh />
+                        </template>
+                        {{ $t('searchTable.form.reset') }}
+                      </a-button>
+                    </a-space>
+                  </div>
+                </a-col>
+              </a-row>
             </a-form>
-          </a-col>
-          <a-col :flex="'86px'">
-            <a-space :size="18">
-              <a-button type="primary" @click="deptStore.loadDeptPage">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="deptStore.resetForm">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
           </a-col>
         </a-row>
       </template>
       <template #right-main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:dept:save'"
@@ -56,7 +62,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -114,9 +122,10 @@
           v-model:current="dataForm.current"
           v-model:page-size="dataForm.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="deptStore.handleCurrentChange"
           @page-size-change="deptStore.handleSizeChange"
         />
@@ -130,10 +139,12 @@
   import { storeToRefs } from 'pinia';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useDeptStore } from '@/store/modules/sys/dept/deptStore';
+  import { useAppStore } from '@/store';
   import deptAddOrEdit from './components/dept-add-or-edit.vue';
 
   const deptStore = useDeptStore();
   const { addEditRef, loading, dataForm, list, total } = storeToRefs(deptStore);
+  const appStore = useAppStore();
 
   const columns = computed<TableColumnData[]>(() => [
     {
@@ -178,9 +189,10 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 150,
+      width: 160,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
   const currentSize = ref('medium');

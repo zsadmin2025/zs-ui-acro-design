@@ -37,18 +37,16 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue';
+  import { computed, watch } from 'vue';
   import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
   import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
   import GlobalSetting from '@/components/global-setting/index.vue';
   import useLocale from '@/hooks/locale';
-  import { useDictDataStore } from '@/store/modules/sys/dict/dictDataStore';
   import { isLogin } from '@/utils/auth';
   // import useWebsocket from '@/hooks/websocket';
   import { useWebsocketStore } from '@/store/modules/common/websocketStore';
   import { useAppStore } from '@/store';
-
-  const dictDataStore = useDictDataStore();
+  import { isPreloading } from '@/preload';
 
   const wsStore = useWebsocketStore();
 
@@ -71,8 +69,6 @@
   onMounted(async () => {
     appStore.initTheme();
     if (isLogin()) {
-      dictDataStore.loadDictDataList();
-
       initWebSocket();
     }
   });
@@ -88,4 +84,20 @@
         return enUS;
     }
   });
+
+  // 预加载完成后隐藏全局 Loading
+  watch(
+    isPreloading,
+    (loading) => {
+      if (!loading) {
+        const loadingEl = document.getElementById('app-loading');
+        if (loadingEl) {
+          loadingEl.style.display = 'none';
+        }
+      }
+    },
+    { immediate: true },
+  );
 </script>
+
+<style scoped></style>

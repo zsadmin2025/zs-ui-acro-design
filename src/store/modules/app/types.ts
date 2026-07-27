@@ -20,5 +20,7 @@ export interface AppState {
   breadcrumb: boolean;
   menuFromServer: boolean;
   serverMenu: RouteRecordNormalized[];
+  hasFetchedMenus: boolean;
+  routesRegistered: boolean;
   [key: string]: unknown;
 }

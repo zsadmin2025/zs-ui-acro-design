@@ -2,64 +2,66 @@
   <div class="tenant-container">
     <zs-container layout="header-main-footer">
       <template #header>
-        <a-row :gutter="16">
-          <a-col :flex="1">
-            <a-form :model="form" label-align="left" :auto-label-width="true">
-              <a-row :gutter="16">
-                <a-col :span="6">
-                  <a-form-item field="tenantName" label="租户名称">
-                    <a-input v-model="form.tenantName" placeholder="租户名称" />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="contactPerson" label="联系人">
-                    <a-input
-                      v-model="form.contactPerson"
-                      placeholder="联系人"
-                    />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="contactPhone" label="手机号">
-                    <a-input v-model="form.contactPhone" placeholder="手机号" />
-                  </a-form-item>
-                </a-col>
-                <a-col :span="6">
-                  <a-form-item field="status" label="状态">
-                    <a-select
-                      v-model="form.status"
-                      placeholder="请选择状态"
-                      allow-clear
-                    >
-                      <a-option :value="0">启用</a-option>
-                      <a-option :value="1">禁用</a-option>
-                    </a-select>
-                  </a-form-item>
-                </a-col>
-              </a-row>
-            </a-form>
-          </a-col>
-          <a-col :flex="'86px'">
-            <a-space :size="18">
-              <a-button type="primary" @click="tenantStore.fetchData">
-                <template #icon>
-                  <icon-search />
-                </template>
-                {{ $t('searchTable.form.search') }}
-              </a-button>
-              <a-button @click="tenantStore.reset">
-                <template #icon>
-                  <icon-refresh />
-                </template>
-                {{ $t('searchTable.form.reset') }}
-              </a-button>
-            </a-space>
-          </a-col>
-        </a-row>
+        <a-form :model="form" label-align="left" :auto-label-width="true">
+          <a-row :gutter="[16, 16]">
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="tenantName" label="租户名称">
+                <a-input v-model="form.tenantName" placeholder="租户名称" />
+              </a-form-item>
+            </a-col>
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="contactPerson" label="联系人">
+                <a-input v-model="form.contactPerson" placeholder="联系人" />
+              </a-form-item>
+            </a-col>
+            <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+              <a-form-item field="contactPhone" label="手机号">
+                <a-input v-model="form.contactPhone" placeholder="手机号" />
+              </a-form-item>
+            </a-col>
+            <template v-if="!collapsed">
+              <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
+                <a-form-item field="status" label="状态">
+                  <a-select
+                    v-model="form.status"
+                    placeholder="请选择状态"
+                    allow-clear
+                  >
+                    <a-option :value="0">启用</a-option>
+                    <a-option :value="1">禁用</a-option>
+                  </a-select>
+                </a-form-item>
+              </a-col>
+            </template>
+            <a-col flex="1">
+              <div style="text-align: right">
+                <a-space :size="9" wrap>
+                  <a-button type="primary" @click="tenantStore.fetchData">
+                    <template #icon>
+                      <icon-search />
+                    </template>
+                    {{ $t('searchTable.form.search') }}
+                  </a-button>
+                  <a-button @click="tenantStore.reset">
+                    <template #icon>
+                      <icon-refresh />
+                    </template>
+                    {{ $t('searchTable.form.reset') }}
+                  </a-button>
+                  <a-button type="text" @click="collapsed = !collapsed">
+                    {{ collapsed ? '展开' : '收起' }}
+                    <icon-down v-if="collapsed" />
+                    <icon-up v-else />
+                  </a-button>
+                </a-space>
+              </div>
+            </a-col>
+          </a-row>
+        </a-form>
       </template>
       <template #main-header>
         <a-row justify="space-between" align="center">
-          <a-col :span="12">
+          <a-col :xs="24" :sm="12">
             <a-space>
               <a-button
                 v-permission="'sys:tenant:save'"
@@ -95,7 +97,9 @@
             </a-space>
           </a-col>
           <a-col
-            :span="12"
+            v-if="appStore.device !== 'mobile'"
+            :xs="24"
+            :sm="12"
             style="display: flex; align-items: center; justify-content: end"
           >
             <a-space>
@@ -155,9 +159,10 @@
           v-model:current="form.current"
           v-model:page-size="form.pageSize"
           :total="total"
-          show-total
-          show-jumper
-          show-page-size
+          :show-total="appStore.device !== 'mobile'"
+          :show-jumper="appStore.device !== 'mobile'"
+          :show-page-size="appStore.device !== 'mobile'"
+          :simple="appStore.device === 'mobile'"
           @change="tenantStore.handleCurrentChange"
           @page-size-change="tenantStore.handleSizeChange"
         />
@@ -173,17 +178,19 @@
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
   import { useTenantStore } from '@/store/modules/sys/tenant/tenant/tenantStore';
+  import { useAppStore } from '@/store';
   import TenantAddOrEdit from './components/tenant-add-or-edit.vue';
 
   const tenantStore = useTenantStore();
   const { addEditRef, loading, list, total, form, selectedKeys } =
     storeToRefs(tenantStore);
+  const appStore = useAppStore();
 
   const rowSelection = reactive({
     type: 'checkbox',
     showCheckedAll: true,
   });
-
+  const collapsed = ref(true);
   const columns = computed<TableColumnData[]>(() => [
     {
       title: '#',
@@ -234,9 +241,10 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 150,
+      width: 160,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 

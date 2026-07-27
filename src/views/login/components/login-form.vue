@@ -72,26 +72,29 @@
       </a-form-item>
       <a-form-item
         field="code"
+        class="login-form-item"
         :rules="[{ required: true, message: $t('login.form.code.errMsg') }]"
         :validate-trigger="['change', 'blur']"
         hide-label
       >
-        <a-input
-          v-model="userInfo.code"
-          :placeholder="$t('login.form.code.placeholder')"
-          allow-clear
-          size="large"
-          class="login-form-input"
-        >
-        </a-input>
-        <div class="captcha-container" @click="refreshCaptcha()">
-          <img
-            :src="loginStore.codeForm.img"
-            alt="验证码"
-            style="width: 100px; height: 35px"
-          />
-          <div v-if="captchaExpired" class="captcha-mask">
-            <div class="text">点击刷新</div>
+        <div class="code-input-wrapper">
+          <a-input
+            v-model="userInfo.code"
+            :placeholder="$t('login.form.code.placeholder')"
+            allow-clear
+            size="large"
+            class="login-form-input"
+          >
+          </a-input>
+          <div class="captcha-container" @click="refreshCaptcha()">
+            <img
+              :src="loginStore.codeForm.img"
+              alt="验证码"
+              style="width: 100px; height: 35px"
+            />
+            <div v-if="captchaExpired" class="captcha-mask">
+              <div class="text">点击刷新</div>
+            </div>
           </div>
         </div>
       </a-form-item>
@@ -388,7 +391,6 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-    margin-left: 10px;
     width: 100px;
     height: 35px;
   }
@@ -426,10 +428,11 @@
     width: 100%;
   }
   // 验证码区域样式优化
-  .login-form-item[field='code'] {
+  .code-input-wrapper {
     display: flex;
     align-items: center;
     gap: 8px;
+    width: 100%;
 
     .login-form-input {
       flex: 1;
@@ -442,8 +445,8 @@
 
   // 响应式：移动端适配
   @media (max-width: 480px) {
-    .login-form-wrapper {
-      width: calc(100vw - 40px);
+    .form_container {
+      width: 100%;
       padding: 30px 16px;
     }
 
@@ -451,19 +454,8 @@
       font-size: 22px;
     }
 
-    .login-form-title {
+    .title {
       font-size: 24px;
-    }
-
-    .login-form-item[field='code'] {
-      flex-direction: column;
-      align-items: stretch;
-
-      img {
-        order: -1;
-        width: 100%;
-        margin-left: 0 !important;
-      }
     }
   }
 </style>

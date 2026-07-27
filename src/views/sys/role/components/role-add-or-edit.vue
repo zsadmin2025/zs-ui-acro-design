@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="roleAddOrEditStore.close"
@@ -41,7 +41,11 @@
     <template #footer>
       <a-space>
         <a-button @click="roleAddOrEditStore.close">取消</a-button>
-        <a-button type="primary" @click="roleAddOrEditStore.submit(emits)">
+        <a-button
+          type="primary"
+          :loading="loading"
+          @click="roleAddOrEditStore.submit(emits)"
+        >
           确定
         </a-button>
       </a-space>
@@ -52,10 +56,12 @@
 <script lang="ts" setup>
   import { useRoleAddOrEditStore } from '@/store/modules/sys/role/roleAddOrEditStore';
   import { storeToRefs } from 'pinia';
+  import { useAppStore } from '@/store';
 
   const roleAddOrEditStore = useRoleAddOrEditStore();
-  const { dialogFormVisible, formRef, form, rules } =
+  const { dialogFormVisible, formRef, form, rules, loading } =
     storeToRefs(roleAddOrEditStore);
+  const appStore = useAppStore();
 
   const emits = defineEmits(['refresh']);
 

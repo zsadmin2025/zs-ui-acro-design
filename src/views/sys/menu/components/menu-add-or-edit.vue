@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="40%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     :mask-closable="false"
@@ -18,7 +18,8 @@
       :rules="menuAddOrEditStore.rules"
       auto-label-width
     >
-      <a-row>
+      <a-row :gutter="24">
+        <!-- 菜单类型 -->
         <a-col :span="24">
           <a-form-item label="菜单类型" field="type">
             <a-radio-group v-model="form.type" type="button">
@@ -31,300 +32,122 @@
           </a-form-item>
         </a-col>
 
-        <a-row v-if="form.type === 1">
-          <a-row :gutter="24">
-            <a-col :span="24">
-              <a-form-item label="上级菜单" field="pid">
-                <a-tree-select
-                  v-model="form.pid"
-                  :data="formattedList"
-                  placeholder="请选择上级菜单"
-                  :allow-search="true"
-                  :allow-clear="true"
-                />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="菜单名称" field="title">
-                <a-input v-model="form.title" placeholder="请输入菜单名称" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="图标">
-                <zs-selected-icon v-model="form.icon" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="路由地址" field="path">
-                <a-input v-model="form.path" placeholder="请输入路由路径地址" />
-              </a-form-item>
-            </a-col>
-          </a-row>
-          <a-row :gutter="24">
-            <a-col :span="12">
-              <a-form-item label="是否显示" field="visible">
-                <a-switch
-                  :checked-value="true"
-                  :unchecked-value="false"
-                  type="round"
-                  :default-checked="form.visible === 1"
-                  @change="handleVisibleChange"
-                >
-                  <template #checked> 是 </template>
-                  <template #unchecked> 否 </template>
-                </a-switch>
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="是否缓存" field="ignoreCache">
-                <a-switch
-                  v-model="form.ignoreCache"
-                  :checked-value="false"
-                  :unchecked-value="true"
-                  type="round"
-                >
-                  <template #checked> 是 </template>
-                  <template #unchecked> 否 </template>
-                </a-switch>
-              </a-form-item>
-            </a-col>
-          </a-row>
-        </a-row>
+        <!-- 上级菜单 -->
+        <a-col :span="24">
+          <a-form-item label="上级菜单" field="pid">
+            <a-tree-select
+              v-model="form.pid"
+              :data="formattedList"
+              placeholder="请选择上级菜单"
+              :allow-search="true"
+              :allow-clear="true"
+            />
+          </a-form-item>
+        </a-col>
 
-        <a-row v-if="form.type === 2">
-          <a-row :gutter="24">
-            <a-col :span="24">
-              <a-form-item label="上级菜单" field="pid">
-                <a-tree-select
-                  v-model="form.pid"
-                  :data="formattedList"
-                  placeholder="请选择上级菜单"
-                  :allow-search="true"
-                  :allow-clear="true"
-                />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="菜单名称" field="title">
-                <a-input v-model="form.title" placeholder="请输入菜单名称" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="菜单图标">
-                <zs-selected-icon v-model="form.icon" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="路由地址" field="path">
-                <a-input v-model="form.path" placeholder="请输入路由路径地址" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="组件路径" field="component">
-                <a-input
-                  v-model="form.component"
-                  placeholder="前端组件路径,如: /sys/role/index"
-                />
-              </a-form-item>
-            </a-col>
-          </a-row>
+        <!-- 菜单名称 / 按钮名称 -->
+        <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
+          <a-form-item :label="titleLabel" field="title">
+            <a-input v-model="form.title" :placeholder="titlePlaceholder" />
+          </a-form-item>
+        </a-col>
 
-          <a-row :gutter="24">
-            <a-col :span="12">
-              <a-form-item label="是否显示" field="visible">
-                <a-switch
-                  :checked-value="true"
-                  :unchecked-value="false"
-                  type="round"
-                  :default-checked="form.visible === 1"
-                  @change="handleVisibleChange"
-                >
-                  <template #checked> 是 </template>
-                  <template #unchecked> 否 </template>
-                </a-switch>
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="是否缓存" field="ignoreCache">
-                <a-switch
-                  v-model="form.ignoreCache"
-                  :checked-value="false"
-                  :unchecked-value="true"
-                  type="round"
-                >
-                  <template #checked> 是 </template>
-                  <template #unchecked> 否 </template>
-                </a-switch>
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="隐藏菜单" field="hideInMenu">
-                <a-switch
-                  v-model="form.hideInMenu"
-                  :checked-value="false"
-                  :unchecked-value="true"
-                  type="round"
-                >
-                  <template #checked> 是 </template>
-                  <template #unchecked> 否 </template>
-                </a-switch>
-              </a-form-item>
-            </a-col>
-          </a-row>
-        </a-row>
+        <!-- 图标 + 路由地址（按钮类型除外） -->
+        <template v-if="form.type !== 3">
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
+            <a-form-item :label="iconLabel">
+              <zs-selected-icon v-model="form.icon" />
+            </a-form-item>
+          </a-col>
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
+            <a-form-item label="路由地址" field="path">
+              <a-input v-model="form.path" placeholder="请输入路由路径地址" />
+            </a-form-item>
+          </a-col>
+        </template>
 
-        <a-col v-if="form.type === 3">
-          <a-col :span="24">
-            <a-form-item label="上级菜单" field="pid">
-              <a-tree-select
-                v-model="form.pid"
-                :data="formattedList"
-                placeholder="请选择上级菜单"
-                :allow-search="true"
-                :allow-clear="true"
+        <!-- 权限标识（按钮专用） -->
+        <template v-if="form.type === 3">
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
+            <a-form-item label="权限标识" field="permissions">
+              <a-input
+                v-model="form.permissions"
+                placeholder="多个用逗号隔开，如: sys:menu:save,sys:menu:list"
               />
             </a-form-item>
           </a-col>
-          <a-col :span="24">
-            <a-row :gutter="24">
-              <a-col :span="12">
-                <a-form-item label="按钮名称" field="title">
-                  <a-input v-model="form.title" placeholder="请输入按钮名称" />
-                </a-form-item>
-              </a-col>
-              <a-col :span="12">
-                <a-form-item label="权限标识" field="permissions">
-                  <a-input
-                    v-model="form.permissions"
-                    placeholder="多个用逗号隔开，如: sys:menu:save,sys:menu:list"
-                  />
-                </a-form-item>
-              </a-col>
-            </a-row>
+        </template>
+
+        <!-- 组件路径（菜单、内链） -->
+        <template v-if="form.type === 2 || form.type === 4">
+          <a-col :xs="24" :sm="24" :md="12" :lg="24" :xl="12">
+            <a-form-item label="组件路径" field="component">
+              <a-input
+                v-model="form.component"
+                placeholder="前端组件路径,如: /sys/role/index"
+              />
+            </a-form-item>
           </a-col>
-          <a-col :span="12">
-            <a-form-item label="是否显示" field="visible">
+        </template>
+
+        <!-- 排序号 -->
+        <a-col :span="12">
+          <a-form-item label="排序号" field="sort">
+            <a-input-number v-model="form.sort" :min="0" mode="button" />
+          </a-form-item>
+        </a-col>
+
+        <!-- 是否缓存（目录、菜单） -->
+        <template v-if="form.type === 1 || form.type === 2">
+          <a-col :span="24">
+            <a-form-item label="是否缓存" field="ignoreCache">
               <a-switch
-                :checked-value="true"
-                :unchecked-value="false"
+                v-model="form.ignoreCache"
+                :checked-value="false"
+                :unchecked-value="true"
                 type="round"
-                :default-checked="form.visible === 1"
-                @change="handleVisibleChange"
               >
                 <template #checked> 是 </template>
                 <template #unchecked> 否 </template>
               </a-switch>
             </a-form-item>
           </a-col>
-        </a-col>
+        </template>
 
-        <a-row v-if="form.type === 4">
-          <a-row :gutter="24">
-            <a-col :span="24">
-              <a-form-item label="上级菜单" field="pid">
-                <a-tree-select
-                  v-model="form.pid"
-                  :data="formattedList"
-                  placeholder="请选择上级菜单"
-                  :allow-search="true"
-                  :allow-clear="true"
-                />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="菜单名称" field="title">
-                <a-input v-model="form.title" placeholder="请输入菜单名称" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="图标">
-                <zs-selected-icon v-model="form.icon" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="路由地址" field="path">
-                <a-input v-model="form.path" placeholder="请输入路由路径地址" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="组件路径" field="component">
-                <a-input
-                  v-model="form.component"
-                  placeholder="前端组件路径,如: /sys/role/index"
-                />
-              </a-form-item>
-            </a-col>
-          </a-row>
-          <a-row :gutter="24">
-            <a-col :span="24">
-              <a-form-item label="是否显示" field="visible">
-                <a-switch
-                  :checked-value="true"
-                  :unchecked-value="false"
-                  type="round"
-                  :default-checked="form.visible === 1"
-                  @change="handleVisibleChange"
-                >
-                  <template #checked> 是 </template>
-                  <template #unchecked> 否 </template>
-                </a-switch>
-              </a-form-item>
-            </a-col>
-          </a-row>
-        </a-row>
+        <!-- 隐藏菜单（仅菜单） -->
+        <template v-if="form.type === 2">
+          <a-col :span="24">
+            <a-form-item label="隐藏菜单" field="hideInMenu">
+              <a-switch
+                v-model="form.hideInMenu"
+                :checked-value="true"
+                :unchecked-value="false"
+                type="round"
+              >
+                <template #checked> 是 </template>
+                <template #unchecked> 否 </template>
+              </a-switch>
+            </a-form-item>
+          </a-col>
+        </template>
 
-        <a-row v-if="form.type === 5">
-          <a-row :gutter="24">
-            <a-col :span="24">
-              <a-form-item label="上级菜单" field="pid">
-                <a-tree-select
-                  v-model="form.pid"
-                  :data="formattedList"
-                  placeholder="请选择上级菜单"
-                  :allow-search="true"
-                  :allow-clear="true"
-                />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="菜单名称" field="title">
-                <a-input v-model="form.title" placeholder="请输入菜单名称" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="图标">
-                <zs-selected-icon v-model="form.icon" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="12">
-              <a-form-item label="路由地址" field="path">
-                <a-input v-model="form.path" placeholder="请输入路由路径地址" />
-              </a-form-item>
-            </a-col>
-          </a-row>
-          <a-row :gutter="24">
-            <a-col :span="24">
-              <a-form-item label="是否显示" field="visible">
-                <a-switch
-                  :checked-value="true"
-                  :unchecked-value="false"
-                  type="round"
-                  :default-checked="form.visible === 1"
-                  @change="handleVisibleChange"
-                >
-                  <template #checked> 是 </template>
-                  <template #unchecked> 否 </template>
-                </a-switch>
-              </a-form-item>
-            </a-col>
-          </a-row>
-        </a-row>
-        <a-col :span="12">
-          <a-form-item label="排序号" field="sort">
-            <a-input-number v-model="form.sort" :min="0" mode="button" />
+        <!-- 是否显示 -->
+        <a-col :span="24">
+          <a-form-item label="是否显示" field="visible">
+            <a-switch
+              v-model="form.visible"
+              :checked-value="1"
+              :unchecked-value="0"
+              type="round"
+            >
+              <template #checked> 是 </template>
+              <template #unchecked> 否 </template>
+            </a-switch>
           </a-form-item>
         </a-col>
-        <a-col>
+
+        <!-- 菜单状态 -->
+        <a-col :span="24">
           <a-form-item label="菜单状态" field="status">
             <a-switch
               v-model="form.status"
@@ -353,6 +176,9 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import { useMenuAddOrEditStore } from '@/store/modules/sys/menu/menuAddOrEditStore';
+  import { useAppStore } from '@/store';
+
+  const appStore = useAppStore();
 
   const menuAddOrEditStore = useMenuAddOrEditStore();
   const { dialogFormVisible, formRef, form, list } =
@@ -368,10 +194,17 @@
 
   const formattedList = computed(() => convertList(list.value));
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleVisibleChange = (value: any, ev: Event) => {
-    form.value.visible = value ? 1 : 0;
-  };
+  /** 菜单名称的标签随类型变化：按钮 vs 其他 */
+  const titleLabel = computed(() =>
+    form.value.type === 3 ? '按钮名称' : '菜单名称',
+  );
+  const titlePlaceholder = computed(() =>
+    form.value.type === 3 ? '请输入按钮名称' : '请输入菜单名称',
+  );
+  /** 图标标签：菜单类型显示"菜单图标"，其他显示"图标" */
+  const iconLabel = computed(() =>
+    form.value.type === 2 ? '菜单图标' : '图标',
+  );
 
   const emits = defineEmits(['refresh']);
   defineExpose({

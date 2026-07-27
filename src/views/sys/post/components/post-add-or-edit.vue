@@ -1,7 +1,7 @@
 <template>
   <a-modal
     v-model:visible="dialogFormVisible"
-    width="50%"
+    :width="appStore.device === 'mobile' ? '90%' : '50%'"
     title-align="start"
     :draggable="true"
     @cancel="postAddOrEditStore.close"
@@ -65,10 +65,12 @@
 <script lang="ts" setup>
   import { useDostAddOrEditStore } from '@/store/modules/sys/position/postAddOrEditStore';
   import { storeToRefs } from 'pinia';
+  import { useAppStore } from '@/store';
 
   const postAddOrEditStore = useDostAddOrEditStore();
   const { form, dialogFormVisible, loading, deptTreeData, formRef, rules } =
     storeToRefs(postAddOrEditStore);
+  const appStore = useAppStore();
 
   const emits = defineEmits(['refresh']);
   onMounted(() => {

@@ -46,10 +46,11 @@
 
 ## 🗂️ 源码仓库
 
-| 平台      | 前端                                                              | 后端                                                      |
-| --------- | ----------------------------------------------------------------- | --------------------------------------------------------- |
-| **Gitee** | [zs-ui-acro-design](https://gitee.com/zs-admin/zs-ui-acro-design) | [zs-admin-java](https://gitee.com/zs-admin/zs-admin-java) |
-| GitHub    | _暂未同步_                                                        | _暂未同步_                                                |
+| 平台        | 前端                                                                   | 后端                                                           |
+| ----------- | ---------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Gitee**   | [zs-ui-acro-design](https://gitee.com/zs-admin/zs-ui-acro-design)      | [zs-admin-java](https://gitee.com/zs-admin/zs-admin-java)      |
+| **GitHub**  | [zs-ui-acro-design](https://github.com/zsadmin2025/zs-ui-acro-design)  | [zs-admin-java](https://github.com/zsadmin2025/zs-admin-java)  |
+| **Gitcode** | [zs-ui-acro-design](https://gitcode.com/zsadmin2025/zs-ui-acro-design) | [zs-admin-java](https://gitcode.com/zsadmin2025/zs-admin-java) |
 
 > ⭐ 欢迎 Star、Fork 与 PR！您的支持是我们持续迭代的动力！
 

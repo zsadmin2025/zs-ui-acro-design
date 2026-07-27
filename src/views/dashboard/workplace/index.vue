@@ -97,6 +97,17 @@
     margin-left: 10px;
   }
 
+  @media (max-width: 1000px) {
+    .container {
+      display: block;
+    }
+    .right-side {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+
   .panel {
     background-color: var(--color-bg-2);
     border-radius: 4px;

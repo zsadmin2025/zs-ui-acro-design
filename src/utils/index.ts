@@ -45,3 +45,27 @@ export const findInTree = (
     return null;
   }, null as { dictValue: any; children?: any } | null);
 };
+
+/**
+ * 格式化毫秒时长为可读字符串
+ * 只展示最高位和下一个非零位，如: 9秒、3分钟、1小时28分钟、3天12分钟
+ * @param millis 毫秒数
+ */
+export const formatDuration = (millis: number | null | undefined): string => {
+  if (millis == null || millis < 0) return '-';
+  const totalSeconds = Math.floor(millis / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalMinutes / 60);
+  const days = Math.floor(totalHours / 24);
+  const hours = totalHours % 24;
+  const minutes = totalMinutes % 60;
+  const seconds = totalSeconds % 60;
+
+  const parts: string[] = [];
+  if (days > 0) parts.push(`${days}天`);
+  if (hours > 0) parts.push(`${hours}小时`);
+  if (minutes > 0) parts.push(`${minutes}分钟`);
+  if (seconds > 0 && parts.length === 0) parts.push(`${seconds}秒`);
+
+  return parts.slice(0, 2).join('') || '0秒';
+};

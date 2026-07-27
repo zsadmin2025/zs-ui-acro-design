@@ -1,8 +1,8 @@
 <template>
   <zs-container layout="header-main-footer">
     <template #header>
-      <a-row :gutter="16" style="width: fit-content">
-        <a-col :flex="1">
+      <a-row :gutter="[16, 16]">
+        <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
           <a-form :model="form" label-align="left" :auto-label-width="true">
             <a-form-item label="字典名称">
               <a-input
@@ -13,28 +13,30 @@
             </a-form-item>
           </a-form>
         </a-col>
-        <a-col :flex="'86px'">
-          <a-space :size="18">
-            <a-button type="primary" @click="dictDataStore.loadDictDataPage">
-              <template #icon>
-                <icon-search />
-              </template>
-              {{ $t('searchTable.form.search') }}
-            </a-button>
-            <a-button @click="dictDataStore.resetSearch">
-              <template #icon>
-                <icon-refresh />
-              </template>
-              {{ $t('searchTable.form.reset') }}
-            </a-button>
-          </a-space>
+        <a-col :xs="24" :sm="24" :md="12" :lg="16" :xl="18" :xxl="18">
+          <div style="text-align: right">
+            <a-space :size="9" wrap>
+              <a-button type="primary" @click="dictDataStore.loadDictDataPage">
+                <template #icon>
+                  <icon-search />
+                </template>
+                {{ $t('searchTable.form.search') }}
+              </a-button>
+              <a-button @click="dictDataStore.resetSearch">
+                <template #icon>
+                  <icon-refresh />
+                </template>
+                {{ $t('searchTable.form.reset') }}
+              </a-button>
+            </a-space>
+          </div>
         </a-col>
       </a-row>
     </template>
     <template #main-header>
       <a-row justify="space-between" align="center">
-        <a-col :span="12">
-          <a-space>
+        <a-col :xs="24" :sm="24" :md="12">
+          <a-space :size="8" wrap>
             <a-button
               v-permission="'sys:dict:save'"
               type="primary"
@@ -69,7 +71,10 @@
           </a-space>
         </a-col>
         <a-col
-          :span="12"
+          v-if="appStore.device !== 'mobile'"
+          :xs="24"
+          :sm="24"
+          :md="12"
           style="display: flex; align-items: center; justify-content: end"
         >
           <a-space>
@@ -97,7 +102,7 @@
         :bordered="false"
         show-empty-tree
         :size="currentSize"
-        :scroll="{ x: '100%', y: '100%' }"
+        :scroll="{ x: 1200, y: '100%' }"
       >
         <template #status="{ record }">
           <ZsStatus :value="record.status" />
@@ -141,9 +146,10 @@
         v-model:current="form.current"
         v-model:page-size="form.pageSize"
         :total="total"
-        show-total
-        show-jumper
-        show-page-size
+        :show-total="appStore.device !== 'mobile'"
+        :show-jumper="appStore.device !== 'mobile'"
+        :show-page-size="appStore.device !== 'mobile'"
+        :simple="appStore.device === 'mobile'"
         @change="dictDataStore.handleCurrentChange"
         @page-size-change="dictDataStore.handleSizeChange"
       />
@@ -160,9 +166,11 @@
   import { storeToRefs } from 'pinia';
   import { computed, ref, reactive, onMounted } from 'vue';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
+  import { useAppStore } from '@/store';
   import { useDictDataStore } from '@/store/modules/sys/dict/dictDataStore';
   import DictDataAddOrEdit from './dict-data-add-or-edit.vue';
 
+  const appStore = useAppStore();
   const dictDataStore = useDictDataStore();
   const { addEditRef, list, total, loading, form, selectedKeys } =
     storeToRefs(dictDataStore);
@@ -224,9 +232,10 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 260,
+      width: 210,
       align: 'center',
-      fixed: 'right',
+      fixed: appStore.device === 'mobile' ? undefined : 'right',
+      cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
 
