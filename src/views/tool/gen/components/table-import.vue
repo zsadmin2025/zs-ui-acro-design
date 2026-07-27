@@ -86,7 +86,7 @@
   const appStore = useAppStore();
 
   const rowSelection = reactive({
-    type: 'checkbox',
+    type: 'checkbox' as const,
     showCheckedAll: true,
   });
   const columns = computed<TableColumnData[]>(() => [

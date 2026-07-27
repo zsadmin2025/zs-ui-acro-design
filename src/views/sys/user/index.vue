@@ -239,7 +239,7 @@
     storeToRefs(userStore);
 
   const rowSelection = reactive({
-    type: 'checkbox',
+    type: 'checkbox' as const,
     showCheckedAll: true,
   });
 

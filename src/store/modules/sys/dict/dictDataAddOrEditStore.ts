@@ -71,7 +71,7 @@ export const useDictDataAddOrEditStore = defineStore('dictDataAddOrEdit', {
       const data = await sysDictTypeApi.getDictTypeList();
       this.dictTypeList = data?.data ?? [];
     },
-    handleDictTypeChange(val: string) {
+    handleDictTypeChange(val: any) {
       this.form.dictType = this.dictTypeList.find(
         (item) => item.sysDictTypeId === val,
       )?.dictType;

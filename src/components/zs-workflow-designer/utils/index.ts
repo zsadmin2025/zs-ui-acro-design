@@ -3,6 +3,7 @@ import type {
   NodeType,
   ApprovalMode,
   ApproverSource,
+  ConditionBranch,
 } from '../types';
 
 /**
@@ -387,7 +388,7 @@ export function removeNode(nodes: WorkflowNode[], id: string): WorkflowNode[] {
           branches: node.branches.map((branch) => ({
             ...branch,
             nodes: removeNode(branch.nodes, id),
-          })),
+          })) as ConditionBranch[],
         };
       }
       return node;
@@ -425,7 +426,7 @@ export function replaceNode(
         branches: node.branches.map((branch) => ({
           ...branch,
           nodes: replaceNode(branch.nodes, id, newNode),
-        })),
+        })) as ConditionBranch[],
       };
     }
     return node;

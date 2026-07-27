@@ -95,6 +95,7 @@
         workFlowDef.value = data.workFlowDef || {};
         setTableId(data.tableId || 0);
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.error('解析 modelJson 失败', e);
       }
     } else {
@@ -122,6 +123,7 @@
           setTableId(tableId || 0);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('获取流程模型失败:', error);
       }
     }

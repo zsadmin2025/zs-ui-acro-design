@@ -178,7 +178,7 @@
   const appStore = useAppStore();
 
   const rowSelection = reactive({
-    type: 'checkbox',
+    type: 'checkbox' as const,
     showCheckedAll: true,
   });
 
@@ -236,9 +236,9 @@
     },
   ]);
 
-  const currentSize = ref('medium');
+  const currentSize = ref<'small' | 'mini' | 'medium' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
-    currentSize.value = size;
+    currentSize.value = size as 'small' | 'mini' | 'medium' | 'large';
   };
   onMounted(() => {
     genStore.fetchData();

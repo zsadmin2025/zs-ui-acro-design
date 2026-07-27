@@ -43,7 +43,9 @@
   const position = computed(() =>
     appStore.device === 'mobile' ? 'top' : 'left',
   );
-  const scrollPosition = ref('auto');
+  const scrollPosition = ref<'start' | 'end' | 'center' | 'auto' | number>(
+    'auto',
+  );
   const activeKey = ref('base');
 </script>
 

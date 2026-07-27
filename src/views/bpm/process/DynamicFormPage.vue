@@ -83,7 +83,6 @@
 
   // 提交表单
   async function handleSubmit() {
-    console.log('Submitting form...', formData.value);
     await bpmTaskMyProcessApi.startProcess({
       processDefinitionId: processDefinitionId.value,
       variables: formData.value,

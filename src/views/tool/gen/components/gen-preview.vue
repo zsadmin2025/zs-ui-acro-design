@@ -120,7 +120,7 @@
       e?: Event;
     },
   ) => {
-    valueCode.value = data.node?.value || '';
+    valueCode.value = (data.node as any)?.value || '';
   };
   const close = () => {
     visible.value = false;

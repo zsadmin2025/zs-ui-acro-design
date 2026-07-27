@@ -71,6 +71,7 @@
     "sm-crypto": "^0.3.13",
     "sockjs-client": "^1.6.1",
     "sortablejs": "^1.15.6",
+    "three": "^0.185.1",
     "vue": "^3.5.16",
     "vue-clipboard3": "^2.0.0",
     "vue-dompurify-html": "^5.3.0",

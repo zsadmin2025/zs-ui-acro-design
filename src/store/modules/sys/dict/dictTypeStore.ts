@@ -92,7 +92,7 @@ export const useDictTypeStore = defineStore('dictType', {
       },
     ) {
       const dictDataStore = useDictDataStore();
-      dictDataStore.form.sysDictTypeId = data?.node?.sysDictTypeId;
+      dictDataStore.form.sysDictTypeId = (data?.node as any)?.sysDictTypeId;
       dictDataStore.loadDictDataPage();
     },
   },

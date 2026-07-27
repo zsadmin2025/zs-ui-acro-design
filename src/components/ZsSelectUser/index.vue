@@ -36,7 +36,7 @@
             </a-tab-pane>
             <a-tab-pane key="second" title="岗位">
               <a-tree
-                :data="postList"
+                :data="(postList as any)"
                 :field-names="postProps"
                 :show-line="true"
                 @select="useUserSelectStore.handlePostNodeClick"
@@ -49,7 +49,7 @@
             </a-tab-pane>
             <a-tab-pane key="third" title="角色">
               <a-tree
-                :data="roleData"
+                :data="(roleData as any)"
                 :field-names="roleProps"
                 :show-line="true"
                 @select="useUserSelectStore.handleRoleNodeClick"

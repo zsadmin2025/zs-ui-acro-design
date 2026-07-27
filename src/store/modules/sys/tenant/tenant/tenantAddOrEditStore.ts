@@ -54,7 +54,7 @@ export const useTenantAddOrEditStore = defineStore('sysTenantUserAddOrEdit', {
             trigger: 'blur',
           },
           {
-            type: 'email',
+            type: 'email' as const,
             message: '请输入正确的邮箱格式',
             trigger: ['blur', 'change'],
           },

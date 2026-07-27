@@ -124,6 +124,7 @@ export interface ConditionNode extends BaseNodeConfig {
   settype?: number;
   examineMode?: number;
   noHanderAction?: number;
+  isOther?: boolean;
 }
 
 // 路由节点

@@ -94,7 +94,7 @@
   .selected-icon-list-scrollbar {
     padding-right: 0px !important;
   }
-  ::v-deep .arco-scrollbar-track-direction-vertical {
+  :deep(.arco-scrollbar-track-direction-vertical) {
     width: 4px !important;
 
     .arco-scrollbar-thumb {

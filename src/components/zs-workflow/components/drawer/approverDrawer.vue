@@ -372,7 +372,7 @@
   import { setTypes } from '../../utils/const';
   import { useStore } from '../../stores/index';
 
-  const props = defineProps({
+  defineProps({
     directorMaxLevel: {
       type: Number,
       default: 0,
@@ -380,10 +380,6 @@
   });
   const approverConfig = ref({});
   const approverFormRef = ref(null);
-  const approverVisible = ref(false);
-  const approverRoleVisible = ref(false);
-  const checkedRoleList = ref([]);
-  const checkedList = ref([]);
   const store = useStore();
   const { setApproverConfig, setApprover } = store;
   const approverConfig1 = computed(() => store.approverConfig1);
@@ -451,9 +447,7 @@
 
   const getRoleList = async () => {
     const data = await sysRoleApi.getList();
-    console.log('获取到的data', data?.data);
     roleList.value = data?.data ?? [];
-    console.log('roleList', roleList.value);
   };
 
   onMounted(() => {
@@ -537,9 +531,7 @@
       nodeDeptHeadIds.value = [];
     }
   });
-  const changeRange = () => {
-    approverConfig.value.nodeUserList = [];
-  };
+
   // 人员选择器
   const handleSelect = (val) => {
     nodeUserIds.value = [];
@@ -600,7 +592,7 @@
       });
     }
   };
-  const changeType = (val) => {
+  const changeType = () => {
     approverConfig.value.nodeUserList = [];
     approverConfig.value.examineMode = 1;
     approverConfig.value.signPct = 100;
@@ -615,22 +607,7 @@
     // 清除校验状态
     approverFormRef.value?.clearValidate();
   };
-  const addApprover = () => {
-    approverVisible.value = true;
-    checkedList.value = approverConfig.value.nodeUserList;
-  };
-  const addRoleApprover = () => {
-    approverRoleVisible.value = true;
-    checkedRoleList.value = approverConfig.value.nodeUserList;
-  };
-  const sureApprover = (data) => {
-    approverConfig.value.nodeUserList = data;
-    approverVisible.value = false;
-  };
-  const sureRoleApprover = (data) => {
-    approverConfig.value.nodeUserList = data;
-    approverRoleVisible.value = false;
-  };
+
   const saveApprover = async () => {
     // 先校验表单（校验基于 nodeUserIds/nodeRoleIds 等实际数据）
     if (approverFormRef.value) {

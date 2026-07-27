@@ -21,7 +21,7 @@
   import { computed } from 'vue';
   import { useStore } from '../../stores/index';
 
-  const props = defineProps({
+  defineProps({
     initiatorText: {
       type: String,
       default: '',

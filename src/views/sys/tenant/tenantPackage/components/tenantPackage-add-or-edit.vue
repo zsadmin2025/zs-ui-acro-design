@@ -42,7 +42,7 @@
           :tree-checkable="true"
           :tree-check-strictly="treeCheckStrictly"
           :data="menuData"
-          :tree-props="{ 'show-line': true, 'default-expand-all': false }"
+          :tree-props="{ showLine: true, defaultExpandAll: false }"
           placeholder="请选择套餐功能"
         ></a-tree-select>
       </a-form-item>

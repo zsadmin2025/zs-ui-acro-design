@@ -214,7 +214,7 @@
     </div>
 
     <div v-else class="loading-container">
-      <a-spin size="large">
+      <a-spin :size="40">
         <template #icon>
           <icon-loading />
         </template>

@@ -195,13 +195,13 @@
       cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
-  const currentSize = ref('medium');
+  const currentSize = ref<'small' | 'mini' | 'medium' | 'large'>('medium');
 
   const loadAll = () => {
     deptStore.loadDeptPage();
     deptStore.loadDeptTreeData();
   };
-  const handleSizeChange = (size: string) => {
+  const handleSizeChange = (size: 'small' | 'mini' | 'medium' | 'large') => {
     currentSize.value = size;
   };
   onMounted(async () => {

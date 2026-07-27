@@ -95,17 +95,6 @@
       const node = findPostById(deptPostTreeData.value, id);
       // 使用 type 字段判断：type === 'post' 才是岗位
       const isPost = node && node.type === 'post';
-      if (!isPost) {
-        console.warn(
-          '检测到非法的部门节点ID:',
-          id,
-          '节点名称:',
-          node?.name,
-          '节点类型:',
-          node?.type,
-          '- 已自动过滤',
-        );
-      }
       return isPost;
     });
 

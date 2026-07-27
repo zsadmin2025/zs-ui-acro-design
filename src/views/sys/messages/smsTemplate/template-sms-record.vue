@@ -127,7 +127,7 @@
     storeToRefs(smsRecordStore);
 
   const rowSelection = reactive({
-    type: 'checkbox',
+    type: 'checkbox' as const,
     showCheckedAll: true,
   });
 
@@ -202,8 +202,8 @@
     },
   ]);
 
-  const currentSize = ref('medium');
-  const handleSizeChange = (size: string) => {
+  const currentSize = ref<'small' | 'mini' | 'medium' | 'large'>('medium');
+  const handleSizeChange = (size: 'small' | 'mini' | 'medium' | 'large') => {
     currentSize.value = size;
   };
 

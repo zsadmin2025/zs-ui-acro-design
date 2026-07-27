@@ -122,7 +122,7 @@
     },
   ]);
 
-  const currentSize = ref('medium');
+  const currentSize = ref<'small' | 'mini' | 'medium' | 'large'>('medium');
 
   defineExpose({
     sysMenuTitle,

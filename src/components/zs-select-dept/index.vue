@@ -64,8 +64,7 @@
     try {
       const response = await sysDeptApi.getDeptTree({});
       deptTreeData.value = response?.data ?? [];
-    } catch (error) {
-      console.error('加载部门树失败:', error);
+    } catch {
       deptTreeData.value = [];
     } finally {
       loading.value = false;

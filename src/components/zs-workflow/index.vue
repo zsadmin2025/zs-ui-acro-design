@@ -240,7 +240,6 @@
       name: props.workflowName || workFlowDef.value.name || '',
     };
     processConfig.value.flowPermission = flowPermission.value;
-    console.log('最终的配置是：', processConfig.value);
     return { ...processConfig.value };
   };
 
@@ -255,11 +254,12 @@
     const valid = validateFlow();
     if (!valid) return;
     const data = getFlowData();
-    console.log('发布流程配置:', data);
     try {
       const res = await workflowApi.saveModel(data);
+      // eslint-disable-next-line no-console
       console.log(res);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('保存失败:', error);
     }
   };
@@ -286,6 +286,7 @@
         workFlowDef.value = data.workFlowDef || {};
         setTableId(data.tableId || 0);
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.error('解析 modelJson 失败', e);
       }
     } else {
@@ -313,6 +314,7 @@
           setTableId(tableId || 0);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('获取流程模型失败:', error);
       }
     }

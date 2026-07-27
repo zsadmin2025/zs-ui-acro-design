@@ -444,7 +444,7 @@
         .map((id) => {
           const user = userList.value.find((u) => u.sysUserId === id);
           return (
-            user?.nickName || user?.username || user?.realName || String(id)
+            user?.realName || user?.username || user?.realName || String(id)
           );
         })
         .join('、');

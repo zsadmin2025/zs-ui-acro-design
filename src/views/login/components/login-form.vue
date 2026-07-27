@@ -237,7 +237,7 @@
     loginConfig.value.rememberPassword = value;
   };
 
-  const handleTenantChange = (value: string) => {
+  const handleTenantChange = (value: any) => {
     setTenantId(value);
   };
 

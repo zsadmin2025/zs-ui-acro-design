@@ -1,6 +1,6 @@
 <template>
   <a-upload
-    :custom-request="customRequest"
+    :custom-request="(customRequest as any)"
     list-type="picture-card"
     :file-list="[]"
     :show-upload-button="true"
@@ -70,24 +70,25 @@
     }
   };
 
-  const customRequest = async (options: RequestOption) => {
+  const customRequest = (options: RequestOption): any => {
     const controller = new AbortController();
     const { onProgress, onError, onSuccess, fileItem, name = 'file' } = options;
 
-    // 模拟进度（可选）
     onProgress(20);
 
-    try {
-      const formData = new FormData();
-      formData.append(name as string, fileItem.file as Blob);
+    const formData = new FormData();
+    formData.append(name as string, fileItem.file as Blob);
 
-      const res = await sysFilesApi.upload(formData);
-      onSuccess(res);
-      Message.success('上传成功');
-    } catch (error) {
-      onError(error);
-      Message.error('上传失败');
-    }
+    sysFilesApi
+      .upload(formData)
+      .then((res) => {
+        onSuccess(res);
+        Message.success('上传成功');
+      })
+      .catch((error) => {
+        onError(error);
+        Message.error('上传失败');
+      });
 
     return {
       abort() {

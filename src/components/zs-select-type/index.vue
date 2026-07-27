@@ -129,18 +129,24 @@
   };
 
   // 用户选择变化（ZsSelectUser）
-  const onUserSelect = (val: (number | string)[]) => {
-    selectedIds.value = val;
+  const onUserSelect = (val: any[]) => {
+    selectedIds.value = val as (number | string)[];
   };
 
   // 下拉选择变化（a-select）
-  const onSelectChange = (val: (number | string)[]) => {
-    selectedIds.value = val;
+  const onSelectChange = (val: any) => {
+    selectedIds.value = Array.isArray(val) ? val : [val];
   };
 
   // 树选择变化（a-tree-select）
-  const onTreeSelectChange = (val: (number | string)[]) => {
-    selectedIds.value = val;
+  const onTreeSelectChange = (val: any) => {
+    if (Array.isArray(val)) {
+      selectedIds.value = val;
+    } else if (val != null) {
+      selectedIds.value = [val];
+    } else {
+      selectedIds.value = [];
+    }
   };
 
   // 角色store

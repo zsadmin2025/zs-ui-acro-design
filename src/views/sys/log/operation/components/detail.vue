@@ -16,7 +16,7 @@
       :column="2"
       :layout="isMobile ? 'vertical' : 'horizontal'"
       bordered
-      size="middle"
+      size="medium"
     >
       <a-descriptions-item label="操作用户">
         {{ form?.username }}
