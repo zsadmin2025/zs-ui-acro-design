@@ -97,9 +97,20 @@
             >
             <span v-else>{{ record.status }}</span>
           </template>
+          <template #currentTask="{ record }">
+            <a-space wrap>
+              <a-tag
+                v-for="(task, index) of record.currentTasks"
+                :key="index"
+                color="blue"
+              >
+                {{ task.name }}
+              </a-tag>
+            </a-space>
+          </template>
           <template #operations="{ record }">
             <a-space size="mini">
-              <a-link
+              <!-- <a-link
                 v-if="record.status === 'RUNNING'"
                 status="warning"
                 @click="store.handleSuspend(record)"
@@ -110,7 +121,7 @@
                 status="success"
                 @click="store.handleActivate(record)"
                 ><template #icon><icon-play-circle /></template>激活</a-link
-              >
+              > -->
               <a-link status="danger" @click="store.handleDelete(record)"
                 ><template #icon><icon-delete /></template>删除</a-link
               >
@@ -164,6 +175,8 @@
       width: 60,
       align: 'center',
     },
+    { title: '流程实例ID', dataIndex: 'processInstanceId', width: 320 },
+    { title: '业务单据', dataIndex: 'businessKey', width: 200 },
     {
       title: '流程名称',
       dataIndex: 'processDefinitionName',
@@ -178,15 +191,31 @@
       tooltip: true,
       width: 180,
     },
-    { title: '发起人', dataIndex: 'startUserName', width: 120 },
-    { title: '发起时间', dataIndex: 'startTime', width: 180 },
-    { title: '结束时间', dataIndex: 'endTime', width: 180 },
+
     {
-      title: '状态',
+      title: '流程分类',
+      dataIndex: 'businessKey',
+      ellipsis: true,
+      tooltip: true,
+      width: 180,
+    },
+    { title: '发起人', dataIndex: 'startUserName', width: 120 },
+    { title: '发起部门', dataIndex: 'startDeptName', width: 120 },
+    {
+      title: '流程状态',
       dataIndex: 'status',
       slotName: 'status',
       width: 100,
       align: 'center',
+    },
+    { title: '发起时间', dataIndex: 'startTime', width: 180 },
+    { title: '结束时间', dataIndex: 'endTime', width: 180 },
+    { title: '耗时', dataIndex: 'durationInMillis', width: 180 },
+    {
+      title: '当前审批任务',
+      dataIndex: 'durationTime',
+      slotName: 'currentTask',
+      width: 180,
     },
     {
       title: '操作',
