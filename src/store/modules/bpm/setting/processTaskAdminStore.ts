@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingTaskAdminApi } from '@/api/bpm/setting/task-admin';
 import type { ProcessTaskAdminItem } from '@/types/bpm/bpmTypes';
 
 export interface ProcessTaskAdminState {
@@ -27,7 +27,7 @@ export const useProcessTaskAdminStore = defineStore('processTaskAdmin', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getTaskAdminPage({
+        const { data } = await bpmSettingTaskAdminApi.getTaskAdminPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -54,7 +54,7 @@ export const useProcessTaskAdminStore = defineStore('processTaskAdmin', {
         titleAlign: 'start',
         content: `确定删除任务「${record.taskName}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteTaskAdmin(record.taskId);
+          await bpmSettingTaskAdminApi.deleteTaskAdmin(record.taskId);
           Message.success('删除成功');
           this.loadData();
         },

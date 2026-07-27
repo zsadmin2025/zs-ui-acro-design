@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingCategoryApi } from '@/api/bpm/setting/category';
 import type { ProcessCategoryItem } from '@/types/bpm/bpmTypes';
 
 export interface ProcessCategoryState {
@@ -36,7 +36,7 @@ export const useProcessCategoryStore = defineStore('processCategory', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getCategoryPage({
+        const { data } = await bpmSettingCategoryApi.getCategoryPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -65,7 +65,7 @@ export const useProcessCategoryStore = defineStore('processCategory', {
       this.dialogVisible = true;
     },
     async handleEdit(record: ProcessCategoryItem) {
-      const { data } = await bpmSettingApi.getCategoryById(record.id);
+      const { data } = await bpmSettingCategoryApi.getCategoryById(record.id);
       Object.assign(this.form, data?.data ?? data);
       this.dialogVisible = true;
     },
@@ -73,8 +73,8 @@ export const useProcessCategoryStore = defineStore('processCategory', {
       const e = await this.formRef?.validate();
       if (e) return;
       const a = this.form.id
-        ? bpmSettingApi.updateCategory
-        : bpmSettingApi.saveCategory;
+        ? bpmSettingCategoryApi.updateCategory
+        : bpmSettingCategoryApi.saveCategory;
       await a({ ...this.form });
       Message.success(this.form.id ? '更新成功' : '创建成功');
       this.dialogVisible = false;
@@ -86,7 +86,7 @@ export const useProcessCategoryStore = defineStore('processCategory', {
         titleAlign: 'start',
         content: `确定删除分类「${record.name}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteCategory(record.id);
+          await bpmSettingCategoryApi.deleteCategory(record.id);
           Message.success('删除成功');
           this.loadData();
         },

@@ -13,17 +13,17 @@
                 <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
                   <a-form-item label="模型名称"
                     ><a-input
-                      v-model="searchForm.name"
+                      v-model="searchForm.processName"
                       placeholder="请输入模型名称"
                       :allow-clear="true"
                       @press-enter="store.loadData()"
                   /></a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="6">
-                  <a-form-item label="KEY"
+                  <a-form-item label="模型KEY"
                     ><a-input
-                      v-model="searchForm.key"
-                      placeholder="请输入KEY"
+                      v-model="searchForm.processKey"
+                      placeholder="请输入模型KEY"
                       :allow-clear="true"
                       @press-enter="store.loadData()"
                   /></a-form-item>
@@ -51,7 +51,7 @@
         <a-row justify="space-between" align="center">
           <a-col :xs="24" :sm="12"
             ><a-space
-              ><a-button type="primary" @click="store.handleAdd()"
+              ><a-button type="primary" @click="handleAdd"
                 ><template #icon><icon-plus /></template>新建</a-button
               ></a-space
             ></a-col
@@ -89,7 +89,7 @@
           </template>
           <template #operations="{ record }">
             <a-space size="mini">
-              <a-link @click="store.handleEdit(record)"
+              <a-link @click="handleEdit(record)"
                 ><template #icon><icon-edit /></template>编辑</a-link
               >
               <a-link
@@ -119,61 +119,33 @@
         />
       </template>
     </zs-container>
-
-    <a-modal
-      v-model:visible="dialogVisible"
-      :title="store.form.id ? '编辑模型' : '新建模型'"
-      @ok="store.handleSubmit()"
-    >
-      <a-form ref="formRef" :model="store.form" auto-label-width>
-        <a-form-item
-          label="模型名称"
-          field="name"
-          :rules="[{ required: true, message: '请输入模型名称' }]"
-          ><a-input v-model="store.form.name" placeholder="请输入模型名称"
-        /></a-form-item>
-        <a-form-item
-          label="KEY"
-          field="key"
-          :rules="[{ required: true, message: '请输入KEY' }]"
-          ><a-input v-model="store.form.key" placeholder="请输入KEY"
-        /></a-form-item>
-        <a-form-item label="分类" field="category"
-          ><a-input v-model="store.form.category" placeholder="请输入分类"
-        /></a-form-item>
-        <a-form-item label="描述" field="description"
-          ><a-textarea
-            v-model="store.form.description"
-            placeholder="请输入描述"
-            :auto-size="{ minRows: 2 }"
-        /></a-form-item>
-      </a-form>
-    </a-modal>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
+  import { useRouter } from 'vue-router';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useProcessModelStore } from '@/store/modules/bpm/setting/processModelStore';
   import { useAppStore } from '@/store';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
 
+  const router = useRouter();
   const store = useProcessModelStore();
   const appStore = useAppStore();
-  const {
-    loading,
-    list,
-    total,
-    searchForm,
-    pagination,
-    dialogVisible,
-    formRef,
-  } = storeToRefs(store);
+  const { loading, list, total, searchForm, pagination } = storeToRefs(store);
 
   const currentSize = ref<'small' | 'medium' | 'mini' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
     currentSize.value = size as 'small' | 'medium' | 'mini' | 'large';
+  };
+
+  const handleAdd = () => {
+    router.push({ path: '/bpm/setting/model/edit' });
+  };
+
+  const handleEdit = (record: any) => {
+    router.push({ path: '/bpm/setting/model/edit', query: { id: record.id } });
   };
 
   const columns = computed<TableColumnData[]>(() => [
@@ -191,19 +163,19 @@
     },
     {
       title: '模型名称',
-      dataIndex: 'name',
+      dataIndex: 'processName',
       ellipsis: true,
       tooltip: true,
       width: 200,
     },
     {
-      title: 'KEY',
-      dataIndex: 'key',
+      title: '模型名称',
+      dataIndex: 'processKey',
       ellipsis: true,
       tooltip: true,
       width: 180,
     },
-    { title: '分类', dataIndex: 'category', width: 120 },
+    { title: '分类', dataIndex: 'categoryName', width: 120 },
     { title: '版本', dataIndex: 'version', width: 80, align: 'center' },
     {
       title: '状态',
@@ -217,7 +189,7 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 200,
+      width: 150,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
       cellStyle: { whiteSpace: 'nowrap' },

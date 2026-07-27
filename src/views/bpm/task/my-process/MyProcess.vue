@@ -27,9 +27,10 @@
                       placeholder="请选择状态"
                       :allow-clear="true"
                     >
-                      <a-option value="RUNNING">运行中</a-option>
-                      <a-option value="COMPLETED">已完成</a-option>
-                      <a-option value="TERMINATED">已终止</a-option>
+                      <a-option value="RUNNING">审批中</a-option>
+                      <a-option value="COMPLETED">已通过</a-option>
+                      <a-option value="REJECTED">已驳回</a-option>
+                      <a-option value="TERMINATED">已撤销</a-option>
                     </a-select>
                   </a-form-item>
                 </a-col>
@@ -83,29 +84,20 @@
           :size="currentSize"
           :pagination="false"
           :scroll="{ x: '100%', y: '100%' }"
+          :table-layout-fixed="true"
         >
-          <template #status="{ record }">
-            <a-tag v-if="record.status === 'RUNNING'" color="blue"
-              >运行中</a-tag
-            >
-            <a-tag v-else-if="record.status === 'COMPLETED'" color="green"
-              >已完成</a-tag
-            >
-            <a-tag v-else-if="record.status === 'TERMINATED'" color="red"
-              >已终止</a-tag
-            >
-            <span v-else>{{ record.status }}</span>
-          </template>
           <template #operations="{ record }">
-            <a-space size="mini">
-              <a-link
-                v-if="record.status === 'RUNNING'"
+            <a-space size="mini" wrap>
+              <a-link @click="goToDetail(record)">
+                <template #icon><icon-eye /></template>详情
+              </a-link>
+              <!-- <a-link
+                v-if="record.status !== 'COMPLETED'"
                 status="danger"
                 @click="store.handleCancel(record)"
               >
-                <template #icon><icon-close-circle /></template>撤销
-              </a-link>
-              <span v-else>-</span>
+                <template #icon><icon-close-circle /></template>撤回
+              </a-link> -->
             </a-space>
           </template>
         </a-table>
@@ -129,6 +121,7 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
+  import { h, resolveComponent } from 'vue';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useMyProcessStore } from '@/store/modules/bpm/task/myProcessStore';
   import { useAppStore } from '@/store';
@@ -136,11 +129,21 @@
 
   const store = useMyProcessStore();
   const appStore = useAppStore();
+  const router = useRouter();
   const { loading, list, total, searchForm, pagination } = storeToRefs(store);
 
   const currentSize = ref<'small' | 'medium' | 'mini' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
     currentSize.value = size as 'small' | 'medium' | 'mini' | 'large';
+  };
+
+  const goToDetail = (record: any) => {
+    router.push({
+      path: '/bpm/task/detail',
+      query: {
+        processInstanceId: record.processInstanceId,
+      },
+    });
   };
 
   const columns = computed<TableColumnData[]>(() => [
@@ -161,31 +164,88 @@
       dataIndex: 'processDefinitionName',
       ellipsis: true,
       tooltip: true,
-      width: 200,
+      width: 180,
     },
     {
-      title: '业务标识',
+      title: '发起人',
+      dataIndex: 'startUserName',
+      ellipsis: true,
+      width: 100,
+    },
+    {
+      title: '发起部门',
+      dataIndex: 'startDeptName',
+      ellipsis: true,
+      width: 130,
+    },
+    {
+      title: '业务单据',
       dataIndex: 'businessKey',
       ellipsis: true,
       tooltip: true,
-      width: 180,
+      width: 160,
     },
-    { title: '发起人', dataIndex: 'startUserName', width: 120 },
-    { title: '发起时间', dataIndex: 'startTime', width: 180 },
-    { title: '结束时间', dataIndex: 'endTime', width: 180 },
     {
-      title: '状态',
-      dataIndex: 'status',
-      slotName: 'status',
+      title: '当前进度节点',
+      width: 220,
+      render: ({ record }) => {
+        const r = record as any;
+        const tasks = r.currentTasks;
+        if (tasks && tasks.length > 0) {
+          const assignee = r.assigneeName || '';
+          const nodeName = tasks[0].name || '';
+          const text = assignee
+            ? `${assignee} (${nodeName}) 审批中`
+            : `${nodeName} 审批中`;
+          return h('span', text);
+        }
+        return h('span', '-');
+      },
+    },
+    {
+      title: '流程状态',
       width: 100,
-      align: 'center',
+      render: ({ record }) => {
+        const { status } = record as any;
+        let color = 'gray';
+        let label = status || '-';
+        let icon = '';
+        if (status === 'RUNNING') {
+          color = 'blue';
+          label = '审批中';
+          icon = 'icon-sync';
+        } else if (status === 'COMPLETED') {
+          color = 'green';
+          label = '已通过';
+          icon = 'icon-check';
+        } else if (status === 'REJECTED') {
+          color = 'red';
+          label = '已驳回';
+          icon = 'icon-close';
+        } else if (status === 'TERMINATED') {
+          color = 'orange';
+          label = '已撤销';
+          icon = 'icon-stop';
+        }
+        return h(resolveComponent('a-tag'), { color }, () => [
+          icon
+            ? h(resolveComponent(icon), { style: 'margin-right:4px' })
+            : null,
+          label,
+        ]);
+      },
+    },
+    { title: '发起时间', dataIndex: 'startTime', width: 170 },
+    {
+      title: '结束时间',
+      width: 170,
+      render: ({ record }) => (record as any).endTime || '-',
     },
     {
       title: '操作',
-      dataIndex: 'operations',
       slotName: 'operations',
-      width: 100,
-      align: 'center',
+      width: 150,
+      align: 'left',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
       cellStyle: { whiteSpace: 'nowrap' },
     },
@@ -198,22 +258,3 @@
     store.resetState();
   });
 </script>
-
-<style lang="less" scoped>
-  .my-process {
-    height: 100%;
-  }
-  .page-subtitle {
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .action-icon {
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-    &:hover {
-      background-color: var(--color-fill-2);
-    }
-  }
-</style>

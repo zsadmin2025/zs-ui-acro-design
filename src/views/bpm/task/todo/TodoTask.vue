@@ -1,6 +1,6 @@
 <template>
   <div class="todo-task">
-    <zs-container v-if="!currentTask" layout="header-main-footer">
+    <zs-container layout="header-main-footer">
       <template #header>
         <a-row :gutter="[16, 16]">
           <a-col :flex="1">
@@ -81,14 +81,16 @@
           :pagination="false"
           :scroll="{ x: '100%', y: '100%' }"
         >
-          <template #priority="{ record }">
-            <a-tag v-if="record.priority === 1" color="red">高</a-tag>
-            <a-tag v-else-if="record.priority === 2" color="orange">中</a-tag>
-            <a-tag v-else-if="record.priority === 3" color="green">低</a-tag>
-            <span v-else>-</span>
+          <template #startUserName="{ record }">
+            <a-space :size="4">
+              <a-avatar :size="22" :style="{ backgroundColor: '#3370ff' }">
+                {{ record.startUser?.startUserName?.charAt(0) }}
+              </a-avatar>
+              <span>{{ record.startUser?.startUserName }}</span>
+            </a-space>
           </template>
           <template #operations="{ record }">
-            <a-link @click="store.openDetail(record)"
+            <a-link @click="goToDetail(record)"
               ><template #icon><icon-eye /></template>处理</a-link
             >
           </template>
@@ -108,105 +110,34 @@
         />
       </template>
     </zs-container>
-
-    <zs-container v-else layout="header-main-footer">
-      <template #header>
-        <a-page-header title="待办详情" @back="store.goBack()">
-          <template #subtitle>
-            <a-space
-              ><span>{{ currentTask.processDefinitionName }}</span
-              ><span v-if="currentTask.taskName"
-                >- {{ currentTask.taskName }}</span
-              ></a-space
-            >
-          </template>
-        </a-page-header>
-      </template>
-      <template #main-body>
-        <a-spin :loading="detailLoading" style="width: 100%">
-          <a-descriptions
-            v-if="taskDetail?.processInstance"
-            :column="{ xs: 1, sm: 2, md: 3 }"
-            bordered
-            size="small"
-            title="流程信息"
-          >
-            <a-descriptions-item label="流程名称">{{
-              taskDetail.processDefinitionName
-            }}</a-descriptions-item>
-            <a-descriptions-item label="发起人">{{
-              taskDetail.processInstance.startUserName
-            }}</a-descriptions-item>
-            <a-descriptions-item label="发起时间">{{
-              taskDetail.processInstance.startTime
-            }}</a-descriptions-item>
-          </a-descriptions>
-          <a-divider />
-          <template
-            v-if="taskDetail?.formType === 'DYNAMIC' && taskDetail?.formSchema"
-          >
-            <DynamicFormRenderer
-              ref="dynamicFormRef"
-              v-model="formData"
-              :schema="taskDetail.formSchema"
-              :field-permissions="taskDetail.fieldPermissions"
-            />
-          </template>
-          <template
-            v-else-if="
-              taskDetail?.formType === 'BUSINESS' &&
-              taskDetail?.businessFormPath
-            "
-          >
-            <component
-              :is="store.businessComponent"
-              v-if="store.businessComponent"
-              v-model="formData"
-            />
-            <a-empty v-else description="业务表单组件加载中..." />
-          </template>
-          <a-empty v-else-if="!detailLoading" description="无表单数据" />
-          <a-divider />
-          <ApprovalTrace :traces="approvalTraces" />
-          <ApprovalActionPanel
-            :task-id="currentTask.taskId"
-            @success="store.handleActionSuccess"
-          />
-        </a-spin>
-      </template>
-    </zs-container>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
+  import { h, resolveComponent } from 'vue';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useTodoTaskStore } from '@/store/modules/bpm/task/todoTaskStore';
   import { useAppStore } from '@/store';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
-  import DynamicFormRenderer from '../components/DynamicFormRenderer.vue';
-  import ApprovalTrace from '../components/ApprovalTrace.vue';
-  import ApprovalActionPanel from '../components/ApprovalActionPanel.vue';
 
   const store = useTodoTaskStore();
   const appStore = useAppStore();
-  const {
-    loading,
-    list,
-    total,
-    searchForm,
-    pagination,
-    currentTask,
-    detailLoading,
-    taskDetail,
-    formData,
-    approvalTraces,
-    dynamicFormRef,
-  } = storeToRefs(store);
+  const router = useRouter();
+  const { loading, list, total, searchForm, pagination } = storeToRefs(store);
 
   const currentSize = ref<'small' | 'medium' | 'mini' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
     currentSize.value = size as 'small' | 'medium' | 'mini' | 'large';
+  };
+
+  const goToDetail = (record: any) => {
+    router.push({
+      path: '/bpm/task/todo-detail',
+      query: {
+        processInstanceId: record.processInstanceId,
+      },
+    });
   };
 
   const columns = computed<TableColumnData[]>(() => [
@@ -223,41 +154,71 @@
       align: 'center',
     },
     {
-      title: '任务名称',
-      dataIndex: 'taskName',
-      ellipsis: true,
-      tooltip: true,
-      width: 200,
-    },
-    {
       title: '流程名称',
       dataIndex: 'processDefinitionName',
       ellipsis: true,
       tooltip: true,
-      width: 200,
+      width: 180,
+      minWidth: 120,
     },
     {
-      title: '业务标识',
+      title: '业务单据',
       dataIndex: 'businessKey',
       ellipsis: true,
       tooltip: true,
-      width: 150,
+      width: 160,
+      minWidth: 120,
     },
-    { title: '处理人', dataIndex: 'assigneeName', width: 120 },
-    { title: '创建时间', dataIndex: 'createTime', width: 180 },
-    { title: '到期时间', dataIndex: 'dueDate', width: 180 },
     {
-      title: '优先级',
-      dataIndex: 'priority',
-      slotName: 'priority',
-      width: 80,
-      align: 'center',
+      title: '发起人',
+      slotName: 'startUserName',
+      width: 140,
+      minWidth: 100,
+    },
+    {
+      title: '发起部门',
+      ellipsis: true,
+      tooltip: true,
+      width: 140,
+      minWidth: 100,
+      render: ({ record }) => (record as any).startUser?.deptName || '-',
+    },
+    {
+      title: '流程实例',
+      dataIndex: 'processInstanceName',
+      ellipsis: true,
+      tooltip: true,
+      width: 200,
+      minWidth: 150,
+    },
+    { title: '开始时间', dataIndex: 'startTime', width: 170, minWidth: 140 },
+    {
+      title: '完成时间',
+      width: 100,
+      minWidth: 80,
+      render: ({ record }) => (record as any).todoTask?.endTime || '-',
+    },
+    {
+      title: '任务节点',
+      dataIndex: 'taskName',
+      ellipsis: true,
+      width: 100,
+      minWidth: 80,
+      render: ({ record }) =>
+        (record as any).taskName
+          ? h(
+              resolveComponent('a-tag'),
+              { color: 'blue' },
+              () => (record as any).taskName,
+            )
+          : h('span', '-'),
     },
     {
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
       width: 80,
+      minWidth: 60,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
       cellStyle: { whiteSpace: 'nowrap' },

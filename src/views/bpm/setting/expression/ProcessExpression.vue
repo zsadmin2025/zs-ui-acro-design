@@ -72,14 +72,14 @@
           :pagination="false"
           :scroll="{ x: '100%', y: '100%' }"
         >
-          <template #expression="{ record }"
-            ><a-typography-text code ellipsis>{{
-              record.expression
-            }}</a-typography-text></template
+          <template #expression="{ record }">
+            <a-typography-text code ellipsis>
+              {{ record.expression }}
+            </a-typography-text></template
           >
-          <template #status="{ record }"
-            ><ZsStatus :value="record.status"
-          /></template>
+          <template #status="{ record }">
+            <ZsStatus :value="record.status" />
+          </template>
           <template #operations="{ record }">
             <a-space size="mini">
               <a-link @click="store.handleEdit(record)"
@@ -200,13 +200,6 @@
       width: 400,
     },
     {
-      title: '状态',
-      dataIndex: 'status',
-      slotName: 'status',
-      width: 100,
-      align: 'center',
-    },
-    {
       title: '描述',
       dataIndex: 'description',
       ellipsis: true,
@@ -235,15 +228,8 @@
 
 <style lang="less" scoped>
   .process-expression {
-    height: 100%;
-  }
-  .action-icon {
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-    &:hover {
-      background-color: var(--color-fill-2);
+    :deep(.arco-typography) {
+      margin-bottom: 0px;
     }
   }
 </style>

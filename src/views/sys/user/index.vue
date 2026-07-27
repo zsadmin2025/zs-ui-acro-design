@@ -266,7 +266,7 @@
       dataIndex: 'username',
       ellipsis: true,
       tooltip: true,
-      width: 100,
+      width: 150,
     },
     {
       title: '用户姓名',
@@ -339,9 +339,9 @@
       cellStyle: { whiteSpace: 'nowrap' },
     },
   ]);
-  const currentSize = ref('medium');
+  const currentSize = ref<'small' | 'medium' | 'mini' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
-    currentSize.value = size;
+    currentSize.value = size as 'small' | 'medium' | 'mini' | 'large';
   };
 
   onMounted(() => {

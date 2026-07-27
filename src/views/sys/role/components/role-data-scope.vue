@@ -74,7 +74,8 @@
         <a-button @click="roleAddOrEditStore.closeDataScope">取消</a-button>
         <a-button
           type="primary"
-          @click="roleAddOrEditStore.submitDataScope(dataScopeFormRef)"
+          :loading="loading"
+          @click="roleAddOrEditStore.submitDataScope()"
         >
           确定
         </a-button>
@@ -88,8 +89,14 @@
   import { useRoleAddOrEditStore } from '@/store/modules/sys/role/roleAddOrEditStore';
 
   const roleAddOrEditStore = useRoleAddOrEditStore();
-  const { dataScopeVisible, form, deptTree, deptRef, dataScopeFormRef } =
-    storeToRefs(roleAddOrEditStore);
+  const {
+    dataScopeVisible,
+    form,
+    deptTree,
+    deptRef,
+    dataScopeFormRef,
+    loading,
+  } = storeToRefs(roleAddOrEditStore);
 
   const rules = {
     deptList: [

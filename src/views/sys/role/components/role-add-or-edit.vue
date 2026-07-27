@@ -41,7 +41,11 @@
     <template #footer>
       <a-space>
         <a-button @click="roleAddOrEditStore.close">取消</a-button>
-        <a-button type="primary" @click="roleAddOrEditStore.submit(emits)">
+        <a-button
+          type="primary"
+          :loading="loading"
+          @click="roleAddOrEditStore.submit(emits)"
+        >
           确定
         </a-button>
       </a-space>
@@ -55,7 +59,7 @@
   import { useAppStore } from '@/store';
 
   const roleAddOrEditStore = useRoleAddOrEditStore();
-  const { dialogFormVisible, formRef, form, rules } =
+  const { dialogFormVisible, formRef, form, rules, loading } =
     storeToRefs(roleAddOrEditStore);
   const appStore = useAppStore();
 

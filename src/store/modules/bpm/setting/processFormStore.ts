@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingFormApi } from '@/api/bpm/setting/form';
 import type { ProcessFormItem } from '@/types/bpm/bpmTypes';
 
 export interface ProcessFormState {
@@ -29,7 +29,7 @@ export const useProcessFormStore = defineStore('processForm', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getFormPage({
+        const { data } = await bpmSettingFormApi.getFormPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -56,7 +56,7 @@ export const useProcessFormStore = defineStore('processForm', {
       this.dialogVisible = true;
     },
     async handleEdit(record: ProcessFormItem) {
-      const { data } = await bpmSettingApi.getFormById(record.id);
+      const { data } = await bpmSettingFormApi.getFormById(record.id);
       Object.assign(this.form, data?.data ?? data);
       this.dialogVisible = true;
     },
@@ -64,8 +64,8 @@ export const useProcessFormStore = defineStore('processForm', {
       const e = await this.formRef?.validate();
       if (e) return;
       const a = this.form.id
-        ? bpmSettingApi.updateForm
-        : bpmSettingApi.saveForm;
+        ? bpmSettingFormApi.updateForm
+        : bpmSettingFormApi.saveForm;
       await a({ ...this.form });
       Message.success(this.form.id ? '更新成功' : '创建成功');
       this.dialogVisible = false;
@@ -77,7 +77,7 @@ export const useProcessFormStore = defineStore('processForm', {
         titleAlign: 'start',
         content: `确定发布表单「${record.formName}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.publishForm(record.id);
+          await bpmSettingFormApi.publishForm(record.id);
           Message.success('发布成功');
           this.loadData();
         },
@@ -89,7 +89,7 @@ export const useProcessFormStore = defineStore('processForm', {
         titleAlign: 'start',
         content: `确定删除表单「${record.formName}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteForm(record.id);
+          await bpmSettingFormApi.deleteForm(record.id);
           Message.success('删除成功');
           this.loadData();
         },

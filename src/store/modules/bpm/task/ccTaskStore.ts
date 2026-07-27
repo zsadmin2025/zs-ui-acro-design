@@ -1,13 +1,18 @@
 import { defineStore } from 'pinia';
 import { Message } from '@arco-design/web-vue';
-import { bpmTaskApi } from '@/api/bpm/task';
+import { bpmTaskCcApi } from '@/api/bpm/task/cc';
 import type { CcTaskItem } from '@/types/bpm/bpmTypes';
 
 export interface CcTaskState {
   loading: boolean;
   list: CcTaskItem[];
   total: number;
-  searchForm: { processDefinitionName: string; title: string };
+  searchForm: {
+    processDefinitionName: string;
+    processDefinitionKey: string;
+    processInstanceName: string;
+    businessKey: string;
+  };
   pagination: { current: number; pageSize: number };
 }
 
@@ -16,14 +21,19 @@ export const useCcTaskStore = defineStore('ccTask', {
     loading: false,
     list: [],
     total: 0,
-    searchForm: { processDefinitionName: '', title: '' },
+    searchForm: {
+      processDefinitionName: '',
+      processDefinitionKey: '',
+      processInstanceName: '',
+      businessKey: '',
+    },
     pagination: { current: 1, pageSize: 10 },
   }),
   actions: {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmTaskApi.getCcList({
+        const { data } = await bpmTaskCcApi.getCcPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -36,12 +46,17 @@ export const useCcTaskStore = defineStore('ccTask', {
       }
     },
     resetSearch() {
-      this.searchForm = { processDefinitionName: '', title: '' };
+      this.searchForm = {
+        processInstanceName: '',
+        processDefinitionName: '',
+        processDefinitionKey: '',
+        businessKey: '',
+      };
       this.pagination.current = 1;
       this.loadData();
     },
     async markRead(record: CcTaskItem) {
-      await bpmTaskApi.markCcRead(record.id);
+      await bpmTaskCcApi.markCcRead(record.id);
       Message.success('已标记为已读');
       this.loadData();
     },

@@ -149,13 +149,14 @@
     );
   };
 
-  const onAddClick = () => {
+  const onAddClick = async () => {
     dialogVisible.value = true;
+    await postStore.loadPostList();
+    await roleStore.loadRoleList();
+    await useUserSelectStore.queryData();
   };
   onMounted(() => {
-    postStore.loadPostList();
-    roleStore.loadRoleList();
-    useUserSelectStore.queryData();
+    /* lazy load when dialog opens */
   });
 </script>
 

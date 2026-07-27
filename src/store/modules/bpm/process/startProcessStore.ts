@@ -1,74 +1,124 @@
 import { ref, shallowRef } from 'vue';
 import { defineStore } from 'pinia';
 import { Message } from '@arco-design/web-vue';
-import { bpmProcessApi } from '@/api/bpm/process';
-import type { ProcessDefinition, FormSchema } from '@/types/bpm/bpmTypes';
+import { bpmSettingModelApi } from '@/api/bpm/setting/model';
+import { bpmSettingCategoryApi } from '@/api/bpm/setting/category';
+import { bpmTaskMyProcessApi } from '@/api/bpm/task/my-process';
+import type {
+  ProcessDefinition,
+  ProcessCategoryItem,
+} from '@/types/bpm/bpmTypes';
 
 export interface StartProcessState {
   definitions: ProcessDefinition[];
   loading: boolean;
-  searchForm: { name: string };
+  searchForm: { processName: string };
   currentDefinition: ProcessDefinition | null;
   formLoading: boolean;
-  formType: 'DYNAMIC' | 'BUSINESS' | null;
-  formSchema: FormSchema | null;
-  businessFormPath: string;
+  formType: number | null; // 1=动态表单, 2=业务表单
+  formRule: any[];
+  formOption: any;
+  businessFormRoute: string;
   businessComponent: any;
   formData: Record<string, any>;
   ccUserIds: string[];
   submitting: boolean;
   dynamicFormRef: any;
+  // 分类相关
+  categories: ProcessCategoryItem[];
+  categoryLoading: boolean;
+  selectedCategory: string | null;
+  // 流程图相关
+  modelJson: string;
+  activeTab: string; // form | diagram
 }
 
 export const useStartProcessStore = defineStore('startProcess', {
   state: (): StartProcessState => ({
     definitions: [],
     loading: false,
-    searchForm: { name: '' },
+    searchForm: { processName: '' },
     currentDefinition: null,
     formLoading: false,
     formType: null,
-    formSchema: null,
-    businessFormPath: '',
+    formRule: [],
+    formOption: {},
+    businessFormRoute: '',
     businessComponent: shallowRef(null),
     formData: {},
     ccUserIds: [],
     submitting: false,
     dynamicFormRef: ref(null),
+    // 分类相关
+    categories: [],
+    categoryLoading: false,
+    selectedCategory: null,
+    // 流程图相关
+    modelJson: '',
+    activeTab: 'form',
   }),
+  getters: {
+    filteredDefinitions(): ProcessDefinition[] {
+      if (!this.selectedCategory) {
+        return this.definitions;
+      }
+      return this.definitions.filter(
+        (def) => def.categoryId === this.selectedCategory,
+      );
+    },
+  },
   actions: {
     async loadDefinitions() {
       this.loading = true;
       try {
-        const { data } = await bpmProcessApi.getDefinitions(this.searchForm);
+        const { data } = await bpmSettingModelApi.getCanStartProcessList(
+          this.searchForm,
+        );
         this.definitions = data?.data ?? data ?? [];
       } finally {
         this.loading = false;
       }
     },
     resetSearch() {
-      this.searchForm = { name: '' };
+      this.searchForm = { processName: '' };
       this.loadDefinitions();
+    },
+    async loadCategories() {
+      this.categoryLoading = true;
+      try {
+        const { data } = await bpmSettingCategoryApi.getCategoryPage({
+          current: 1,
+          pageSize: 999,
+        });
+        const result = data?.data ?? data;
+        this.categories = result?.list ?? result?.records ?? [];
+      } finally {
+        this.categoryLoading = false;
+      }
+    },
+    selectCategory(categoryId: string | null) {
+      this.selectedCategory = categoryId;
     },
     async selectProcess(item: ProcessDefinition) {
       this.currentDefinition = item;
       this.formLoading = true;
       this.formData = {};
       this.businessComponent = shallowRef(null);
+      this.activeTab = 'form';
       try {
-        const { data } = await bpmProcessApi.getDefinitionByKey(item.key);
-        const detail = data?.data ?? data;
-        const startForm = detail?.formConfig?.startForm;
-        if (startForm) {
-          this.formType = startForm.type;
-          if (startForm.type === 'DYNAMIC') {
-            this.formSchema = startForm.formSchema ?? null;
-          } else if (startForm.type === 'BUSINESS') {
-            this.businessFormPath = startForm.businessFormPath ?? '';
-          }
+        // 根据 formId 判断表单类型
+        if (item.formId) {
+          // 有 formId 表示动态表单
+          this.formType = 1;
+          this.formRule = item.formRule ? JSON.parse(item.formRule) : [];
+          this.formOption = item.formOption ? JSON.parse(item.formOption) : {};
         } else {
-          this.formType = null;
+          // 无 formId 表示业务表单，需要根据其他逻辑判断路由
+          this.formType = 2;
+          this.businessFormRoute = '';
         }
+        // 加载流程图数据
+        this.modelJson = item.modelJson || '';
       } finally {
         this.formLoading = false;
       }
@@ -79,25 +129,20 @@ export const useStartProcessStore = defineStore('startProcess', {
         this.ccUserIds = arr.map((u: any) => u.userId);
       }
     },
-    async handleStart() {
-      if (!this.currentDefinition) return;
-      if (this.formType === 'DYNAMIC' && this.dynamicFormRef) {
-        const errors = await this.dynamicFormRef.validate();
-        if (errors) {
-          Message.warning('请完善表单信息');
-          return;
-        }
-      }
+    async handleStart(formData: Record<string, any>) {
       this.submitting = true;
       try {
-        await bpmProcessApi.startProcess(this.currentDefinition.key, {
-          formData: this.formData,
+        await bpmTaskMyProcessApi.startProcess({
+          processDefinitionId: this.currentDefinition?.processDefinitionId,
+          processKey: this.currentDefinition?.processKey,
+          variables: formData,
           ccUserIds: this.ccUserIds,
         });
         Message.success('流程发起成功');
         this.currentDefinition = null;
         this.formData = {};
         this.ccUserIds = [];
+        this.activeTab = 'form';
       } finally {
         this.submitting = false;
       }

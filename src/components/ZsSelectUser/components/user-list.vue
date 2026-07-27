@@ -112,17 +112,8 @@
   };
 
   onMounted(() => {
-    useUserSelectStore.queryData();
+    /* data loaded by parent component */
   });
-
-  // 监听已选用户变化，重新查询数据
-  watch(
-    () => useUserSelectStore.tableAddUserData,
-    () => {
-      useUserSelectStore.queryData();
-    },
-    { deep: true },
-  );
 </script>
 
 <style lang="less" scoped>

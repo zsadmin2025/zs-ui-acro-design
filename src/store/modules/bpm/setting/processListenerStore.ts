@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingListenerApi } from '@/api/bpm/setting/listener';
 import type { ProcessListenerItem } from '@/types/bpm/bpmTypes';
 
 export interface ProcessListenerState {
@@ -45,7 +45,7 @@ export const useProcessListenerStore = defineStore('processListener', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getListenerPage({
+        const { data } = await bpmSettingListenerApi.getListenerPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -75,7 +75,7 @@ export const useProcessListenerStore = defineStore('processListener', {
       this.dialogVisible = true;
     },
     async handleEdit(record: ProcessListenerItem) {
-      const { data } = await bpmSettingApi.getListenerById(record.id);
+      const { data } = await bpmSettingListenerApi.getListenerById(record.id);
       Object.assign(this.form, data?.data ?? data);
       this.dialogVisible = true;
     },
@@ -83,8 +83,8 @@ export const useProcessListenerStore = defineStore('processListener', {
       const e = await this.formRef?.validate();
       if (e) return;
       const a = this.form.id
-        ? bpmSettingApi.updateListener
-        : bpmSettingApi.saveListener;
+        ? bpmSettingListenerApi.updateListener
+        : bpmSettingListenerApi.saveListener;
       await a({ ...this.form });
       Message.success(this.form.id ? '更新成功' : '创建成功');
       this.dialogVisible = false;
@@ -96,7 +96,7 @@ export const useProcessListenerStore = defineStore('processListener', {
         titleAlign: 'start',
         content: `确定删除「${record.name}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteListener(record.id);
+          await bpmSettingListenerApi.deleteListener(record.id);
           Message.success('删除成功');
           this.loadData();
         },

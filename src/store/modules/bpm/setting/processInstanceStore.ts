@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingInstanceApi } from '@/api/bpm/setting/instance';
 import type { ProcessInstanceItem } from '@/types/bpm/bpmTypes';
 
 export interface ProcessInstanceState {
@@ -23,7 +23,7 @@ export const useProcessInstanceStore = defineStore('processInstance', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getInstancePage({
+        const { data } = await bpmSettingInstanceApi.getAllInstancePage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -46,7 +46,7 @@ export const useProcessInstanceStore = defineStore('processInstance', {
         titleAlign: 'start',
         content: `确定挂起流程「${record.processDefinitionName}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.suspendInstance(record.processInstanceId);
+          await bpmSettingInstanceApi.suspendInstance(record.processInstanceId);
           Message.success('已挂起');
           this.loadData();
         },
@@ -58,7 +58,9 @@ export const useProcessInstanceStore = defineStore('processInstance', {
         titleAlign: 'start',
         content: `确定激活流程「${record.processDefinitionName}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.activateInstance(record.processInstanceId);
+          await bpmSettingInstanceApi.activateInstance(
+            record.processInstanceId,
+          );
           Message.success('已激活');
           this.loadData();
         },
@@ -70,7 +72,9 @@ export const useProcessInstanceStore = defineStore('processInstance', {
         titleAlign: 'start',
         content: `确定删除流程实例「${record.processDefinitionName}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteInstance(record.processInstanceId);
+          await bpmSettingInstanceApi.terminateInstance(
+            record.processInstanceId,
+          );
           Message.success('删除成功');
           this.loadData();
         },

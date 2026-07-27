@@ -13,6 +13,7 @@ const useAppStore = defineStore('app', {
     ...defaultSettings,
     serverMenu: [],
     hasFetchedMenus: false,
+    routesRegistered: false,
   }),
 
   getters: {
@@ -33,7 +34,7 @@ const useAppStore = defineStore('app', {
       serialize: JSON.stringify,
       deserialize: JSON.parse,
     },
-    omit: ['serverMenu', 'hasFetchedMenus'],
+    omit: ['serverMenu', 'hasFetchedMenus', 'routesRegistered'],
   },
   actions: {
     getCssVariable(name: string) {
@@ -141,11 +142,15 @@ const useAppStore = defineStore('app', {
           content: errorMessage,
           closable: true,
         });
-        this.hasFetchedMenus = true; // 👈 即使失败也标记为“已尝试”，避免无限重试
+        // 失败时也标记为已获取，避免无限重试
+        this.hasFetchedMenus = true;
+        this.serverMenu = []; // 清空菜单数据
       }
     },
     clearServerMenu() {
       this.serverMenu = [];
+      this.hasFetchedMenus = false;
+      this.routesRegistered = false;
     },
   },
 });

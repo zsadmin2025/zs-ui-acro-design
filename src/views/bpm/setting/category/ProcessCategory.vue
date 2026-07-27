@@ -160,9 +160,9 @@
     formRef,
   } = storeToRefs(store);
 
-  const currentSize = ref('medium');
+  const currentSize = ref<'small' | 'medium' | 'mini' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
-    currentSize.value = size;
+    currentSize.value = size as 'small' | 'medium' | 'mini' | 'large';
   };
 
   const columns = computed<TableColumnData[]>(() => [
@@ -206,7 +206,7 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 140,
+      width: 150,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
       cellStyle: { whiteSpace: 'nowrap' },

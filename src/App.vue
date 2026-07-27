@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue';
+  import { computed, watch } from 'vue';
   import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
   import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
   import GlobalSetting from '@/components/global-setting/index.vue';
@@ -46,6 +46,7 @@
   // import useWebsocket from '@/hooks/websocket';
   import { useWebsocketStore } from '@/store/modules/common/websocketStore';
   import { useAppStore } from '@/store';
+  import { isPreloading } from '@/preload';
 
   const wsStore = useWebsocketStore();
 
@@ -83,6 +84,20 @@
         return enUS;
     }
   });
+
+  // 预加载完成后隐藏全局 Loading
+  watch(
+    isPreloading,
+    (loading) => {
+      if (!loading) {
+        const loadingEl = document.getElementById('app-loading');
+        if (loadingEl) {
+          loadingEl.style.display = 'none';
+        }
+      }
+    },
+    { immediate: true },
+  );
 </script>
 
 <style scoped></style>

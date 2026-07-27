@@ -19,6 +19,7 @@ export const useRoleAddOrEditStore = defineStore('roleAddOrEdit', {
       dataScopeFormRef: ref(null),
       menuData: [],
       deptTree: [],
+      loading: false,
       form: {
         sysRoleId: '',
         roleName: '',
@@ -46,8 +47,25 @@ export const useRoleAddOrEditStore = defineStore('roleAddOrEdit', {
     },
   },
   actions: {
+    resetForm() {
+      this.form = {
+        sysRoleId: '',
+        roleName: '',
+        roleCode: '',
+        sort: 999,
+        status: 1,
+        remark: '',
+        menuList: [],
+        dataScope: 1,
+        deptList: [],
+      };
+    },
     async init() {
       this.dialogFormVisible = true;
+      // 新增时先重置表单数据
+      if (!this.form.sysRoleId) {
+        this.resetForm();
+      }
       await Promise.all([
         this.getMenuTree(),
         this.form.sysRoleId ? this.getInfoById() : Promise.resolve(),
@@ -55,6 +73,9 @@ export const useRoleAddOrEditStore = defineStore('roleAddOrEdit', {
     },
     async initDataScope() {
       this.dataScopeVisible = true;
+      if (!this.form.sysRoleId) {
+        this.resetForm();
+      }
       await Promise.all([
         this.getDeptList(),
         this.form.sysRoleId ? this.getInfoById() : Promise.resolve(),
@@ -62,6 +83,9 @@ export const useRoleAddOrEditStore = defineStore('roleAddOrEdit', {
     },
     async initMenuPermission() {
       this.menuPermission = true;
+      if (!this.form.sysRoleId) {
+        this.resetForm();
+      }
       await Promise.all([
         this.getMenuTree(),
         this.getDeptList(),
@@ -103,29 +127,41 @@ export const useRoleAddOrEditStore = defineStore('roleAddOrEdit', {
         this.formRef.resetFields();
       }
       this.dialogFormVisible = false;
+      this.loading = false;
     },
     async submit(emits: (event: 'refresh') => void) {
-      if (!this.formRef) return;
+      if (!this.formRef || this.loading) return;
 
       if (await this.formRef.validate()) {
         return;
       }
-      const action = this.form.sysRoleId ? sysRoleApi.edit : sysRoleApi.save;
-      await action(this.form);
-      this.close();
-      this.dialogFormVisible = false;
-      emits('refresh');
+      this.loading = true;
+      try {
+        const action = this.form.sysRoleId ? sysRoleApi.edit : sysRoleApi.save;
+        await action(this.form);
+        this.close();
+        this.dialogFormVisible = false;
+        emits('refresh');
+      } finally {
+        this.loading = false;
+      }
     },
     closeDataScope() {
       this.dataScopeVisible = false;
+      this.loading = false;
     },
-    async submitDataScope(dataScopeFormRef: any) {
-      if (!dataScopeFormRef) return;
+    async submitDataScope() {
+      if (!this.dataScopeFormRef || this.loading) return;
       if (await this.dataScopeFormRef.validate()) {
         return;
       }
-      await sysRoleApi.edit(this.form);
-      this.dataScopeVisible = false;
+      this.loading = true;
+      try {
+        await sysRoleApi.edit(this.form);
+        this.dataScopeVisible = false;
+      } finally {
+        this.loading = false;
+      }
     },
 
     closeMenuPermission() {
@@ -133,14 +169,20 @@ export const useRoleAddOrEditStore = defineStore('roleAddOrEdit', {
         this.formRef.resetFields();
       }
       this.menuPermission = false;
+      this.loading = false;
     },
     async submitMenuPermission() {
-      if (!this.dataScopeFormRef) return;
+      if (!this.dataScopeFormRef || this.loading) return;
       if (await this.dataScopeFormRef.validate()) {
         return;
       }
-      console.log('dataScopeFormRef', this.dataScopeFormRef);
-      console.log('Submitting menu permissions...', this.form);
+      this.loading = true;
+      try {
+        await sysRoleApi.edit(this.form);
+        this.menuPermission = false;
+      } finally {
+        this.loading = false;
+      }
     },
   },
 });

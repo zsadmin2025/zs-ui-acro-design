@@ -4,6 +4,7 @@
     width="50%"
     title="功能权限"
     unmount-on-close
+    :ok-loading="loading"
     @cancel="roleAddOrEditStore.closeMenuPermission"
     @ok="roleAddOrEditStore.submitMenuPermission"
   >
@@ -77,8 +78,14 @@
   import { useRoleAddOrEditStore } from '@/store/modules/sys/role/roleAddOrEditStore';
 
   const roleAddOrEditStore = useRoleAddOrEditStore();
-  const { menuPermission, form, menuData, deptTree, dataScopeFormRef } =
-    storeToRefs(roleAddOrEditStore);
+  const {
+    menuPermission,
+    form,
+    menuData,
+    deptTree,
+    dataScopeFormRef,
+    loading,
+  } = storeToRefs(roleAddOrEditStore);
 
   const rules = {
     deptList: [

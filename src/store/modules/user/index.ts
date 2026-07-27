@@ -88,6 +88,13 @@ const useUserStore = defineStore('user', {
         setToken(res?.data?.accessToken);
         setRefreshToken(res?.data?.refreshToken);
 
+        // 登录成功后，加载用户信息和菜单配置
+        const appStore = useAppStore();
+        // 重置菜单加载状态，确保路由守卫会等待新数据
+        appStore.hasFetchedMenus = false;
+
+        await Promise.all([this.info(), appStore.fetchServerMenuConfig()]);
+
         // 加载字典数据
         const dictDataStore = useDictDataStore();
         await dictDataStore.loadDictDataList();

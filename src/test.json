@@ -1,0 +1,3553 @@
+{
+  "type": "FeatureCollection",
+  "name": "综合购物中心全楼层三维商铺数据",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-01",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5521, 37.8792, -8],
+            [112.55213, 37.8792, -8],
+            [112.55213, 37.87862, -8],
+            [112.5521, 37.87862, -8],
+            [112.5521, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-02",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55213, 37.8792, -8],
+            [112.55216, 37.8792, -8],
+            [112.55216, 37.87862, -8],
+            [112.55213, 37.87862, -8],
+            [112.55213, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-03",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55216, 37.8792, -8],
+            [112.55219, 37.8792, -8],
+            [112.55219, 37.87862, -8],
+            [112.55216, 37.87862, -8],
+            [112.55216, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-04",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55219, 37.8792, -8],
+            [112.55222, 37.8792, -8],
+            [112.55222, 37.87862, -8],
+            [112.55219, 37.87862, -8],
+            [112.55219, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-05",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55222, 37.8792, -8],
+            [112.55225, 37.8792, -8],
+            [112.55225, 37.87862, -8],
+            [112.55222, 37.87862, -8],
+            [112.55222, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-06",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55225, 37.8792, -8],
+            [112.55228, 37.8792, -8],
+            [112.55228, 37.87862, -8],
+            [112.55225, 37.87862, -8],
+            [112.55225, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-07",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55228, 37.8792, -8],
+            [112.55231, 37.8792, -8],
+            [112.55231, 37.87862, -8],
+            [112.55228, 37.87862, -8],
+            [112.55228, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-08",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55231, 37.8792, -8],
+            [112.55234, 37.8792, -8],
+            [112.55234, 37.87862, -8],
+            [112.55231, 37.87862, -8],
+            [112.55231, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-09",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55234, 37.8792, -8],
+            [112.55237, 37.8792, -8],
+            [112.55237, 37.87862, -8],
+            [112.55234, 37.87862, -8],
+            [112.55234, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-10",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55237, 37.8792, -8],
+            [112.5524, 37.8792, -8],
+            [112.5524, 37.87862, -8],
+            [112.55237, 37.87862, -8],
+            [112.55237, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-11",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5524, 37.8792, -8],
+            [112.55243, 37.8792, -8],
+            [112.55243, 37.87862, -8],
+            [112.5524, 37.87862, -8],
+            [112.5524, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-12",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55243, 37.8792, -8],
+            [112.55246, 37.8792, -8],
+            [112.55246, 37.87862, -8],
+            [112.55243, 37.87862, -8],
+            [112.55243, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-13",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55246, 37.8792, -8],
+            [112.55249, 37.8792, -8],
+            [112.55249, 37.87862, -8],
+            [112.55246, 37.87862, -8],
+            [112.55246, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-14",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55249, 37.8792, -8],
+            [112.55252, 37.8792, -8],
+            [112.55252, 37.87862, -8],
+            [112.55249, 37.87862, -8],
+            [112.55249, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-15",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55252, 37.8792, -8],
+            [112.55255, 37.8792, -8],
+            [112.55255, 37.87862, -8],
+            [112.55252, 37.87862, -8],
+            [112.55252, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-16",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55255, 37.8792, -8],
+            [112.55258, 37.8792, -8],
+            [112.55258, 37.87862, -8],
+            [112.55255, 37.87862, -8],
+            [112.55255, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-17",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55258, 37.8792, -8],
+            [112.55261, 37.8792, -8],
+            [112.55261, 37.87862, -8],
+            [112.55258, 37.87862, -8],
+            [112.55258, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-18",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55261, 37.8792, -8],
+            [112.55264, 37.8792, -8],
+            [112.55264, 37.87862, -8],
+            [112.55261, 37.87862, -8],
+            [112.55261, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-19",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55264, 37.8792, -8],
+            [112.55267, 37.8792, -8],
+            [112.55267, 37.87862, -8],
+            [112.55264, 37.87862, -8],
+            [112.55264, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-20",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55267, 37.8792, -8],
+            [112.5527, 37.8792, -8],
+            [112.5527, 37.87862, -8],
+            [112.55267, 37.87862, -8],
+            [112.55267, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-21",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5527, 37.8792, -8],
+            [112.55273, 37.8792, -8],
+            [112.55273, 37.87862, -8],
+            [112.5527, 37.87862, -8],
+            [112.5527, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B2",
+        "floor_name": "地下二层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B2-22",
+        "base_z": -8,
+        "top_z": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55273, 37.8792, -8],
+            [112.5528, 37.87922, -8],
+            [112.5528, 37.87865, -8],
+            [112.55273, 37.87862, -8],
+            [112.55273, 37.8792, -8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-01",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5521, 37.8792, -4],
+            [112.55213, 37.8792, -4],
+            [112.55213, 37.87862, -4],
+            [112.5521, 37.87862, -4],
+            [112.5521, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-02",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55213, 37.8792, -4],
+            [112.55216, 37.8792, -4],
+            [112.55216, 37.87862, -4],
+            [112.55213, 37.87862, -4],
+            [112.55213, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-03",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55216, 37.8792, -4],
+            [112.55219, 37.8792, -4],
+            [112.55219, 37.87862, -4],
+            [112.55216, 37.87862, -4],
+            [112.55216, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-04",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55219, 37.8792, -4],
+            [112.55222, 37.8792, -4],
+            [112.55222, 37.87862, -4],
+            [112.55219, 37.87862, -4],
+            [112.55219, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-05",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55222, 37.8792, -4],
+            [112.55225, 37.8792, -4],
+            [112.55225, 37.87862, -4],
+            [112.55222, 37.87862, -4],
+            [112.55222, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-06",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55225, 37.8792, -4],
+            [112.55228, 37.8792, -4],
+            [112.55228, 37.87862, -4],
+            [112.55225, 37.87862, -4],
+            [112.55225, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-07",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55228, 37.8792, -4],
+            [112.55231, 37.8792, -4],
+            [112.55231, 37.87862, -4],
+            [112.55228, 37.87862, -4],
+            [112.55228, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-08",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55231, 37.8792, -4],
+            [112.55234, 37.8792, -4],
+            [112.55234, 37.87862, -4],
+            [112.55231, 37.87862, -4],
+            [112.55231, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-09",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55234, 37.8792, -4],
+            [112.55237, 37.8792, -4],
+            [112.55237, 37.87862, -4],
+            [112.55234, 37.87862, -4],
+            [112.55234, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-10",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55237, 37.8792, -4],
+            [112.5524, 37.8792, -4],
+            [112.5524, 37.87862, -4],
+            [112.55237, 37.87862, -4],
+            [112.55237, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-11",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5524, 37.8792, -4],
+            [112.55243, 37.8792, -4],
+            [112.55243, 37.87862, -4],
+            [112.5524, 37.87862, -4],
+            [112.5524, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-12",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55243, 37.8792, -4],
+            [112.55246, 37.8792, -4],
+            [112.55246, 37.87862, -4],
+            [112.55243, 37.87862, -4],
+            [112.55243, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-13",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55246, 37.8792, -4],
+            [112.55249, 37.8792, -4],
+            [112.55249, 37.87862, -4],
+            [112.55246, 37.87862, -4],
+            [112.55246, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-14",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55249, 37.8792, -4],
+            [112.55252, 37.8792, -4],
+            [112.55252, 37.87862, -4],
+            [112.55249, 37.87862, -4],
+            [112.55249, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-15",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55252, 37.8792, -4],
+            [112.55255, 37.8792, -4],
+            [112.55255, 37.87862, -4],
+            [112.55252, 37.87862, -4],
+            [112.55252, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-16",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55255, 37.8792, -4],
+            [112.55258, 37.8792, -4],
+            [112.55258, 37.87862, -4],
+            [112.55255, 37.87862, -4],
+            [112.55255, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-17",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55258, 37.8792, -4],
+            [112.55261, 37.8792, -4],
+            [112.55261, 37.87862, -4],
+            [112.55258, 37.87862, -4],
+            [112.55258, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-18",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55261, 37.8792, -4],
+            [112.55264, 37.8792, -4],
+            [112.55264, 37.87862, -4],
+            [112.55261, 37.87862, -4],
+            [112.55261, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-19",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55264, 37.8792, -4],
+            [112.55267, 37.8792, -4],
+            [112.55267, 37.87862, -4],
+            [112.55264, 37.87862, -4],
+            [112.55264, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-20",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55267, 37.8792, -4],
+            [112.5527, 37.8792, -4],
+            [112.5527, 37.87862, -4],
+            [112.55267, 37.87862, -4],
+            [112.55267, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-21",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5527, 37.8792, -4],
+            [112.55273, 37.8792, -4],
+            [112.55273, 37.87862, -4],
+            [112.5527, 37.87862, -4],
+            [112.5527, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "B1",
+        "floor_name": "地下一层",
+        "business_category": "地下停车场车位区",
+        "shop_id": "B1-22",
+        "base_z": -4,
+        "top_z": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55273, 37.8792, -4],
+            [112.5528, 37.87922, -4],
+            [112.5528, 37.87865, -4],
+            [112.55273, 37.87862, -4],
+            [112.55273, 37.8792, -4]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-01",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5521, 37.8792, 0],
+            [112.55213, 37.8792, 0],
+            [112.55213, 37.87862, 0],
+            [112.5521, 37.87862, 0],
+            [112.5521, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-02",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55213, 37.8792, 0],
+            [112.55216, 37.8792, 0],
+            [112.55216, 37.87862, 0],
+            [112.55213, 37.87862, 0],
+            [112.55213, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-03",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55216, 37.8792, 0],
+            [112.55219, 37.8792, 0],
+            [112.55219, 37.87862, 0],
+            [112.55216, 37.87862, 0],
+            [112.55216, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-04",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55219, 37.8792, 0],
+            [112.55222, 37.8792, 0],
+            [112.55222, 37.87862, 0],
+            [112.55219, 37.87862, 0],
+            [112.55219, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-05",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55222, 37.8792, 0],
+            [112.55225, 37.8792, 0],
+            [112.55225, 37.87862, 0],
+            [112.55222, 37.87862, 0],
+            [112.55222, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-06",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55225, 37.8792, 0],
+            [112.55228, 37.8792, 0],
+            [112.55228, 37.87862, 0],
+            [112.55225, 37.87862, 0],
+            [112.55225, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-07",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55228, 37.8792, 0],
+            [112.55231, 37.8792, 0],
+            [112.55231, 37.87862, 0],
+            [112.55228, 37.87862, 0],
+            [112.55228, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-08",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55231, 37.8792, 0],
+            [112.55234, 37.8792, 0],
+            [112.55234, 37.87862, 0],
+            [112.55231, 37.87862, 0],
+            [112.55231, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-09",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55234, 37.8792, 0],
+            [112.55237, 37.8792, 0],
+            [112.55237, 37.87862, 0],
+            [112.55234, 37.87862, 0],
+            [112.55234, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-10",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55237, 37.8792, 0],
+            [112.5524, 37.8792, 0],
+            [112.5524, 37.87862, 0],
+            [112.55237, 37.87862, 0],
+            [112.55237, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-11",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5524, 37.8792, 0],
+            [112.55243, 37.8792, 0],
+            [112.55243, 37.87862, 0],
+            [112.5524, 37.87862, 0],
+            [112.5524, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-12",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55243, 37.8792, 0],
+            [112.55246, 37.8792, 0],
+            [112.55246, 37.87862, 0],
+            [112.55243, 37.87862, 0],
+            [112.55243, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-13",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55246, 37.8792, 0],
+            [112.55249, 37.8792, 0],
+            [112.55249, 37.87862, 0],
+            [112.55246, 37.87862, 0],
+            [112.55246, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-14",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55249, 37.8792, 0],
+            [112.55252, 37.8792, 0],
+            [112.55252, 37.87862, 0],
+            [112.55249, 37.87862, 0],
+            [112.55249, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-15",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55252, 37.8792, 0],
+            [112.55255, 37.8792, 0],
+            [112.55255, 37.87862, 0],
+            [112.55252, 37.87862, 0],
+            [112.55252, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-16",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55255, 37.8792, 0],
+            [112.55258, 37.8792, 0],
+            [112.55258, 37.87862, 0],
+            [112.55255, 37.87862, 0],
+            [112.55255, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-17",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55258, 37.8792, 0],
+            [112.55261, 37.8792, 0],
+            [112.55261, 37.87862, 0],
+            [112.55258, 37.87862, 0],
+            [112.55258, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-18",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55261, 37.8792, 0],
+            [112.55264, 37.8792, 0],
+            [112.55264, 37.87862, 0],
+            [112.55261, 37.87862, 0],
+            [112.55261, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-19",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55264, 37.8792, 0],
+            [112.55267, 37.8792, 0],
+            [112.55267, 37.87862, 0],
+            [112.55264, 37.87862, 0],
+            [112.55264, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-20",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55267, 37.8792, 0],
+            [112.5527, 37.8792, 0],
+            [112.5527, 37.87862, 0],
+            [112.55267, 37.87862, 0],
+            [112.55267, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-21",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [112.5527, 37.8792, 0],
+          [112.55273, 37.8792, 0],
+          [112.55273, 37.87862, 0],
+          [112.5527, 37.87862, 0],
+          [112.5527, 37.8792, 0]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F1",
+        "floor_name": "一层",
+        "business_category": "手机、珠宝、黄金专柜",
+        "shop_id": "F1-22",
+        "base_z": 0,
+        "top_z": 4.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55273, 37.8792, 0],
+            [112.5528, 37.87922, 0],
+            [112.5528, 37.87865, 0],
+            [112.55273, 37.87862, 0],
+            [112.55273, 37.8792, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-01",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5521, 37.8792, 4.5],
+            [112.55213, 37.8792, 4.5],
+            [112.55213, 37.87862, 4.5],
+            [112.5521, 37.87862, 4.5],
+            [112.5521, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-02",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55213, 37.8792, 4.5],
+            [112.55216, 37.8792, 4.5],
+            [112.55216, 37.87862, 4.5],
+            [112.55213, 37.87862, 4.5],
+            [112.55213, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-03",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55216, 37.8792, 4.5],
+            [112.55219, 37.8792, 4.5],
+            [112.55219, 37.87862, 4.5],
+            [112.55216, 37.87862, 4.5],
+            [112.55216, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-04",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55219, 37.8792, 4.5],
+            [112.55222, 37.8792, 4.5],
+            [112.55222, 37.87862, 4.5],
+            [112.55219, 37.87862, 4.5],
+            [112.55219, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-05",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55222, 37.8792, 4.5],
+            [112.55225, 37.8792, 4.5],
+            [112.55225, 37.87862, 4.5],
+            [112.55222, 37.87862, 4.5],
+            [112.55222, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-06",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55225, 37.8792, 4.5],
+            [112.55228, 37.8792, 4.5],
+            [112.55228, 37.87862, 4.5],
+            [112.55225, 37.87862, 4.5],
+            [112.55225, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-07",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55228, 37.8792, 4.5],
+            [112.55231, 37.8792, 4.5],
+            [112.55231, 37.87862, 4.5],
+            [112.55228, 37.87862, 4.5],
+            [112.55228, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-08",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55231, 37.8792, 4.5],
+            [112.55234, 37.8792, 4.5],
+            [112.55234, 37.87862, 4.5],
+            [112.55231, 37.87862, 4.5],
+            [112.55231, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-09",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55234, 37.8792, 4.5],
+            [112.55237, 37.8792, 4.5],
+            [112.55237, 37.87862, 4.5],
+            [112.55234, 37.87862, 4.5],
+            [112.55234, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-10",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55237, 37.8792, 4.5],
+            [112.5524, 37.8792, 4.5],
+            [112.5524, 37.87862, 4.5],
+            [112.55237, 37.87862, 4.5],
+            [112.55237, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-11",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5524, 37.8792, 4.5],
+            [112.55243, 37.8792, 4.5],
+            [112.55243, 37.87862, 4.5],
+            [112.5524, 37.87862, 4.5],
+            [112.5524, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-12",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55243, 37.8792, 4.5],
+            [112.55246, 37.8792, 4.5],
+            [112.55246, 37.87862, 4.5],
+            [112.55243, 37.87862, 4.5],
+            [112.55243, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-13",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55246, 37.8792, 4.5],
+            [112.55249, 37.8792, 4.5],
+            [112.55249, 37.87862, 4.5],
+            [112.55246, 37.87862, 4.5],
+            [112.55246, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-14",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55249, 37.8792, 4.5],
+            [112.55252, 37.8792, 4.5],
+            [112.55252, 37.87862, 4.5],
+            [112.55249, 37.87862, 4.5],
+            [112.55249, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-15",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55252, 37.8792, 4.5],
+            [112.55255, 37.8792, 4.5],
+            [112.55255, 37.87862, 4.5],
+            [112.55252, 37.87862, 4.5],
+            [112.55252, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-16",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55255, 37.8792, 4.5],
+            [112.55258, 37.8792, 4.5],
+            [112.55258, 37.87862, 4.5],
+            [112.55255, 37.87862, 4.5],
+            [112.55255, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-17",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55258, 37.8792, 4.5],
+            [112.55261, 37.8792, 4.5],
+            [112.55261, 37.87862, 4.5],
+            [112.55258, 37.87862, 4.5],
+            [112.55258, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-18",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55261, 37.8792, 4.5],
+            [112.55264, 37.8792, 4.5],
+            [112.55264, 37.87862, 4.5],
+            [112.55261, 37.87862, 4.5],
+            [112.55261, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-19",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55264, 37.8792, 4.5],
+            [112.55267, 37.8792, 4.5],
+            [112.55267, 37.87862, 4.5],
+            [112.55264, 37.87862, 4.5],
+            [112.55264, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-20",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55267, 37.8792, 4.5],
+            [112.5527, 37.8792, 4.5],
+            [112.5527, 37.87862, 4.5],
+            [112.55267, 37.87862, 4.5],
+            [112.55267, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-21",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5527, 37.8792, 4.5],
+            [112.55273, 37.8792, 4.5],
+            [112.55273, 37.87862, 4.5],
+            [112.5527, 37.87862, 4.5],
+            [112.5527, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F2",
+        "floor_name": "二层",
+        "business_category": "男女潮流服饰、童装",
+        "shop_id": "F2-22",
+        "base_z": 4.5,
+        "top_z": 8.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55273, 37.8792, 4.5],
+            [112.5528, 37.87922, 4.5],
+            [112.5528, 37.87865, 4.5],
+            [112.55273, 37.87862, 4.5],
+            [112.55273, 37.8792, 4.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-01",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5521, 37.8792, 9],
+            [112.55213, 37.8792, 9],
+            [112.55213, 37.87862, 9],
+            [112.5521, 37.87862, 9],
+            [112.5521, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-02",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55213, 37.8792, 9],
+            [112.55216, 37.8792, 9],
+            [112.55216, 37.87862, 9],
+            [112.55213, 37.87862, 9],
+            [112.55213, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-03",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55216, 37.8792, 9],
+            [112.55219, 37.8792, 9],
+            [112.55219, 37.87862, 9],
+            [112.55216, 37.87862, 9],
+            [112.55216, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-04",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55219, 37.8792, 9],
+            [112.55222, 37.8792, 9],
+            [112.55222, 37.87862, 9],
+            [112.55219, 37.87862, 9],
+            [112.55219, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-05",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55222, 37.8792, 9],
+            [112.55225, 37.8792, 9],
+            [112.55225, 37.87862, 9],
+            [112.55222, 37.87862, 9],
+            [112.55222, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-06",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55225, 37.8792, 9],
+            [112.55228, 37.8792, 9],
+            [112.55228, 37.87862, 9],
+            [112.55225, 37.87862, 9],
+            [112.55225, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-07",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55228, 37.8792, 9],
+            [112.55231, 37.8792, 9],
+            [112.55231, 37.87862, 9],
+            [112.55228, 37.87862, 9],
+            [112.55228, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-08",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55231, 37.8792, 9],
+            [112.55234, 37.8792, 9],
+            [112.55234, 37.87862, 9],
+            [112.55231, 37.87862, 9],
+            [112.55231, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-09",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55234, 37.8792, 9],
+            [112.55237, 37.8792, 9],
+            [112.55237, 37.87862, 9],
+            [112.55234, 37.87862, 9],
+            [112.55234, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-10",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55237, 37.8792, 9],
+            [112.5524, 37.8792, 9],
+            [112.5524, 37.87862, 9],
+            [112.55237, 37.87862, 9],
+            [112.55237, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-11",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5524, 37.8792, 9],
+            [112.55243, 37.8792, 9],
+            [112.55243, 37.87862, 9],
+            [112.5524, 37.87862, 9],
+            [112.5524, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-12",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55243, 37.8792, 9],
+            [112.55246, 37.8792, 9],
+            [112.55246, 37.87862, 9],
+            [112.55243, 37.87862, 9],
+            [112.55243, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-13",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55246, 37.8792, 9],
+            [112.55249, 37.8792, 9],
+            [112.55249, 37.87862, 9],
+            [112.55246, 37.87862, 9],
+            [112.55246, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-14",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55249, 37.8792, 9],
+            [112.55252, 37.8792, 9],
+            [112.55252, 37.87862, 9],
+            [112.55249, 37.87862, 9],
+            [112.55249, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-15",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55252, 37.8792, 9],
+            [112.55255, 37.8792, 9],
+            [112.55255, 37.87862, 9],
+            [112.55252, 37.87862, 9],
+            [112.55252, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-16",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55255, 37.8792, 9],
+            [112.55258, 37.8792, 9],
+            [112.55258, 37.87862, 9],
+            [112.55255, 37.87862, 9],
+            [112.55255, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-17",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55258, 37.8792, 9],
+            [112.55261, 37.8792, 9],
+            [112.55261, 37.87862, 9],
+            [112.55258, 37.87862, 9],
+            [112.55258, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-18",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55261, 37.8792, 9],
+            [112.55264, 37.8792, 9],
+            [112.55264, 37.87862, 9],
+            [112.55261, 37.87862, 9],
+            [112.55261, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-19",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55264, 37.8792, 9],
+            [112.55267, 37.8792, 9],
+            [112.55267, 37.87862, 9],
+            [112.55264, 37.87862, 9],
+            [112.55264, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-20",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55267, 37.8792, 9],
+            [112.5527, 37.8792, 9],
+            [112.5527, 37.87862, 9],
+            [112.55267, 37.87862, 9],
+            [112.55267, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-21",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5527, 37.8792, 9],
+            [112.55273, 37.8792, 9],
+            [112.55273, 37.87862, 9],
+            [112.5527, 37.87862, 9],
+            [112.5527, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F3",
+        "floor_name": "三层",
+        "business_category": "运动鞋、女包、箱包配饰",
+        "shop_id": "F3-22",
+        "base_z": 9,
+        "top_z": 13.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55273, 37.8792, 9],
+            [112.5528, 37.87922, 9],
+            [112.5528, 37.87865, 9],
+            [112.55273, 37.87862, 9],
+            [112.55273, 37.8792, 9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-01",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5521, 37.8792, 13.5],
+            [112.55213, 37.8792, 13.5],
+            [112.55213, 37.87862, 13.5],
+            [112.5521, 37.87862, 13.5],
+            [112.5521, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-02",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55213, 37.8792, 13.5],
+            [112.55216, 37.8792, 13.5],
+            [112.55216, 37.87862, 13.5],
+            [112.55213, 37.87862, 13.5],
+            [112.55213, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-03",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55216, 37.8792, 13.5],
+            [112.55219, 37.8792, 13.5],
+            [112.55219, 37.87862, 13.5],
+            [112.55216, 37.87862, 13.5],
+            [112.55216, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-04",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55219, 37.8792, 13.5],
+            [112.55222, 37.8792, 13.5],
+            [112.55222, 37.87862, 13.5],
+            [112.55219, 37.87862, 13.5],
+            [112.55219, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-05",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55222, 37.8792, 13.5],
+            [112.55225, 37.8792, 13.5],
+            [112.55225, 37.87862, 13.5],
+            [112.55222, 37.87862, 13.5],
+            [112.55222, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-06",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55225, 37.8792, 13.5],
+            [112.55228, 37.8792, 13.5],
+            [112.55228, 37.87862, 13.5],
+            [112.55225, 37.87862, 13.5],
+            [112.55225, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-07",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55228, 37.8792, 13.5],
+            [112.55231, 37.8792, 13.5],
+            [112.55231, 37.87862, 13.5],
+            [112.55228, 37.87862, 13.5],
+            [112.55228, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-08",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55231, 37.8792, 13.5],
+            [112.55234, 37.8792, 13.5],
+            [112.55234, 37.87862, 13.5],
+            [112.55231, 37.87862, 13.5],
+            [112.55231, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-09",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55234, 37.8792, 13.5],
+            [112.55237, 37.8792, 13.5],
+            [112.55237, 37.87862, 13.5],
+            [112.55234, 37.87862, 13.5],
+            [112.55234, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-10",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55237, 37.8792, 13.5],
+            [112.5524, 37.8792, 13.5],
+            [112.5524, 37.87862, 13.5],
+            [112.55237, 37.87862, 13.5],
+            [112.55237, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-11",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5524, 37.8792, 13.5],
+            [112.55243, 37.8792, 13.5],
+            [112.55243, 37.87862, 13.5],
+            [112.5524, 37.87862, 13.5],
+            [112.5524, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-12",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55243, 37.8792, 13.5],
+            [112.55246, 37.8792, 13.5],
+            [112.55246, 37.87862, 13.5],
+            [112.55243, 37.87862, 13.5],
+            [112.55243, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-13",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55246, 37.8792, 13.5],
+            [112.55249, 37.8792, 13.5],
+            [112.55249, 37.87862, 13.5],
+            [112.55246, 37.87862, 13.5],
+            [112.55246, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-14",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55249, 37.8792, 13.5],
+            [112.55252, 37.8792, 13.5],
+            [112.55252, 37.87862, 13.5],
+            [112.55249, 37.87862, 13.5],
+            [112.55249, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-15",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55252, 37.8792, 13.5],
+            [112.55255, 37.8792, 13.5],
+            [112.55255, 37.87862, 13.5],
+            [112.55252, 37.87862, 13.5],
+            [112.55252, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-16",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55255, 37.8792, 13.5],
+            [112.55258, 37.8792, 13.5],
+            [112.55258, 37.87862, 13.5],
+            [112.55255, 37.87862, 13.5],
+            [112.55255, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-17",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55258, 37.8792, 13.5],
+            [112.55261, 37.8792, 13.5],
+            [112.55261, 37.87862, 13.5],
+            [112.55258, 37.87862, 13.5],
+            [112.55258, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-18",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55261, 37.8792, 13.5],
+            [112.55264, 37.8792, 13.5],
+            [112.55264, 37.87862, 13.5],
+            [112.55261, 37.87862, 13.5],
+            [112.55261, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-19",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55264, 37.8792, 13.5],
+            [112.55267, 37.8792, 13.5],
+            [112.55267, 37.87862, 13.5],
+            [112.55264, 37.87862, 13.5],
+            [112.55264, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-20",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55267, 37.8792, 13.5],
+            [112.5527, 37.8792, 13.5],
+            [112.5527, 37.87862, 13.5],
+            [112.55267, 37.87862, 13.5],
+            [112.55267, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-21",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5527, 37.8792, 13.5],
+            [112.55273, 37.8792, 13.5],
+            [112.55273, 37.87862, 13.5],
+            [112.5527, 37.87862, 13.5],
+            [112.5527, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F4",
+        "floor_name": "四层",
+        "business_category": "中式快餐、奶茶、特色小吃",
+        "shop_id": "F4-22",
+        "base_z": 13.5,
+        "top_z": 17.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55273, 37.8792, 13.5],
+            [112.5528, 37.87922, 13.5],
+            [112.5528, 37.87865, 13.5],
+            [112.55273, 37.87862, 13.5],
+            [112.55273, 37.8792, 13.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-01",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5521, 37.8792, 18],
+            [112.55213, 37.8792, 18],
+            [112.55213, 37.87862, 18],
+            [112.5521, 37.87862, 18],
+            [112.5521, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-02",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55213, 37.8792, 18],
+            [112.55216, 37.8792, 18],
+            [112.55216, 37.87862, 18],
+            [112.55213, 37.87862, 18],
+            [112.55213, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-03",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55216, 37.8792, 18],
+            [112.55219, 37.8792, 18],
+            [112.55219, 37.87862, 18],
+            [112.55216, 37.87862, 18],
+            [112.55216, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-04",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55219, 37.8792, 18],
+            [112.55222, 37.8792, 18],
+            [112.55222, 37.87862, 18],
+            [112.55219, 37.87862, 18],
+            [112.55219, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-05",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55222, 37.8792, 18],
+            [112.55225, 37.8792, 18],
+            [112.55225, 37.87862, 18],
+            [112.55222, 37.87862, 18],
+            [112.55222, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-06",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55225, 37.8792, 18],
+            [112.55228, 37.8792, 18],
+            [112.55228, 37.87862, 18],
+            [112.55225, 37.87862, 18],
+            [112.55225, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-07",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55228, 37.8792, 18],
+            [112.55231, 37.8792, 18],
+            [112.55231, 37.87862, 18],
+            [112.55228, 37.87862, 18],
+            [112.55228, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-08",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55231, 37.8792, 18],
+            [112.55234, 37.8792, 18],
+            [112.55234, 37.87862, 18],
+            [112.55231, 37.87862, 18],
+            [112.55231, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-09",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55234, 37.8792, 18],
+            [112.55237, 37.8792, 18],
+            [112.55237, 37.87862, 18],
+            [112.55234, 37.87862, 18],
+            [112.55234, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-10",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55237, 37.8792, 18],
+            [112.5524, 37.8792, 18],
+            [112.5524, 37.87862, 18],
+            [112.55237, 37.87862, 18],
+            [112.55237, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-11",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5524, 37.8792, 18],
+            [112.55243, 37.8792, 18],
+            [112.55243, 37.87862, 18],
+            [112.5524, 37.87862, 18],
+            [112.5524, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-12",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55243, 37.8792, 18],
+            [112.55246, 37.8792, 18],
+            [112.55246, 37.87862, 18],
+            [112.55243, 37.87862, 18],
+            [112.55243, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-13",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55246, 37.8792, 18],
+            [112.55249, 37.8792, 18],
+            [112.55249, 37.87862, 18],
+            [112.55246, 37.87862, 18],
+            [112.55246, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-14",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55249, 37.8792, 18],
+            [112.55252, 37.8792, 18],
+            [112.55252, 37.87862, 18],
+            [112.55249, 37.87862, 18],
+            [112.55249, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-15",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55252, 37.8792, 18],
+            [112.55255, 37.8792, 18],
+            [112.55255, 37.87862, 18],
+            [112.55252, 37.87862, 18],
+            [112.55252, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-16",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55255, 37.8792, 18],
+            [112.55258, 37.8792, 18],
+            [112.55258, 37.87862, 18],
+            [112.55255, 37.87862, 18],
+            [112.55255, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-17",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55258, 37.8792, 18],
+            [112.55261, 37.8792, 18],
+            [112.55261, 37.87862, 18],
+            [112.55258, 37.87862, 18],
+            [112.55258, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-18",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55261, 37.8792, 18],
+            [112.55264, 37.8792, 18],
+            [112.55264, 37.87862, 18],
+            [112.55261, 37.87862, 18],
+            [112.55261, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-19",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55264, 37.8792, 18],
+            [112.55267, 37.8792, 18],
+            [112.55267, 37.87862, 18],
+            [112.55264, 37.87862, 18],
+            [112.55264, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-20",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55267, 37.8792, 18],
+            [112.5527, 37.8792, 18],
+            [112.5527, 37.87862, 18],
+            [112.55267, 37.87862, 18],
+            [112.55267, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-21",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.5527, 37.8792, 18],
+            [112.55273, 37.8792, 18],
+            [112.55273, 37.87862, 18],
+            [112.5527, 37.87862, 18],
+            [112.5527, 37.8792, 18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "floor_code": "F5",
+        "floor_name": "五层",
+        "business_category": "电影院、电玩城、桌游、休闲娱乐",
+        "shop_id": "F5-22",
+        "base_z": 18,
+        "top_z": 22.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.55273, 37.8792, 18],
+            [112.5528, 37.87922, 18],
+            [112.5528, 37.87865, 18],
+            [112.55273, 37.87862, 18],
+            [112.55273, 37.8792, 18]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -253,9 +253,9 @@
     },
   ]);
 
-  const currentSize = ref('medium');
+  const currentSize = ref<'small' | 'medium' | 'mini' | 'large'>('medium');
   const handleSizeChange = (size: string) => {
-    currentSize.value = size;
+    currentSize.value = size as 'small' | 'medium' | 'mini' | 'large';
   };
   onMounted(() => {
     roleStore.loadRolePage();

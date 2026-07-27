@@ -82,25 +82,32 @@ axios.interceptors.response.use(
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
     const status: number = error.response?.status;
-    const message: any =
-      {
-        400: '请求错误',
-        401: '未授权，请登录',
-        403: '拒绝访问',
-        404: `请求地址出错: ${error.response?.config.url}`,
-        408: '请求超时',
-        500: '服务器内部错误',
-        501: '服务未实现',
-        502: '网关错误',
-        503: '服务不可用',
-        504: '网关超时',
-        505: 'HTTP版本不受支持',
-      }[status] || '网络连接异常,请检查网络情况。';
 
-    Message.error({
-      content: message || 'Request Error',
-      duration: 5 * 1000,
-    });
+    // 登录页面的 401 不显示错误提示（正常情况：用户还未登录）
+    if (status === 401 && window.location.pathname === '/login') {
+      // 登录页面的 401 是正常情况，不显示错误提示
+    } else {
+      const message: any =
+        {
+          400: '请求错误',
+          401: '未授权，请登录',
+          403: '拒绝访问',
+          404: `请求地址出错: ${error.response?.config.url}`,
+          408: '请求超时',
+          500: '服务器内部错误',
+          501: '服务未实现',
+          502: '网关错误',
+          503: '服务不可用',
+          504: '网关超时',
+          505: 'HTTP版本不受支持',
+        }[status] || '网络连接异常,请检查网络情况。';
+
+      Message.error({
+        content: message || 'Request Error',
+        duration: 5 * 1000,
+      });
+    }
+
     // 已在登录页则无需再次登出，避免循环 reload
     if (status === 401 && window.location.pathname !== '/login') {
       useUserStore().logout();

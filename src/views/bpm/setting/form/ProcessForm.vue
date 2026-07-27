@@ -175,7 +175,7 @@
       tooltip: true,
       width: 200,
     },
-    { title: '版本', dataIndex: 'version', width: 80, align: 'center' },
+    { title: '版本', dataIndex: 'version', width: 100, align: 'center' },
     {
       title: '状态',
       dataIndex: 'status',
@@ -188,7 +188,7 @@
       title: '操作',
       dataIndex: 'operations',
       slotName: 'operations',
-      width: 220,
+      width: 150,
       align: 'center',
       fixed: appStore.device === 'mobile' ? undefined : 'right',
       cellStyle: { whiteSpace: 'nowrap' },

@@ -1,8 +1,12 @@
 import { shallowRef } from 'vue';
 import { defineStore } from 'pinia';
 import { Message } from '@arco-design/web-vue';
-import { bpmTaskApi } from '@/api/bpm/task';
-import type { TaskItem, TaskDetail, ApprovalTraceItem } from '@/types/bpm/bpmTypes';
+import { bpmTaskTodoApi } from '@/api/bpm/task/todo';
+import type {
+  TaskItem,
+  TaskDetail,
+  ApprovalTraceItem,
+} from '@/types/bpm/bpmTypes';
 
 export interface TodoTaskState {
   loading: boolean;
@@ -38,13 +42,19 @@ export const useTodoTaskStore = defineStore('todoTask', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmTaskApi.getTodoList({
+        const { data } = await bpmTaskTodoApi.getTodoList({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
         });
         const result = data?.data ?? data;
-        this.list = result?.list ?? result?.records ?? [];
+        const rawList = result?.list ?? result?.records ?? [];
+        this.list = rawList.map((item: Record<string, any>) => ({
+          ...item,
+          taskId: item.todoTask?.taskId || item.taskId || item.id,
+          taskName: item.todoTask?.nodeName || item.taskName || item.name,
+          createTime: item.startTime || item.createTime,
+        }));
         this.total = result?.total ?? 0;
       } finally {
         this.loading = false;
@@ -61,7 +71,9 @@ export const useTodoTaskStore = defineStore('todoTask', {
       this.formData = {};
       this.businessComponent = shallowRef(null);
       try {
-        const { data } = await bpmTaskApi.getTodoDetail(record.taskId);
+        const { data } = await bpmTaskTodoApi.getTodoDetail(
+          record.taskId || '',
+        );
         const detail: TaskDetail = data?.data ?? data;
         this.taskDetail = detail;
         if (detail.formData) {

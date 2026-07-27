@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingExpressionApi } from '@/api/bpm/setting/expression';
 import type { ProcessExpressionItem } from '@/types/bpm/bpmTypes';
 
 export interface ProcessExpressionState {
@@ -35,7 +35,7 @@ export const useProcessExpressionStore = defineStore('processExpression', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getExpressionPage({
+        const { data } = await bpmSettingExpressionApi.getExpressionPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -63,7 +63,9 @@ export const useProcessExpressionStore = defineStore('processExpression', {
       this.dialogVisible = true;
     },
     async handleEdit(record: ProcessExpressionItem) {
-      const { data } = await bpmSettingApi.getExpressionById(record.id);
+      const { data } = await bpmSettingExpressionApi.getExpressionById(
+        record.id,
+      );
       Object.assign(this.form, data?.data ?? data);
       this.dialogVisible = true;
     },
@@ -71,8 +73,8 @@ export const useProcessExpressionStore = defineStore('processExpression', {
       const e = await this.formRef?.validate();
       if (e) return;
       const a = this.form.id
-        ? bpmSettingApi.updateExpression
-        : bpmSettingApi.saveExpression;
+        ? bpmSettingExpressionApi.updateExpression
+        : bpmSettingExpressionApi.saveExpression;
       await a({ ...this.form });
       Message.success(this.form.id ? '更新成功' : '创建成功');
       this.dialogVisible = false;
@@ -84,7 +86,7 @@ export const useProcessExpressionStore = defineStore('processExpression', {
         titleAlign: 'start',
         content: `确定删除「${record.name}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteExpression(record.id);
+          await bpmSettingExpressionApi.deleteExpression(record.id);
           Message.success('删除成功');
           this.loadData();
         },

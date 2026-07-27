@@ -1,20 +1,20 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingModelApi } from '@/api/bpm/setting/model';
 import type { ProcessModelItem } from '@/types/bpm/bpmTypes';
 
 export interface ProcessModelState {
   loading: boolean;
   list: ProcessModelItem[];
   total: number;
-  searchForm: { name: string; key: string };
+  searchForm: { processName: string; processKey: string };
   pagination: { current: number; pageSize: number };
   dialogVisible: boolean;
   formRef: any;
   form: {
     id: string;
-    name: string;
-    key: string;
+    processName: string;
+    processKey: string;
     category: string;
     description: string;
   };
@@ -25,17 +25,23 @@ export const useProcessModelStore = defineStore('processModel', {
     loading: false,
     list: [],
     total: 0,
-    searchForm: { name: '', key: '' },
+    searchForm: { processName: '', processKey: '' },
     pagination: { current: 1, pageSize: 10 },
     dialogVisible: false,
     formRef: null,
-    form: { id: '', name: '', key: '', category: '', description: '' },
+    form: {
+      id: '',
+      processName: '',
+      processKey: '',
+      category: '',
+      description: '',
+    },
   }),
   actions: {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getModelPage({
+        const { data } = await bpmSettingModelApi.getModelPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -48,22 +54,22 @@ export const useProcessModelStore = defineStore('processModel', {
       }
     },
     resetSearch() {
-      this.searchForm = { name: '', key: '' };
+      this.searchForm = { processName: '', processKey: '' };
       this.pagination.current = 1;
       this.loadData();
     },
     handleAdd() {
       Object.assign(this.form, {
         id: '',
-        name: '',
-        key: '',
+        processName: '',
+        processKey: '',
         category: '',
         description: '',
       });
       this.dialogVisible = true;
     },
     async handleEdit(record: ProcessModelItem) {
-      const { data } = await bpmSettingApi.getModelById(record.id);
+      const { data } = await bpmSettingModelApi.getModelById(record.id);
       Object.assign(this.form, data?.data ?? data);
       this.dialogVisible = true;
     },
@@ -71,8 +77,8 @@ export const useProcessModelStore = defineStore('processModel', {
       const errors = await this.formRef?.validate();
       if (errors) return;
       const action = this.form.id
-        ? bpmSettingApi.updateModel
-        : bpmSettingApi.saveModel;
+        ? bpmSettingModelApi.updateModel
+        : bpmSettingModelApi.saveModel;
       await action({ ...this.form });
       Message.success(this.form.id ? '更新成功' : '创建成功');
       this.dialogVisible = false;
@@ -84,7 +90,7 @@ export const useProcessModelStore = defineStore('processModel', {
         titleAlign: 'start',
         content: `确定部署模型「${record.name}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deployModel(record.id);
+          await bpmSettingModelApi.deployModel(record.id);
           Message.success('部署成功');
           this.loadData();
         },
@@ -96,7 +102,7 @@ export const useProcessModelStore = defineStore('processModel', {
         titleAlign: 'start',
         content: `确定删除模型「${record.name}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteModel(record.id);
+          await bpmSettingModelApi.deleteModel(record.id);
           Message.success('删除成功');
           this.loadData();
         },

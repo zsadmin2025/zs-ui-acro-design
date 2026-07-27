@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Modal, Message } from '@arco-design/web-vue';
-import { bpmSettingApi } from '@/api/bpm/setting';
+import { bpmSettingUserGroupApi } from '@/api/bpm/setting/user-group';
 import type { UserGroupItem } from '@/types/bpm/bpmTypes';
 
 export interface UserGroupState {
@@ -45,7 +45,7 @@ export const useUserGroupStore = defineStore('userGroup', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmSettingApi.getUserGroupPage({
+        const { data } = await bpmSettingUserGroupApi.getUserGroupPage({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
@@ -75,7 +75,7 @@ export const useUserGroupStore = defineStore('userGroup', {
       this.dialogVisible = true;
     },
     async handleEdit(record: UserGroupItem) {
-      const { data } = await bpmSettingApi.getUserGroupById(record.id);
+      const { data } = await bpmSettingUserGroupApi.getUserGroupById(record.id);
       Object.assign(this.form, data?.data ?? data);
       this.dialogVisible = true;
     },
@@ -90,8 +90,8 @@ export const useUserGroupStore = defineStore('userGroup', {
       const e = await this.formRef?.validate();
       if (e) return;
       const a = this.form.id
-        ? bpmSettingApi.updateUserGroup
-        : bpmSettingApi.saveUserGroup;
+        ? bpmSettingUserGroupApi.updateUserGroup
+        : bpmSettingUserGroupApi.saveUserGroup;
       await a({ ...this.form });
       Message.success(this.form.id ? '更新成功' : '创建成功');
       this.dialogVisible = false;
@@ -103,7 +103,7 @@ export const useUserGroupStore = defineStore('userGroup', {
         titleAlign: 'start',
         content: `确定删除分组「${record.groupName}」吗？`,
         onOk: async () => {
-          await bpmSettingApi.deleteUserGroup(record.id);
+          await bpmSettingUserGroupApi.deleteUserGroup(record.id);
           Message.success('删除成功');
           this.loadData();
         },

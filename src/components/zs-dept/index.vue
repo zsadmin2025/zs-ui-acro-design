@@ -11,14 +11,15 @@
     />
     <div class="tree-container">
       <a-tree
+        v-if="deptTreeData.length"
         ref="deptRef"
         v-model:expanded-keys="expandedKeys"
         :data="deptTreeData"
         :field-names="fieldNames"
         :show-line="true"
         @select="handleNodeClick"
-      >
-      </a-tree>
+      />
+      <a-empty v-else class="empty-container" description="暂无部门数据" />
     </div>
   </div>
 </template>
@@ -69,6 +70,10 @@
     .tree-container {
       height: calc(100% - 32px);
       overflow: auto;
+    }
+
+    .empty-container {
+      margin-top: 120px;
     }
   }
 </style>

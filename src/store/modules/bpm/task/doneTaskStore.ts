@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { bpmTaskApi } from '@/api/bpm/task';
+import { bpmTaskDoneApi } from '@/api/bpm/task/done';
 import type { TaskItem } from '@/types/bpm/bpmTypes';
 
 export interface DoneTaskState {
@@ -22,13 +22,18 @@ export const useDoneTaskStore = defineStore('doneTask', {
     async loadData() {
       this.loading = true;
       try {
-        const { data } = await bpmTaskApi.getDoneList({
+        const { data } = await bpmTaskDoneApi.getDoneList({
           ...this.searchForm,
           current: this.pagination.current,
           pageSize: this.pagination.pageSize,
         });
         const result = data?.data ?? data;
-        this.list = result?.list ?? result?.records ?? [];
+        const rawList = result?.list ?? result?.records ?? [];
+        this.list = rawList.map((item: Record<string, any>) => ({
+          ...item,
+          taskId: item.todoTask?.taskId || item.taskId || item.id,
+          taskName: item.todoTask?.nodeName || item.taskName || item.name,
+        }));
         this.total = result?.total ?? 0;
       } finally {
         this.loading = false;

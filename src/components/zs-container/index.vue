@@ -6,7 +6,7 @@
         <slot name="header"></slot>
       </div>
       <div class="main-box">
-        <div class="main-box-header">
+        <div v-if="$slots['main-header']" class="main-box-header">
           <slot name="main-header"></slot>
         </div>
         <div class="main-box-body">
@@ -134,13 +134,19 @@
         border-radius: var(--border-radius);
         padding: var(--base-padding);
         border-radius: var(--border-radius) var(--border-radius) 0 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
 
         .main-box-header {
-          height: var(--right-main-header-height);
+          flex-shrink: 0;
+          margin-bottom: var(--base-padding);
         }
 
         .main-box-body {
-          height: calc(100% - var(--right-main-header-height));
+          flex: 1;
+          overflow: auto;
+          min-height: 0;
         }
       }
 
@@ -228,7 +234,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        width: calc(100% - @left-box-width);
+        min-width: 0;
 
         .right-header {
           height: auto;
@@ -243,17 +249,22 @@
 
         .right-main {
           flex: 1;
-          overflow: auto;
-          height: var(--main-box-height);
+          overflow: hidden;
           padding: var(--base-padding);
           background-color: var(--color-bg-2);
           border-radius: var(--border-radius) var(--border-radius) 0 0;
+          display: flex;
+          flex-direction: column;
+          min-height: 0;
 
           .right-main-header {
-            height: var(--right-main-header-height);
+            flex-shrink: 0;
+            margin-bottom: var(--base-padding);
           }
           .right-main-body {
-            height: calc(100% - var(--right-main-header-height));
+            flex: 1;
+            overflow: auto;
+            min-height: 0;
           }
         }
 
