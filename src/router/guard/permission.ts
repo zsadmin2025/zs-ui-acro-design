@@ -4,11 +4,7 @@ import { isLogin } from '@/utils/auth';
 import { useAppStore, useUserStore } from '@/store';
 import { transformRoutes } from '@/router/routes/index';
 import { Router, LocationQueryRaw } from 'vue-router';
-import {
-  REDIRECT_MAIN,
-  NOT_FOUND_ROUTE,
-  DEFAULT_LAYOUT,
-} from '@/router/routes/base';
+import { REDIRECT_MAIN, NOT_FOUND_ROUTE } from '@/router/routes/base';
 import USER from '@/router/routes/modules/user';
 import PROFILE from '@/router/routes/modules/profile';
 import DYNAMIC_FORM from '@/router/routes/modules/dynamicForm';

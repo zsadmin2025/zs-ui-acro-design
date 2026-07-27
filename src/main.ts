@@ -11,7 +11,7 @@ import { websiteStore } from '@/store/modules/sys/config/website/websiteStore';
 import { getTenantId } from '@/utils/auth';
 import VueDOMPurifyHTML from 'vue-dompurify-html';
 import router from './router';
-import store, { useAppStore } from './store';
+import store from './store';
 import i18n from './locale';
 import directive from './directive';
 import './mock';

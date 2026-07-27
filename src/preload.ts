@@ -37,6 +37,7 @@ export function preload() {
     })
     .catch((error) => {
       // 预加载失败（如 401 未授权），清除无效 token
+      // eslint-disable-next-line no-console
       console.warn('预加载失败，清除无效 token:', error);
       clearToken();
       // 失败时也标记为已获取，避免路由守卫无限等待

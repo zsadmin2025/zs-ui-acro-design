@@ -74,6 +74,7 @@ export const transformRoutes = (
   return data.map((item: any) => {
     // 调试：打印路由层级信息
     if (item.component === 'Layout' || item.component === 'DEFAULT_LAYOUT') {
+      // eslint-disable-next-line no-console
       console.debug(
         `[transformRoutes] Layout组件: path=${
           item.path
@@ -87,6 +88,7 @@ export const transformRoutes = (
 
     // 调试：如果组件加载失败，打印警告
     if (!component && item.component) {
+      // eslint-disable-next-line no-console
       console.warn(
         `[transformRoutes] 组件加载失败: ${item.component} (路由名称: ${item.name})`,
       );

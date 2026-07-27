@@ -12,8 +12,6 @@ declare module 'vue' {
     AddNodeButton: typeof import('./../components/zs-workflow-designer/nodes/AddNodeButton.vue')['default']
     ApproverDrawer: typeof import('./../components/zs-workflow/components/drawer/approverDrawer.vue')['default']
     ApproverNode: typeof import('./../components/zs-LogicFlow/components/ApproverNode.vue')['default']
-    ATab: typeof import('@arco-design/web-vue')['Tab']
-    ATag: typeof import('@arco-design/web-vue')['Tag']
     Block: typeof import('./../components/global-setting/block.vue')['default']
     BranchNode: typeof import('./../components/zs-workflow-designer/nodes/BranchNode.vue')['default']
     Breadcrumb: typeof import('./../components/breadcrumb/index.vue')['default']
