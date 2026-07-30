@@ -212,8 +212,7 @@
   import { computed, onMounted, reactive, ref } from 'vue';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import { useTemplateStore } from '@/store/modules/sys/messages/sms/smsTemplateStore';
-  import useDict from '@/hooks/dict';
-  import { DictData } from '@/types/sys/dict/DictData';
+  import { useDicts } from '@/hooks/dict';
   import { useAppStore } from '@/store';
   import TemplateAddOrEdit from './template-add-or-edit.vue';
   import TemplateSend from './template-send.vue';
@@ -227,7 +226,7 @@
   const smsSendRef = ref<InstanceType<typeof TemplateSend>>();
   const smsRecordRef = ref<InstanceType<typeof TemplateSmsRecord>>();
   // 短信服务商
-  const smsCarrier = ref<DictData[]>([]);
+  const { smsCarrier } = useDicts('smsCarrier');
 
   const rowSelection = reactive({
     type: 'checkbox' as const,
@@ -303,10 +302,6 @@
     currentSize.value = size;
   };
 
-  async function loadDicts() {
-    smsCarrier.value = await useDict('smsCarrier');
-  }
-
   const handleOpenSend = (record: any) => {
     smsSendRef.value?.open(record);
   };
@@ -316,7 +311,6 @@
   };
 
   onMounted(() => {
-    loadDicts();
     templateStore.fetchData();
   });
 </script>

@@ -58,12 +58,10 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import { useTemplateAddOrEditStore } from '@/store/modules/sys/messages/sms/smsTemplateAddOrEditStore';
-  import useDict from '@/hooks/dict';
-  import { DictData } from '@/types/sys/dict/DictData';
+  import { useDicts } from '@/hooks/dict';
   import { useAppStore } from '@/store';
 
-  // 短信服务商
-  const smsCarrier = ref<DictData[]>([]);
+  const { smsCarrier } = useDicts('smsCarrier');
 
   const templateAddOrEditStore = useTemplateAddOrEditStore();
   const { form, dialogFormVisible, loading, formRef, rules } = storeToRefs(
@@ -73,13 +71,7 @@
 
   const emits = defineEmits(['refresh']);
 
-  async function loadDicts() {
-    smsCarrier.value = await useDict('smsCarrier');
-  }
-
-  onMounted(() => {
-    loadDicts();
-  });
+  onMounted(() => {});
 
   defineExpose({
     init: templateAddOrEditStore.init,

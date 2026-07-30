@@ -31,19 +31,16 @@ export const regexUrl = new RegExp(
 export const findInTree = (
   tree: Array<{ dictValue: any; dictLabel: any; children?: any }>,
   targetValue: any,
-): { dictValue: any; children?: any } | null => {
+): { dictValue: any; dictLabel: any; children?: any } | null => {
   return tree.reduce((found, node) => {
     if (found) return found;
     if (node.dictValue === targetValue) return node;
     if (node.children && Array.isArray(node.children)) {
-      const result: { dictValue: any; children?: any } | null = findInTree(
-        node.children,
-        targetValue,
-      );
+      const result = findInTree(node.children, targetValue);
       if (result) return result;
     }
     return null;
-  }, null as { dictValue: any; children?: any } | null);
+  }, null as { dictValue: any; dictLabel: any; children?: any } | null);
 };
 
 /**
