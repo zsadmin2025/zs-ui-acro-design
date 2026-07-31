@@ -6,7 +6,6 @@ import { transformRoutes } from '@/router/routes/index';
 import { Router, LocationQueryRaw } from 'vue-router';
 import { REDIRECT_MAIN, NOT_FOUND_ROUTE } from '@/router/routes/base';
 import USER from '@/router/routes/modules/user';
-import PROFILE from '@/router/routes/modules/profile';
 import DYNAMIC_FORM from '@/router/routes/modules/dynamicForm';
 import type { RouteRecordRaw } from 'vue-router';
 import { setRouteEmitter } from '@/utils/route-listener';
@@ -26,7 +25,7 @@ const addRoutesToRouter = (router: Router, routes: any[]) => {
 
 const addSpecialRoutes = (router: Router) => {
   router.addRoute(USER as RouteRecordRaw);
-  router.addRoute(PROFILE as RouteRecordRaw);
+  // router.addRoute(PROFILE as RouteRecordRaw);
   router.addRoute(DYNAMIC_FORM as RouteRecordRaw);
   // 添加重定向和404路由
   router.addRoute(REDIRECT_MAIN);

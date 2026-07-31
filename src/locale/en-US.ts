@@ -1,21 +1,6 @@
 import localeMessageBox from '@/components/message-box/locale/en-US';
 import localeLogin from '@/views/login/locale/en-US';
 
-import localeWorkplace from '@/views/dashboard/workplace/locale/en-US';
-
-import localeMonitor from '@/views/dashboard/monitor/locale/en-US';
-
-import localeSearchTable from '@/views/list/search-table/locale/en-US';
-import localeCardList from '@/views/list/card/locale/en-US';
-
-import localeStepForm from '@/views/form/step/locale/en-US';
-import localeGroupForm from '@/views/form/group/locale/en-US';
-
-import localeBasicProfile from '@/views/profile/basic/locale/en-US';
-
-import localeDataAnalysis from '@/views/visualization/data-analysis/locale/en-US';
-import localeMultiDAnalysis from '@/views/visualization/multi-dimension-data-analysis/locale/en-US';
-
 import localeSuccess from '@/views/result/success/locale/en-US';
 import localeError from '@/views/result/error/locale/en-US';
 
@@ -25,6 +10,7 @@ import locale500 from '@/views/exception/500/locale/en-US';
 
 import localeUserInfo from '@/views/user/info/locale/en-US';
 import localeUserSetting from '@/views/user/setting/locale/en-US';
+import localeWorkplace from '@/views/dashboard/workplace/locale/en-US';
 
 import localeSettings from './en-US/settings';
 
@@ -49,14 +35,6 @@ export default {
   ...localeLogin,
   ...localeWorkplace,
 
-  ...localeMonitor,
-  ...localeSearchTable,
-  ...localeCardList,
-  ...localeStepForm,
-  ...localeGroupForm,
-  ...localeBasicProfile,
-  ...localeDataAnalysis,
-  ...localeMultiDAnalysis,
   ...localeSuccess,
   ...localeError,
   ...locale403,
@@ -64,4 +42,46 @@ export default {
   ...locale500,
   ...localeUserInfo,
   ...localeUserSetting,
+  'menu.list.searchTable': 'Search Table',
+  'searchTable.form.number': 'Set Number',
+  'searchTable.form.number.placeholder': 'Please enter Set Number',
+  'searchTable.form.name': 'Set Name',
+  'searchTable.form.name.placeholder': 'Please enter Set Name',
+  'searchTable.form.contentType': 'Content Type',
+  'searchTable.form.contentType.img': 'image-text',
+  'searchTable.form.contentType.horizontalVideo': 'Horizontal short video',
+  'searchTable.form.contentType.verticalVideo': 'Vertical short video',
+  'searchTable.form.filterType': 'Filter Type',
+  'searchTable.form.filterType.artificial': 'artificial',
+  'searchTable.form.filterType.rules': 'Rules',
+  'searchTable.form.createdTime': 'Create Date',
+  'searchTable.form.status': 'Status',
+  'searchTable.form.status.online': 'Online',
+  'searchTable.form.status.offline': 'Offline',
+  'searchTable.form.search': 'Search',
+  'searchTable.form.reset': 'Reset',
+  'searchTable.form.selectDefault': 'All',
+  'searchTable.operation.create': 'Create',
+  'searchTable.operation.import': 'Import',
+  'searchTable.operation.download': 'Download',
+  // columns
+  'searchTable.columns.index': '#',
+  'searchTable.columns.number': 'Set Number',
+  'searchTable.columns.name': 'Set Name',
+  'searchTable.columns.contentType': 'Content Type',
+  'searchTable.columns.filterType': 'Filter Type',
+  'searchTable.columns.count': 'Count',
+  'searchTable.columns.createdTime': 'CreatedTime',
+  'searchTable.columns.status': 'Status',
+  'searchTable.columns.operations': 'Operations',
+  'searchTable.columns.operations.view': 'View',
+  // size
+  'searchTable.size.mini': 'mini',
+  'searchTable.size.small': 'small',
+  'searchTable.size.medium': 'middle',
+  'searchTable.size.large': 'large',
+  // actions
+  'searchTable.actions.refresh': 'refresh',
+  'searchTable.actions.density': 'density',
+  'searchTable.actions.columnSetting': 'columnSetting',
 };
