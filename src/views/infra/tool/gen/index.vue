@@ -157,7 +157,7 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
-  import { useGenStore } from '@/store/modules/tool/gen/genStore';
+  import { useGenStore } from '@/store/modules/infra/tool/gen/genStore';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
   import { useAppStore } from '@/store';
   import TableImport from './components/table-import.vue';

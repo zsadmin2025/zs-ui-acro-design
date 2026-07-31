@@ -55,7 +55,7 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
-  import { useJobAddOrEditStore } from '@/store/modules/sys/job/jobAddOrEditStore';
+  import { useJobAddOrEditStore } from '@/store/modules/infra/job/jobAddOrEditStore';
   import { useAppStore } from '@/store';
 
   const jobAddOrEditStore = useJobAddOrEditStore();

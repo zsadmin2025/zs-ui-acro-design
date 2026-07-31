@@ -77,7 +77,7 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
-  import { useGenTableStore } from '@/store/modules/tool/gen/genTableStore';
+  import { useGenTableStore } from '@/store/modules/infra/tool/gen/genTableStore';
   import { useAppStore } from '@/store';
 
   const genTableStore = useGenTableStore();

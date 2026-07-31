@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
-import { genApi } from '@/api/tool/gen';
-import { GenState, GenTable } from '@/types/tool/gen/genTypes';
 import { Modal } from '@arco-design/web-vue';
 import download from '@/utils/fileDownload';
+import { genApi } from '@/api/infra/tool/gen';
+import { GenState, GenTable } from '@/types/infra/tool/gen/genTypes';
 
 export const useGenStore = defineStore('genStore', {
   state: (): GenState => ({

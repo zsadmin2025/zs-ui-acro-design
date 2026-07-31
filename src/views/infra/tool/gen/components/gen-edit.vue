@@ -196,10 +196,10 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
-  import { useGenEditStore } from '@/store/modules/tool/gen/genEditStore';
-  import { useMenuAddOrEditStore } from '@/store/modules/sys/menu/menuAddOrEditStore';
   import { useDictTypeStore } from '@/store/modules/sys/dict/dictTypeStore';
   import { useAppStore } from '@/store';
+  import { useGenEditStore } from '@/store/modules/infra/tool/gen/genEditStore';
+  import { useMenuAddOrEditStore } from '@/store/modules/sys/menu/menuAddOrEditStore';
 
   const genEditStore = useGenEditStore();
   const { visible, formRef, genTable, loading } = storeToRefs(genEditStore);

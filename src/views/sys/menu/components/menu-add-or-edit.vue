@@ -41,6 +41,7 @@
               placeholder="请选择上级菜单"
               :allow-search="true"
               :allow-clear="true"
+              :tree-props="{ defaultExpandAll: false }"
             />
           </a-form-item>
         </a-col>

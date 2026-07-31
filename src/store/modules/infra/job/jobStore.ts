@@ -2,8 +2,8 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { Modal } from '@arco-design/web-vue';
 import download from '@/utils/fileDownload';
-import { sysJobApi } from '@/api/sys/job';
-import { JobState, Job } from '@/types/sys/job/jobTypes';
+import { sysJobApi } from '@/api/infra/job/job';
+import { JobState, Job } from '@/types/infra/job/jobTypes';
 
 export const useJobStore = defineStore('job', {
   state: (): JobState => ({

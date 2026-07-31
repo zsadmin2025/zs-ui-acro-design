@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { genApi } from '@/api/tool/gen';
-import { GenTableEditState } from '@/types/tool/gen/genTypes';
+import { genApi } from '@/api/infra/tool/gen';
+import { GenTableEditState } from '@/types/infra/tool/gen/genTypes';
 
 export const useGenEditStore = defineStore('genEdditStore', {
   state: (): GenTableEditState => ({

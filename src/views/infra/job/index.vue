@@ -209,7 +209,7 @@
   import { computed, onMounted, reactive, ref } from 'vue';
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
   import DensityDropdown from '@/components/density-dropdown/index.vue';
-  import { useJobStore } from '@/store/modules/sys/job/jobStore';
+  import { useJobStore } from '@/store/modules/infra/job/jobStore';
   import { useAppStore } from '@/store';
   import JobAddOrEdit from './components/job-add-or-edit.vue';
   import JobLog from './components/job-log.vue';

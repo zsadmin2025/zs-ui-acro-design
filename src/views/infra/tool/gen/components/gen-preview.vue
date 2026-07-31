@@ -44,8 +44,8 @@
 <script lang="ts" setup>
   import { TreeNodeData, Message } from '@arco-design/web-vue';
   import useClipboard from 'vue-clipboard3';
-  import { genApi } from '@/api/tool/gen';
   import { useAppStore } from '@/store';
+  import { genApi } from '@/api/infra/tool/gen';
 
   const { toClipboard } = useClipboard();
   const appStore = useAppStore();

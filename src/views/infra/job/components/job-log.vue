@@ -91,7 +91,7 @@
   import { storeToRefs } from 'pinia';
 
   import type { TableColumnData } from '@arco-design/web-vue/es/table/interface';
-  import { jobLogStore } from '@/store/modules/sys/job/jobLogStore';
+  import { jobLogStore } from '@/store/modules/infra/job/jobLogStore';
 
   const useJobLogStore = jobLogStore();
   const { dialogFormVisible, form, jobLogList, loading, total } =

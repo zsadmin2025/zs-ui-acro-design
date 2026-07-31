@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { sysJobApi } from '@/api/sys/job';
-import { JobAddOrEditState } from '@/types/sys/job/jobTypes';
+import { sysJobApi } from '@/api/infra/job/job';
+import { JobAddOrEditState } from '@/types/infra/job/jobTypes';
 
 export const useJobAddOrEditStore = defineStore('sysJobAddOrEdit', {
   state: (): JobAddOrEditState => {

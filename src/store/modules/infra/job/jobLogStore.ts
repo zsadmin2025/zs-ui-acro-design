@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
-import { sysJobApi } from '@/api/sys/job';
-import { JobLogState } from '@/types/sys/job/jobLogTypes';
+import { JobLogState } from '@/types/infra/job/jobLogTypes';
 import download from '@/utils/fileDownload';
+import { sysJobApi } from '@/api/infra/job/job';
 
 export const jobLogStore = defineStore('jobLog', {
   state: (): JobLogState => ({
