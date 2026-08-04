@@ -135,8 +135,7 @@ export const useUserStore = defineStore('sysuser', {
         titleAlign: 'start',
         content: '您将进行批量删除操作,是否继续?',
         onOk: async () => {
-          const ids = this.selectedKeys.map((item: any) => item.sysUserId);
-          await sysUserApi.batchDel(ids);
+          await sysUserApi.batchDel(this.selectedKeys);
           await this.fetchData();
         },
       });
