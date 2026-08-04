@@ -44,8 +44,6 @@
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     background: #f1f3f4;
-    background: url('@/assets/images/6.png') no-repeat center center;
-    background-size: cover;
     padding: clamp(16px, 2vw, 32px);
     box-sizing: border-box;
 
