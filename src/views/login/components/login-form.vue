@@ -152,7 +152,6 @@
   import { useUserStore } from '@/store';
   import useLoginStore from '@/store/modules/common/loginStore';
   import useLoading from '@/hooks/loading';
-  import type { LoginData } from '@/api/user';
   import { setTenantId } from '@/utils/auth';
   import { useWebsocketStore } from '@/store/modules/common/websocketStore';
 
@@ -211,7 +210,7 @@
       setLoading(true);
       try {
         values.uuid = loginStore.codeForm.uuid;
-        await userStore.login(values as LoginData);
+        await userStore.login(values);
         await router.push('/dashboard/workplace');
 
         Message.success(t('login.form.login.success'));

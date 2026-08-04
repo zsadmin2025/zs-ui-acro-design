@@ -1,4 +1,11 @@
 <template>
+  <div>popular-content页面</div>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped></style>
+<!-- <template>
   <a-spin :loading="loading" style="width: 100%">
     <EnterpriseCertification :enterprise-info="data.enterpriseInfo" />
     <CertificationRecords :render-data="data.record" />
@@ -36,4 +43,4 @@
   fetchData();
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less"></style> -->

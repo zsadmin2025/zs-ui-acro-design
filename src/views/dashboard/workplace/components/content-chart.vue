@@ -29,7 +29,7 @@
   import { graphic } from 'echarts';
   import useLoading from '@/hooks/loading';
   import useChartOption from '@/hooks/chart-option';
-  import { AnyObject } from '@/types/global';
+  import { AnyObject } from '@/types/common/global';
 
   // 模拟数据（可根据接口替换）
   const mockData = [

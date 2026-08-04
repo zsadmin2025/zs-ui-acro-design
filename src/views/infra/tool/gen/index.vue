@@ -196,7 +196,7 @@
       dataIndex: 'tableName',
       ellipsis: true,
       tooltip: true,
-      width: 200,
+      width: 300,
     },
     {
       title: '表描述',

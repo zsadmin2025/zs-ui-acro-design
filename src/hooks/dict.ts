@@ -1,20 +1,16 @@
-import { ref, type Ref } from 'vue';
+import { computed, type Ref } from 'vue';
 import { DictData } from '@/types/sys/dict/DictData';
+import { useDictDataStore } from '@/store/modules/sys/dict/dictDataStore';
 import { findInTree } from '@/utils/index';
 
 const useDict = async (dictType: string): Promise<DictData[]> => {
-  const rawDictDataMap = localStorage.getItem('dictDataMap');
-  if (!rawDictDataMap) {
-    return [];
-  }
-
   try {
-    const parsedData = JSON.parse(rawDictDataMap);
-    const dictList = parsedData?.dictDataMap?.[dictType];
+    const dictStore = useDictDataStore();
+    const dictList = dictStore.dictDataMap?.[dictType];
     return Array.isArray(dictList) ? dictList : [];
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('解析字典数据失败:', error);
+    console.error('获取字典数据失败:', error);
     return [];
   }
 };
@@ -45,24 +41,16 @@ type UseDictsResult<T extends string[]> = DictRefs<T> & {
 export const useDicts = <T extends string[]>(
   ...types: T
 ): UseDictsResult<T> => {
-  const raw = localStorage.getItem('dictDataMap');
-  let dictMap: Record<string, DictData[]> = {};
-  if (raw) {
-    try {
-      dictMap = JSON.parse(raw)?.dictDataMap || {};
-    } catch {
-      /* 解析失败时使用空对象 */
-    }
-  }
+  const dictStore = useDictDataStore();
 
   const result: any = {};
 
-  // 先创建所有 ref，后定义 getLabel（确保 getLabel 读的是 ref，便于后续更新）
+  // 使用 computed 从响应式 store 读取，字典数据更新后自动响应
   types.forEach((t) => {
-    result[t] = ref<DictData[]>(dictMap[t] || []);
+    result[t] = computed(() => dictStore.dictDataMap[t] || []);
   });
 
-  // 根据 dictType + dictValue 取 label（树形/扁平自适应，读取 ref 而非快照）
+  // 根据 dictType + dictValue 取 label（树形/扁平自适应）
   result.getLabel = (type: string, value: any): string => {
     if (value === undefined || value === null) return '--';
     const dict = result[type]?.value;

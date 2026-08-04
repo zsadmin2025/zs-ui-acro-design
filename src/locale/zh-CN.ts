@@ -65,6 +65,7 @@ export default {
   'searchTable.operation.create': '新建',
   'searchTable.operation.import': '批量导入',
   'searchTable.operation.download': '下载',
+  'searchTable.operation.export': '导出',
   // columns
   'searchTable.columns.index': '#',
   'searchTable.columns.number': '集合编号',

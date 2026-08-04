@@ -1,4 +1,4 @@
-import { ResponseData } from '@/types/global';
+import { ResponseData } from '@/types/common/global';
 
 // 用户相关类型定义
 export interface User {

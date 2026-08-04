@@ -1,4 +1,11 @@
 <template>
+  <div>popular-content页面</div>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped></style>
+<!-- <template>
   <a-spin :loading="loading" style="width: 100%">
     <a-card
       class="general-card"
@@ -117,4 +124,4 @@
       margin-right: 4px;
     }
   }
-</style>
+</style> -->

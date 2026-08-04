@@ -64,6 +64,8 @@ export default {
   'searchTable.operation.create': 'Create',
   'searchTable.operation.import': 'Import',
   'searchTable.operation.download': 'Download',
+  'searchTable.operation.export': 'Export',
+
   // columns
   'searchTable.columns.index': '#',
   'searchTable.columns.number': 'Set Number',

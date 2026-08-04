@@ -1,4 +1,4 @@
-import { ResponseData } from '@/types/global';
+import { ResponseData } from '@/types/common/global';
 
 export interface LogOperationPageParams {
   current: number;

@@ -4,6 +4,7 @@
  */
 import { ref } from 'vue';
 import { useUserStore, useAppStore } from '@/store';
+import { useDictDataStore } from '@/store/modules/sys/dict/dictDataStore';
 import { getToken, clearToken } from '@/utils/auth';
 
 // 全局 loading 状态，控制首页 Loading 显示
@@ -47,4 +48,8 @@ export function preload() {
       // 无论成功失败，都结束 loading
       isPreloading.value = false;
     });
+
+  // 字典数据独立加载，不阻塞路由注册
+  // Pinia persist 会先从 localStorage 还原缓存，API 返回后自动更新 computed ref
+  useDictDataStore().loadDictDataList();
 }

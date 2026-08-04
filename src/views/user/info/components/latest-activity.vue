@@ -1,4 +1,11 @@
 <template>
+  <div>popular-content页面</div>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped></style>
+<!-- <template>
   <a-card class="general-card" :title="$t('userInfo.title.latestActivity')">
     <template #extra>
       <a-link>{{ $t('userInfo.viewAll') }}</a-link>
@@ -87,4 +94,4 @@
       border-bottom: 1px solid var(--color-neutral-3);
     }
   }
-</style>
+</style> -->

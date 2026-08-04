@@ -88,7 +88,7 @@
                 <template #icon>
                   <icon-download />
                 </template>
-                {{ $t('searchTable.operation.download') }}
+                {{ $t('searchTable.operation.export') }}
               </a-button>
             </a-space>
           </a-col>

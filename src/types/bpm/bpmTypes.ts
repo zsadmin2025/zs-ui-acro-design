@@ -1,4 +1,4 @@
-import type { Pagination } from '@/types/global';
+import type { Pagination } from '@/types/common/global';
 
 export interface ValidateRule {
   required?: boolean;

@@ -1,4 +1,11 @@
 <template>
+  <div>popular-content页面</div>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped></style>
+<!-- <template>
   <a-card
     class="general-card"
     :title="$t('userSetting.certification.title.record')"
@@ -74,4 +81,4 @@
       }
     }
   }
-</style>
+</style> -->
